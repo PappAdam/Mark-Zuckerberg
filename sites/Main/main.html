@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="style/Main_style.css">
 </head>
 
-<body data-router-wrapper>
+<body>
+
     <div class="navbar">
         <ul>
             <li><a href="">News</a></li>
@@ -19,11 +20,13 @@
         </ul>
     </div>
 
-    <div class="container" data-router-view="main">
-        <a href="../Learn/Learn.html" data-transition="SwipeTransition" class="swipe">
-            Main
-        </a>
-    </div>
+    <main data-router-wrapper>
+        <div class="container" data-router-view="main">
+            <a href="../Learn/Learn.html" data-transition="SwipeTransition" class="swipe">
+                Main
+            </a>
+        </div>
+    </main>
 
 </body>
 <script src="../../javascript/transition.js"></script>

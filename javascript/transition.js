@@ -1,60 +1,62 @@
 import Highway from '@dogstudio/highway';
-import Tween from 'gsap';
 
-class SwipeTransition extends Highway.Transition {
+const H = new Highway.Core();
+// import Highway from '@dogstudio/highway';
+// import Tween from 'gsap';
+
+// class SwipeTransition extends Highway.Transition {
     
-    in({from, to, trigger, done}){
+//     in({from, to, trigger, done}){
 
-        // Reset Scroll
-        window.scrollTo(0, 0);
+//         // Reset Scroll
+//         window.scrollTo(0, 0);
 
-        // Remove Old View
-        from.remove();
+//         // Remove Old View
 
-        // Animation    
-        Tween.duration(to, 0.5,
-            { opacity: 0 },
-            {
-              opacity: 1,
-              onComplete: done
-            }
-          );
-    }
+//         // Animation    
+//         Tween.duration(to, 0.5,
+//             { opacity: 0 },
+//             {
+//               opacity: 1,
+//               onComplete: done
+//             }
+//           );
+//     }
 
-    out({from, trigger, done}){
+//     out({from, trigger, done}){
 
-        // Animation
-        Tween.duration(from, 0.5,
-           { opacity: 1 },
-           {
-             opacity: 0,
-             onComplete: done
-           }
-         );
-    }
-}
+//         // Animation
+//         Tween.duration(from, 0.5,
+//            { opacity: 1 },
+//            {
+//              opacity: 0,
+//              onComplete: done
+//            }
+//          );
+//     }
+// }
 
-class LenzRenderer extends Highway.Renderer {
-    // Hooks/methods
-    onEnter() { ;
+// class LenzRenderer extends Highway.Renderer {
+//     // Hooks/methods
+//     onEnter() { ;
 
-     }
-    onLeave() { 
+//      }
+//     onLeave() { 
 
-     }
-    onEnterCompleted() { 
+//      }
+//     onEnterCompleted() { 
 
-     }
-    onLeaveCompleted() { 
+//      }
+//     onLeaveCompleted() { 
 
-     }
-  }
+//      }
+//   }
 
-const H = new Highway.Core({
-    renderers: {
-        name: LenzRenderer
-    },
-    transition: {
-        name: SwipeTransition
-    }
-})
+// const H = new Highway.Core({
+//     renderers: {
+//         name: LenzRenderer
+//     },
+//     transition: {
+//         name: SwipeTransition
+//     }
+// })

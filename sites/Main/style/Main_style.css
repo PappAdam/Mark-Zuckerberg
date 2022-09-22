@@ -44,7 +44,12 @@ body .navbar ul li a {
   text-decoration: none;
 }
 
-body .container {
+body main {
+  width: 100%;
+  height: 100%;
+}
+
+body main .container {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -58,13 +63,12 @@ body .container {
           justify-content: center;
 }
 
-body .container .swipe {
+body main .container .swipe {
   text-decoration: none;
   color: #F7F4ED;
 }
 
-body .container .swipe:hover {
+body main .container .swipe:hover {
   text-decoration: none;
-  color: #EE4F16;
 }
 /*# sourceMappingURL=Main_style.css.map */
