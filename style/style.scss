@@ -1,10 +1,11 @@
 $c_orange: #EE4F16;
 $c_black: #262523;
 $c_grey: #4d4a46;
+$c_light_grey: #85807a;
 $c_blue: #00798C;
 $c_white: #F7F4ED;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Roboto+Mono&display=swap');
 
 * {
     margin: 0;
@@ -13,17 +14,36 @@ $c_white: #F7F4ED;
 }
 
 .t_window_div {
-    border-radius: 5px;
     margin: 10px;
-    border: 2px solid $c_blue;
+    border: 2px solid $c_light_grey;
     background-color: $c_black;
-    border-radius: 5px;
+    border-radius: 3px;
     font-family: 'Roboto Mono', monospace;
     font-size: 16px;
     
+    .title_bar {
+        border-radius: 3px;
+        height: 30px;
+        width: 100%;
+        background-color: $c_grey;
+        color: $c_white;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $c_light_grey;
+
+        p {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 16px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 2px;
+        }
+    }
 
     h1 {
         color: $c_blue;
+        font-family: 'Cutive Mono', monospace;
+        font-size: 20px;
     }
 
     p {
@@ -43,13 +63,10 @@ $c_white: #F7F4ED;
     }
 }
 
-
-.t_window_div:hover {
-    border-color: $c_orange;
-}
-
 body {
     background-color: $c_black;
+    display: flex;
+    justify-content: center;
 
     .navbar {
         font-family: 'Roboto Mono', monospace;

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Roboto+Mono&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -6,16 +6,34 @@
 }
 
 .t_window_div {
-  border-radius: 5px;
   margin: 10px;
-  border: 2px solid #00798C;
+  border: 2px solid #85807a;
   background-color: #262523;
-  border-radius: 5px;
+  border-radius: 3px;
   font-family: "Roboto Mono", monospace;
   font-size: 16px;
 }
+.t_window_div .title_bar {
+  border-radius: 3px;
+  height: 30px;
+  width: 100%;
+  background-color: #4d4a46;
+  color: #F7F4ED;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #85807a;
+}
+.t_window_div .title_bar p {
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 2px;
+}
 .t_window_div h1 {
   color: #00798C;
+  font-family: "Cutive Mono", monospace;
+  font-size: 20px;
 }
 .t_window_div p {
   color: #F7F4ED;
@@ -31,12 +49,10 @@
   color: #F7F4ED;
 }
 
-.t_window_div:hover {
-  border-color: #EE4F16;
-}
-
 body {
   background-color: #262523;
+  display: flex;
+  justify-content: center;
 }
 body .navbar {
   font-family: "Roboto Mono", monospace;
