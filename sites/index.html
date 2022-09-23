@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rust</title>
+    <link rel="stylesheet" href="style.scss">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li>
+                <a id="nav3" href="Sub/news.html" data-transition="swipe_r" onclick="swipe_direction(3)">News</a>
+            </li>
+            <li>
+                <a id="nav2" href="Sub/learn.html" data-transition="swipe_r" onclick="swipe_direction(2)">Learn</a>
+            </li>
+            <li>
+                <a id="nav1" href="Sub/status.html" data-transition="swipe_r" onclick="swipe_direction(1)">Status</a>
+            </li>
+            <li>
+                <a id="nav0" href="index.html " data-transition="swipe_l" onclick="swipe_direction(0)">Home</a>
+            </li>
+        </ul>
+    </div>
+
+    <main data-router-wrapper>
+        <div class="index" data-router-view="main">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum ipsum maxime tenetur dolorem atque nam
+            perspiciatis dicta iste officia error natus quaerat, velit dolorum ab! Officiis distinctio deserunt magnam
+            iste.
+
+        </div>
+    </main>
+
+    <script src="../javascript/navbar/position.js"></script>
+    <script type="module" src="../javascript/main.js"></script>
+</body>
+
+</html>
