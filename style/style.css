@@ -30,6 +30,30 @@
   margin-right: 5px;
   margin-top: 2px;
 }
+.t_window_div .title_bar .icons {
+  height: 100%;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.t_window_div .title_bar .icons .button {
+  height: 90%;
+  width: 30px;
+  margin: 2px;
+  background-size: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.t_window_div .title_bar .icons .minimalize {
+  background-image: url(../imgs/minim.png);
+}
+.t_window_div .title_bar .icons .fullscreen {
+  background-image: url(../imgs/fulls.png);
+}
+.t_window_div .title_bar .icons .close {
+  background-image: url(../imgs/close.png);
+}
 .t_window_div h1 {
   color: #00798C;
   font-family: "Cutive Mono", monospace;

@@ -39,6 +39,32 @@ $c_white: #F7F4ED;
             margin-right: 5px;
             margin-top: 2px;
         }
+
+        .icons {
+            height: 100%;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .button {
+                height: 90%;
+                width: 30px;
+                margin: 2px;
+                background-size: 15px;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .minimalize {
+                background-image: url(../imgs/minim.png);
+            }
+            .fullscreen {
+                background-image: url(../imgs/fulls.png);
+            }
+            .close {
+                background-image: url(../imgs/close.png);
+            }
+        }
     }
 
     h1 {
