@@ -1,6 +1,7 @@
 $c_orange: #EE4F16;
 $c_black: #262523;
 $c_grey: #4d4a46;
+$c_dark_grey: #353330;
 $c_light_grey: #85807a;
 $c_blue: #00798C;
 $c_white: #F7F4ED;
@@ -64,9 +65,9 @@ $c_white: #F7F4ED;
 }
 
 body {
-    background-color: $c_black;
+    background-color: $c_black; 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 
     .navbar {
         font-family: 'Roboto Mono', monospace;
@@ -96,9 +97,22 @@ body {
         }
     }
 
-    .t_window_div {
-        margin-top: 200px;
-        width: 600px;
-        height: 800px;
+    .cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .t_window_div {
+            width: 600px;
+            height: 46vh;
+        }
     }
+
+    .heading {
+        background-color: $c_dark_grey;
+        height: 600px;
+        width: 100%;
+    }
+
 }

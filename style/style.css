@@ -52,7 +52,7 @@
 body {
   background-color: #262523;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 body .navbar {
   font-family: "Roboto Mono", monospace;
@@ -78,8 +78,18 @@ body .navbar ul li a {
   color: #F7F4ED;
   text-decoration: none;
 }
-body .t_window_div {
-  margin-top: 200px;
+body .cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+body .cards .t_window_div {
   width: 600px;
-  height: 800px;
+  height: 46vh;
+}
+body .heading {
+  background-color: #353330;
+  height: 600px;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */
