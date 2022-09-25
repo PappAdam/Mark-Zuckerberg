@@ -21,6 +21,7 @@ $c_white: #F7F4ED;
     border-radius: 3px;
     font-family: 'Roboto Mono', monospace;
     font-size: 16px;
+    transition: width 500ms, height 500ms;
     
     .title_bar {
         border-radius: 3px;
@@ -54,7 +55,14 @@ $c_white: #F7F4ED;
                 background-size: 15px;
                 background-position: center;
                 background-repeat: no-repeat;
+                border-radius: 2px;
+                transition: background-color 500ms;
             }
+
+            .button:hover {
+                background-color: $c_orange;
+            }
+
             .minimalize {
                 background-image: url(../imgs/minim.png);
             }
@@ -127,7 +135,6 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        flex-wrap: wrap;
 
         .t_window_div {
             width: 600px;

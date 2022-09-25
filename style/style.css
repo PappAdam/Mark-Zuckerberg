@@ -12,6 +12,7 @@
   border-radius: 3px;
   font-family: "Roboto Mono", monospace;
   font-size: 16px;
+  transition: width 500ms, height 500ms;
 }
 .t_window_div .title_bar {
   border-radius: 3px;
@@ -44,6 +45,11 @@
   background-size: 15px;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 2px;
+  transition: background-color 500ms;
+}
+.t_window_div .title_bar .icons .button:hover {
+  background-color: #EE4F16;
 }
 .t_window_div .title_bar .icons .minimalize {
   background-image: url(../imgs/minim.png);
@@ -106,7 +112,6 @@ body .cards {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  flex-wrap: wrap;
 }
 body .cards .t_window_div {
   width: 600px;
