@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@dogstudio/highway": "^2.2.1",
+    "gsap": "^3.11.1",
+    "parcel": "^2.7.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "sass": "^1.55.0"
+  },
+  "name": "rust-lang-wbs",
+  "description": "szep napot tanarur!",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PappAdam/rust-lang-wbs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PappAdam/rust-lang-wbs/issues"
+  },
+  "homepage": "https://github.com/PappAdam/rust-lang-wbs#readme"
+}

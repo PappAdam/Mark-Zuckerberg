@@ -1,0 +1,245 @@
+$c_orange: #EE4F16;
+$c_black: #262523;
+$c_grey: #4d4a46;
+$c_dark_grey: #353330;
+$c_light_grey: #85807a;
+$c_blue: #00798C;
+$c_white: #F7F4ED;
+$c_red: tomato;
+
+$t_window_size: 46vh;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#focus {
+    width: calc(600px + 10vw);
+    height: calc($t_window_size + 20vh);
+    margin-top: calc(-1 * (100vh - $t_window_size - 20vh));
+}
+
+body {
+    background-color: $c_black;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+
+    .navbar {
+        font-family: 'Roboto Mono', monospace;
+        width: 100%;
+        height: 60px;
+        background-color: $c_grey;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        ul {
+            list-style: none;
+
+            li {
+                font-size: 20px;
+                float: right;
+                margin-right: 30px;
+
+                a {
+                    color: $c_white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    main {
+        width: 100%;
+        height: calc(100% - 60px);
+
+        .index {
+            position: absolute;
+            background-color: $c_blue;
+            width: 100%;
+            height: 100%;
+            display: flex;
+
+            .navbar {
+                margin-top: 0;
+                font-family: 'Roboto Mono', monospace;
+                width: 100%;
+                height: 60px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: $c_grey;
+                display: flex;
+                justify-content: end;
+                align-items: center;
+
+                ul {
+                    list-style: none;
+
+                    li {
+                        font-size: 20px;
+                        float: right;
+                        margin-right: 30px;
+
+                        a {
+                            color: #F7F4ED;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            .cards {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+
+                .t_window_div {
+                    width: 600px;
+                    height: $t_window_size;
+                    margin: 10px;
+                    border: 2px solid $c_light_grey;
+                    background-color: $c_black;
+                    border-radius: 3px;
+                    font-family: 'Roboto Mono', monospace;
+                    font-size: 16px;
+                    transition: width 500ms, height 500ms, margin 500ms;
+
+                    .title_bar {
+                        border-radius: 3px;
+                        height: 30px;
+                        width: 100%;
+                        background-color: $c_grey;
+                        color: $c_white;
+                        display: flex;
+                        justify-content: space-between;
+                        border-bottom: 1px solid $c_light_grey;
+
+                        p {
+                            font-family: 'Roboto Mono', monospace;
+                            font-size: 16px;
+                            margin-left: 5px;
+                            margin-right: 5px;
+                            margin-top: 2px;
+                        }
+
+                        .icons {
+                            height: 100%;
+                            width: 100px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .button {
+                                height: 90%;
+                                width: 30px;
+                                margin: 2px;
+                                background-size: 15px;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                border-radius: 2px;
+                                transition: background-color 500ms;
+                            }
+
+                            .button:hover {
+                                background-color: $c_orange;
+                            }
+
+                            .minimalize {
+                                background-image: url(../imgs/minim.png);
+                            }
+
+                            .fullscreen {
+                                background-image: url(../imgs/fulls.png);
+                            }
+
+                            .close {
+                                background-image: url(../imgs/close.png);
+                            }
+                        }
+                    }
+
+                    h1 {
+                        color: $c_blue;
+                        font-family: 'Cutive Mono', monospace;
+                        font-size: 20px;
+                    }
+
+                    p {
+                        color: $c_white;
+                    }
+
+                    a {
+                        color: $c_orange;
+                    }
+
+                    ol {
+                        list-style-type: decimal;
+                        list-style-position: inside;
+
+                        li {
+                            color: $c_white;
+                        }
+                    }
+                }
+            }
+
+            .heading {
+                background-color: $c_dark_grey;
+                height: calc(100vh - $t_window_size);
+                width: 100%;
+            }
+
+        }
+
+        .status {
+            position: absolute;
+            background-color: $c_orange;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .learn {
+            position: absolute;
+            background-color: $c_white;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .news {
+            position: absolute;
+            background-color: $c_red;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .index {
+        .cards {
+            flex-wrap: wrap;
+        }
+
+        #focus {
+            width: 600px;
+            height: calc($t_window_size + 30vh);
+            margin-top: 0;
+        }
+    }
+}
