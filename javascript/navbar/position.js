@@ -1,25 +1,28 @@
-function swipe_direction(position) {
+export function swipe_direction() {
 
-    switch (position) {
-        case 0:
-            document.getElementById("nav0").setAttribute("data-transition", "swipe_r");
-            document.getElementById("nav1").setAttribute("data-transition", "swipe_l");
-            document.getElementById("nav2").setAttribute("data-transition", "swipe_l");
-            document.getElementById("nav3").setAttribute("data-transition", "swipe_l");
-        case 1:
-            document.getElementById("nav0").setAttribute("data-transition", "swipe_r");
-            document.getElementById("nav1").setAttribute("data-transition", "swipe_r");
-            document.getElementById("nav2").setAttribute("data-transition", "swipe_l");
-            document.getElementById("nav3").setAttribute("data-transition", "swipe_l");
-        case 2:
-            document.getElementById("nav0").setAttribute("data-transition", "swipe_r");
-            document.getElementById("nav1").setAttribute("data-transition", "swipe_r");
-            document.getElementById("nav2").setAttribute("data-transition", "swipe_r");
-            document.getElementById("nav3").setAttribute("data-transition", "swipe_l");
-        case 3:
-            document.getElementById("nav0").setAttribute("data-transition", "swipe_r");
-            document.getElementById("nav1").setAttribute("data-transition", "swipe_r");
-            document.getElementById("nav2").setAttribute("data-transition", "swipe_r");
-            document.getElementById("nav3").setAttribute("data-transition", "swipe_r");
+    let status = document.getElementById("status_nav");
+    let learn = document.getElementById("learn_nav");
+    let news = document.getElementById("news_nav");
+
+    if (window.location.href.split("/").pop() === "index.html") {
+        console.log(window.location.href.split("/").pop());
+        status.setAttribute("data-transition", "swipe_r");
+        learn.setAttribute("data-transition", "swipe_r");
+        news.setAttribute("data-transition", "swipe_r");
+
+    } else if (window.location.href.split("/").pop() === "status.html") {
+        console.log(window.location.href.split("/").pop());
+        learn.setAttribute("data-transition", "swipe_r");
+        news.setAttribute("data-transition", "swipe_r");
+
+    } else if (window.location.href.split("/").pop() === "learn.html") {
+        console.log(window.location.href.split("/").pop());
+        status.setAttribute("data-transition", "swipe_l");
+        news.setAttribute("data-transition", "swipe_r");
+
+    } else {
+        console.log(window.location.href.split("/").pop());
+        learn.setAttribute("data-transition", "swipe_l");
+        status.setAttribute("data-transition", "swipe_l");
     }
 }
