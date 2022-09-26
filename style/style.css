@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+#focus {
+  width: calc(600px + 10vw);
+  height: 66vh;
+  margin-top: -34vh;
+}
+
 .t_window_div {
   margin: 10px;
   border: 2px solid #85807a;
@@ -12,7 +18,7 @@
   border-radius: 3px;
   font-family: "Roboto Mono", monospace;
   font-size: 16px;
-  transition: width 500ms, height 500ms;
+  transition: width 500ms, height 500ms, margin 500ms;
 }
 .t_window_div .title_bar {
   border-radius: 3px;
@@ -81,10 +87,9 @@
 
 body {
   background-color: #262523;
-  display: flex;
-  flex-direction: column;
 }
 body .navbar {
+  margin-top: 0;
   font-family: "Roboto Mono", monospace;
   width: 100%;
   height: 60px;
@@ -109,6 +114,7 @@ body .navbar ul li a {
   text-decoration: none;
 }
 body .cards {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -119,6 +125,17 @@ body .cards .t_window_div {
 }
 body .heading {
   background-color: #353330;
-  height: 600px;
+  height: 54vh;
   width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  body .cards {
+    flex-wrap: wrap;
+  }
+  body #focus {
+    width: 600px;
+    height: 76vh;
+    margin-top: 0;
+  }
 }/*# sourceMappingURL=style.css.map */

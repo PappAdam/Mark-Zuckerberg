@@ -1,8 +1,13 @@
 function button_press(button) {
     if (button.classList.contains('fullscreen')) {
-        button.parentElement.parentElement.parentElement.setAttribute('style', 'width: 650px; height: 70vh');
-    }   
+        if (document.getElementById("focus")) {
+            document.getElementById("focus").removeAttribute("id");
+        }
+        button.parentElement.parentElement.parentElement.setAttribute('id', 'focus');
+    }
     else {
-        button.parentElement.parentElement.parentElement.setAttribute('style', 'width: 600px; height: 47vh');
+        if (document.getElementById("focus")) {
+            document.getElementById("focus").removeAttribute("id");
+        }
     }
 }
