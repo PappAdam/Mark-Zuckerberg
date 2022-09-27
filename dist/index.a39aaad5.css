@@ -1,0 +1,231 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#focus {
+  width: calc(600px + 10vw);
+  height: 66vh;
+  margin-top: -34vh;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #262523;
+  overflow-x: hidden;
+}
+
+body .navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #4d4a46;
+  justify-content: end;
+  align-items: center;
+  font-family: Roboto Mono, monospace;
+  display: flex;
+}
+
+body .navbar ul {
+  list-style: none;
+}
+
+body .navbar ul li {
+  float: right;
+  margin-right: 30px;
+  font-size: 20px;
+}
+
+body .navbar ul li a {
+  color: #f7f4ed;
+  text-decoration: none;
+}
+
+body main {
+  width: 100%;
+  height: 100%;
+}
+
+body main .index {
+  width: 100%;
+  background-color: #262523;
+  position: absolute;
+}
+
+body main .index .navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #4d4a46;
+  justify-content: end;
+  align-items: center;
+  margin-top: 0;
+  font-family: Roboto Mono, monospace;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+body main .index .navbar ul {
+  list-style: none;
+}
+
+body main .index .navbar ul li {
+  float: right;
+  margin-right: 30px;
+  font-size: 20px;
+}
+
+body main .index .navbar ul li a {
+  color: #f7f4ed;
+  text-decoration: none;
+}
+
+body main .index .cards {
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+}
+
+body main .index .cards .t_window_div {
+  width: 600px;
+  height: 46vh;
+  background-color: #262523;
+  border: 2px solid #85807a;
+  border-radius: 3px;
+  margin: 10px;
+  font-family: Roboto Mono, monospace;
+  font-size: 16px;
+  transition: width .5s, height .5s, margin .5s;
+}
+
+body main .index .cards .t_window_div .title_bar {
+  height: 30px;
+  width: 100%;
+  color: #f7f4ed;
+  background-color: #4d4a46;
+  border-bottom: 1px solid #85807a;
+  border-radius: 3px;
+  justify-content: space-between;
+  display: flex;
+}
+
+body main .index .cards .t_window_div .title_bar p {
+  margin-top: 2px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: Roboto Mono, monospace;
+  font-size: 16px;
+}
+
+body main .index .cards .t_window_div .title_bar .icons {
+  height: 100%;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+body main .index .cards .t_window_div .title_bar .icons .button {
+  height: 90%;
+  width: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  border-radius: 2px;
+  margin: 2px;
+  transition: background-color .5s;
+}
+
+body main .index .cards .t_window_div .title_bar .icons .button:hover {
+  background-color: #ee4f16;
+}
+
+body main .index .cards .t_window_div .title_bar .icons .minimalize {
+  background-image: url("minim.bb22bcc1.png");
+}
+
+body main .index .cards .t_window_div .title_bar .icons .fullscreen {
+  background-image: url("fulls.6e1d035d.png");
+}
+
+body main .index .cards .t_window_div .title_bar .icons .close {
+  background-image: url("close.66995e8f.png");
+}
+
+body main .index .cards .t_window_div h1 {
+  color: #00798c;
+  font-family: Cutive Mono, monospace;
+  font-size: 20px;
+}
+
+body main .index .cards .t_window_div p {
+  color: #f7f4ed;
+}
+
+body main .index .cards .t_window_div a {
+  color: #ee4f16;
+}
+
+body main .index .cards .t_window_div ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+body main .index .cards .t_window_div ol li {
+  color: #f7f4ed;
+}
+
+body main .index .heading {
+  height: calc(54vh - 80px);
+  width: 100%;
+  background-color: #353330;
+}
+
+body main .status {
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: #ee4f16;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+}
+
+body main .learn {
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: #f7f4ed;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+}
+
+body main .news {
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: tomato;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+}
+
+@media only screen and (max-width: 1200px) {
+  .index .cards {
+    flex-wrap: wrap;
+  }
+
+  .index #focus {
+    width: 600px;
+    height: 76vh;
+    margin-top: 0;
+  }
+}
+
+/*# sourceMappingURL=index.a39aaad5.css.map */
