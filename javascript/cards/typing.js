@@ -13,3 +13,5 @@ function write(id, _text) {
 function h1Write() {
     document.querySelectorAll('h1').forEach(h1 => write(h1.id, text));
 }
+
+h1Write();

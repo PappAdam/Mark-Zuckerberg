@@ -1,6 +1,7 @@
 import Placehodler from './transitions/default.js';
 import Highway from '@dogstudio/highway';
 import { SwipeRight, SwipeLeft } from './transitions/swipe.js';
+
 let load = 0;
 
 const pageAccessedByReload = (

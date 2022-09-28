@@ -6,7 +6,7 @@ function button_press(button) {
         button.parentElement.parentElement.parentElement.setAttribute('id', 'focus');
     }
     else {
-        if (document.getElementById("focus")) {
+        if (button.parentElement.parentElement.parentElement.id == "focus" && document.getElementById("focus")) {
             document.getElementById("focus").removeAttribute("id");
         }
     }

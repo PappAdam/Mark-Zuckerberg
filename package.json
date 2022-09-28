@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "@dogstudio/highway": "^2.2.1",
-    "gsap": "^3.11.1",
-    "parcel": "^2.7.0"
+    "gsap": "^3.11.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0",
     "sass": "^1.55.0"
   },
   "name": "rust-lang-wbs",
@@ -24,5 +24,6 @@
   "bugs": {
     "url": "https://github.com/PappAdam/rust-lang-wbs/issues"
   },
-  "homepage": "https://github.com/PappAdam/rust-lang-wbs#readme"
+  "homepage": "https://github.com/PappAdam/rust-lang-wbs#readme",
+  "keywords": []
 }
