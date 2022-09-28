@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.scss">
 </head>
 
-<body>
+<body onload="fill_content()">
     <div class="navbar" id="nav">
         <ul>
             <li><a id="news_nav" href="Sub/news.html" data-transition="swipe_r">News</a></li>
@@ -25,6 +25,7 @@
             <div class="heading"></div>
 
             <div class="cards">
+
                 <div class="t_window_div">
                     <div class="title_bar">
                         <p>window title</p>
@@ -33,40 +34,28 @@
                             <div class="fullscreen button" onclick=button_press(this)></div>
                             <div class="close button" onclick=button_press(this)></div>
                         </div>
-                        </div>
+                    </div>
+                    
+                    <div class="top_row">
+                        <ul>
+                            <li class = "unfocues_file">unfocused</li>
+                            <li>|</li>
+                            <li class="focues_file">focused</li>
+                        </ul>
+                    </div>
+
                     <div class="line_numbers">
                         <ol>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
                         </ol>
                     </div>
-                </div>
-            </div>
 
+                    <div class="content">
+                        
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
 

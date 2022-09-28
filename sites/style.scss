@@ -21,6 +21,21 @@ $t_window_size: 46vh;
     width: calc(600px + 10vw);
     height: calc($t_window_size + 20vh);
     margin-top: calc(-1 * (100vh - $t_window_size - 20vh));
+
+    .top_row {
+        ul {
+            .unfocues_file {
+                color: $c_light_grey;
+                background-color: $c_dark_grey;
+                
+            }
+
+            .focues_file {
+                color: $c_white;
+                background-color: $c_blue;
+            }
+        }
+    }
 }
 
 .cards {
@@ -40,6 +55,41 @@ $t_window_size: 46vh;
         font-family: 'Roboto Mono', monospace;
         font-size: 16px;
         transition: width 500ms, height 500ms, margin 500ms;
+        overflow-y: none;
+
+        .top_row {
+            width: 100%;
+            height: 25px;
+            background-color: $c_dark_grey;
+            float: right;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid $c_grey;
+    
+            ul {
+                list-style: none;
+    
+                .unfocues_file {
+                    color: $c_white;
+                    background-color: $c_blue;
+                    border-radius: 2px;
+                }
+
+                .focues_file {
+                    color: $c_light_grey;
+                    border-radius: 2px;
+                    background-color: $c_dark_grey;
+                }
+
+                li {
+                    font-size: 20px;
+                    float: left;
+                    margin-left: 10px;
+                    font-size: 12px;
+                    color: $c_light_grey;
+                }
+            }
+        }
 
         .title_bar {
             border-radius: 3px;
@@ -97,7 +147,7 @@ $t_window_size: 46vh;
 
         .line_numbers {
             margin-top: 1px;
-            height: calc(100% - 30px);
+            height: calc(100% - 30px - 25px);
             width: 30px;
             float: left;
             border-right: 1px solid $c_grey;
