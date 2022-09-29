@@ -1,4 +1,4 @@
-var contents = [
+var contents = [ // :n => new line; first part => unfocused sec part => focused (separeted by ;) 
     "id=1;Text when window is not on focus;Text when the :nwindow is on focus",
     "id=2;Szia:nBarnika;Pancser:n:nvagy",
     "id=3;Hahah :nHehe;XDDDDDD :nHUHU",
@@ -44,6 +44,6 @@ function parse_content(id, focus) {
             }
         }
     }
-    
+
     return parsed_content;
 }

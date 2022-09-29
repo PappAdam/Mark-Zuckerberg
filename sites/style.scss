@@ -19,7 +19,7 @@ $t_window_size: 46vh;
 
 #focus {
     width: calc(600px + 10vw);
-    height: calc($t_window_size + 20vh);
+    height: calc($t_window_size + 40vh);
     margin-top: calc(-1 * (100vh - $t_window_size - 20vh));
 
     .top_row {
