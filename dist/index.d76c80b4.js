@@ -1,7 +1,7 @@
 var contents = [
-    "id=1;Text when window is not on focus;Text when the :nwindow is on focus",
+    "id=1;Text when window is not on focus;Text when the :nwindow is on focus Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, minima voluptatem, aspernatur dignissimos doloremque placeat modi distinctio quisquam aperiam corporis ab, quas sapiente neque magni id fuga architecto illum quidem!Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, minima voluptatem, aspernatur dignissimos doloremque placeat modi distinctio quisquam aperiam corporis ab, quas sapiente neque magni id fuga architecto illum quidem!Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, minima voluptatem, aspernatur dignissimos doloremque placeat modi distinctio quisquam aperiam corporis ab, quas sapiente neque magni id fuga architecto illum quidem!Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, minima voluptatem, aspernatur dignissimos doloremque placeat modi distinctio quisquam aperiam corporis ab, quas sapiente neque magni id fuga architecto illum quidem!",
     "id=2;Szia:nBarni;|add:=style='color: #678'|Some| very long text in the content div of the terminal window",
-    "id=3;Hahah :nHehe;|add:=style='color: red'|Lorem ipsum dolor sit amet consectetur adipisicing elit.| Eveniet numquam nisi illum aut ipsa veritatis voluptas nulla facere at autem explicabo officiis nam dolorum saepe eaque, et quod minus sint!", 
+    "id=3;Hahah :nHehe;|add:=style='color: red'|Lorem ipsum dolor sit amet consectetur adipisicing elit.| Eveniet numquam nisi illum aut ipsa veritatis voluptas| nulla facere at autem explicabo officiis nam dolorum saepe eaque, et quod minus sint!", 
 ];
 var XPressed = 0;
 function button_press(button) {
