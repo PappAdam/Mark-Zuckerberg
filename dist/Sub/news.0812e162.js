@@ -1007,7 +1007,7 @@ function _inheritsLoose(subClass, superClass) {
     subClass.__proto__ = superClass;
 }
 /*!
- * GSAP 3.11.1
+ * GSAP 3.11.2
  * https://greensock.com
  *
  * @license Copyright 2008-2022, GreenSock. All rights reserved.
@@ -1058,7 +1058,11 @@ _unitExp = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i, _globalTimeline, _win, _core
     return 0;
 }, _startAtRevertConfig = {
     suppressEvents: true,
-    isStart: true
+    isStart: true,
+    kill: false
+}, _revertConfigNoKill = {
+    suppressEvents: true,
+    kill: false
 }, _revertConfig = {
     suppressEvents: true
 }, _reservedProps = {}, _lazyTweens = [], _lazyLookup = {}, _lastRenderedFrame, _plugins = {}, _effects = {}, _nextGCFrame = 30, _harnessPlugins = [], _callbackNames = "", _harness = function _harness(targets) {
@@ -1106,7 +1110,7 @@ _parseRelative = function _parseRelative(start, value) {
     }
 }, _lazySafeRender = function _lazySafeRender(animation, time, suppressEvents, force) {
     _lazyTweens.length && _lazyRender();
-    animation.render(time, suppressEvents, force || _reverting);
+    animation.render(time, suppressEvents, force || _reverting && time < 0 && (animation._initted || animation._startAt));
     _lazyTweens.length && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when someone calls seek() or time() or progress(), they expect an immediate render.
 }, _numericIfPossible = function _numericIfPossible(value) {
     var n = parseFloat(value);
@@ -1193,7 +1197,7 @@ _parseRelative = function _parseRelative(start, value) {
     }
     return animation;
 }, _rewindStartAt = function _rewindStartAt(tween, totalTime, suppressEvents, force) {
-    return tween._startAt && (_reverting ? tween._startAt.revert(_revertConfig) : tween.vars.immediateRender && !tween.vars.autoRevert || tween._startAt.render(totalTime, true, force));
+    return tween._startAt && (_reverting ? tween._startAt.revert(_revertConfigNoKill) : tween.vars.immediateRender && !tween.vars.autoRevert || tween._startAt.render(totalTime, true, force));
 }, _hasNoPausedAncestors = function _hasNoPausedAncestors(animation) {
     return !animation || animation._ts && _hasNoPausedAncestors(animation.parent);
 }, _elapsedCycleDuration = function _elapsedCycleDuration(animation) {
@@ -1253,13 +1257,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
     return timeline;
 }, _scrollTrigger = function _scrollTrigger(animation, trigger) {
     return (_globals.ScrollTrigger || _missingPlugin("scrollTrigger", trigger)) && _globals.ScrollTrigger.create(trigger, animation);
-}, _attemptInitTween = function _attemptInitTween(tween, totalTime, force, suppressEvents) {
-    _initTween(tween, totalTime);
+}, _attemptInitTween = function _attemptInitTween(tween, time, force, suppressEvents, tTime) {
+    _initTween(tween, time, tTime);
     if (!tween._initted) return 1;
-    if (!force && tween._pt && (tween._dur && tween.vars.lazy !== false || !tween._dur && tween.vars.lazy) && _lastRenderedFrame !== _ticker.frame) {
+    if (!force && tween._pt && !_reverting && (tween._dur && tween.vars.lazy !== false || !tween._dur && tween.vars.lazy) && _lastRenderedFrame !== _ticker.frame) {
         _lazyTweens.push(tween);
         tween._lazy = [
-            totalTime,
+            tTime,
             suppressEvents
         ];
         return 1;
@@ -1286,7 +1290,7 @@ _isFromOrFromStart = function _isFromOrFromStart(_ref2) {
         }
     }
     if (ratio !== prevRatio || _reverting || force || tween._zTime === _tinyNum || !totalTime && tween._zTime) {
-        if (!tween._initted && _attemptInitTween(tween, totalTime, force, suppressEvents)) // if we render the very beginning (time == 0) of a fromTo(), we must force the render (normal tweens wouldn't need to render at a time of 0 when the prevTime was also 0). This is also mandatory to make sure overwriting kicks in immediately.
+        if (!tween._initted && _attemptInitTween(tween, totalTime, force, suppressEvents, tTime)) // if we render the very beginning (time == 0) of a fromTo(), we must force the render (normal tweens wouldn't need to render at a time of 0 when the prevTime was also 0). This is also mandatory to make sure overwriting kicks in immediately.
         return;
         prevIteration = tween._zTime;
         tween._zTime = totalTime || (suppressEvents ? _tinyNum : 0); // when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration tween, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect.
@@ -1331,7 +1335,8 @@ _isFromOrFromStart = function _isFromOrFromStart(_ref2) {
     totalProgress && !leavePlayhead && (animation._time *= dur / animation._dur);
     animation._dur = dur;
     animation._tDur = !repeat ? dur : repeat < 0 ? 1e10 : _roundPrecise(dur * (repeat + 1) + animation._rDelay * repeat);
-    totalProgress > 0 && !leavePlayhead ? _alignPlayhead(animation, animation._tTime = animation._tDur * totalProgress) : animation.parent && _setEnd(animation);
+    totalProgress > 0 && !leavePlayhead && _alignPlayhead(animation, animation._tTime = animation._tDur * totalProgress);
+    animation.parent && _setEnd(animation);
     skipUncache || _uncache(animation.parent, animation);
     return animation;
 }, _onUpdateTotalDuration = function _onUpdateTotalDuration(animation) {
@@ -1605,7 +1610,7 @@ distribute = function distribute(v) {
     return result;
 }, _interrupt = function _interrupt(animation) {
     _removeFromParent(animation);
-    animation.scrollTrigger && animation.scrollTrigger.kill(false);
+    animation.scrollTrigger && animation.scrollTrigger.kill(!!_reverting);
     animation.progress() < 1 && _callback(animation, "onInterrupt");
     return animation;
 }, _quickTween, _createPlugin = function _createPlugin(config) {
@@ -2228,9 +2233,11 @@ var Animation = /*#__PURE__*/ function() {
         if (config === void 0) config = _revertConfig;
         var prevIsReverting = _reverting;
         _reverting = config;
-        this.timeline && this.timeline.revert(config);
-        this.totalTime(-0.01, config.suppressEvents);
-        this.data !== "nested" && _removeFromParent(this);
+        if (this._initted || this._startAt) {
+            this.timeline && this.timeline.revert(config);
+            this.totalTime(-0.01, config.suppressEvents);
+        }
+        this.data !== "nested" && config.kill !== false && this.kill();
         _reverting = prevIsReverting;
         return this;
     };
@@ -2524,7 +2531,6 @@ var Timeline = /*#__PURE__*/ function(_Animation) {
                     child = next;
                 }
             } else {
-                force = force || _reverting; // if reverting, we should always force renders. If, for example, a .fromTo() tween with a stagger (which creates an internal timeline) gets reverted BEFORE some of its child tweens render for the first time, it may not properly trigger them to revert.
                 child = this._last;
                 var adjustedTime = totalTime < 0 ? totalTime : time; //when the playhead goes backward beyond the start of this timeline, we must pass that information down to the child animations so that zero-duration tweens know whether to render their starting or ending values.
                 while(child){
@@ -2532,7 +2538,7 @@ var Timeline = /*#__PURE__*/ function(_Animation) {
                     if ((child._act || adjustedTime <= child._end) && child._ts && pauseTween !== child) {
                         if (child.parent !== this) // an extreme edge case - the child's render could do something like kill() the "next" one in the linked list, or reparent it. In that case we must re-initiate the whole render to be safe.
                         return this.render(totalTime, suppressEvents, force);
-                        child.render(child._ts > 0 ? (adjustedTime - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (adjustedTime - child._start) * child._ts, suppressEvents, force);
+                        child.render(child._ts > 0 ? (adjustedTime - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (adjustedTime - child._start) * child._ts, suppressEvents, force || _reverting && (child._initted || child._startAt)); // if reverting, we should always force renders of initted tweens (but remember that .fromTo() or .from() may have a _startAt but not _initted yet). If, for example, a .fromTo() tween with a stagger (which creates an internal timeline) gets reverted BEFORE some of its child tweens render for the first time, it may not properly trigger them to revert.
                         if (time !== this._time || !this._ts && !prevPaused) {
                             //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
                             pauseTween = 0;
@@ -2722,14 +2728,14 @@ var Timeline = /*#__PURE__*/ function(_Animation) {
         }
         return _uncache(this);
     };
-    _proto2.invalidate = function invalidate() {
+    _proto2.invalidate = function invalidate(soft) {
         var child = this._first;
         this._lock = 0;
         while(child){
-            child.invalidate();
+            child.invalidate(soft);
             child = child._next;
         }
-        return _Animation.prototype.invalidate.call(this);
+        return _Animation.prototype.invalidate.call(this, soft);
     };
     _proto2.clear = function clear(includeLabels) {
         if (includeLabels === void 0) includeLabels = true;
@@ -2881,7 +2887,7 @@ _processVars = function _processVars(vars, index, target, targets, tween) {
     }
     return plugin;
 }, _overwritingTween, //store a reference temporarily so we can avoid overwriting itself.
-_forceAllPropTweens, _initTween = function _initTween(tween, time) {
+_forceAllPropTweens, _initTween = function _initTween(tween, time, tTime) {
     var vars = tween.vars, ease = vars.ease, startAt = vars.startAt, immediateRender = vars.immediateRender, lazy = vars.lazy, onUpdate = vars.onUpdate, onUpdateParams = vars.onUpdateParams, callbackScope = vars.callbackScope, runBackwards = vars.runBackwards, yoyoEase = vars.yoyoEase, keyframes = vars.keyframes, autoRevert = vars.autoRevert, dur = tween._dur, prevStartAt = tween._startAt, targets = tween._targets, parent = tween.parent, fullTargets = parent && parent.data === "nested" ? parent.vars.targets : targets, autoOverwrite = tween._overwrite === "auto" && !_suppressOverwrites, tl = tween.timeline, cleanVars, i, p, pt, target, hasPriority, gsData, harness, plugin, ptLookup, index, harnessVars, overwritten;
     tl && (!keyframes || !ease) && (ease = "none");
     tween._ease = _parseEase(ease, _defaults.ease);
@@ -2899,7 +2905,8 @@ _forceAllPropTweens, _initTween = function _initTween(tween, time) {
         harnessVars = harness && vars[harness.prop]; //someone may need to specify CSS-specific values AND non-CSS values, like if the element has an "x" property plus it's a standard DOM element. We allow people to distinguish by wrapping plugin-specific stuff in a css:{} object for example.
         cleanVars = _copyExcluding(vars, _reservedProps);
         if (prevStartAt) {
-            time < 0 && runBackwards && immediateRender && !autoRevert ? prevStartAt.render(-1, true) : prevStartAt.revert(runBackwards && dur ? _revertConfig : _startAtRevertConfig); // if it's a "startAt" (not "from()" or runBackwards: true), we only need to do a shallow revert (keep transforms cached in CSSPlugin)
+            prevStartAt._zTime < 0 && prevStartAt.progress(1); // in case it's a lazy startAt that hasn't rendered yet.
+            time < 0 && runBackwards && immediateRender && !autoRevert ? prevStartAt.render(-1, true) : prevStartAt.revert(runBackwards && dur ? _revertConfigNoKill : _startAtRevertConfig); // if it's a "startAt" (not "from()" or runBackwards: true), we only need to do a shallow revert (keep transforms cached in CSSPlugin)
             // don't just _removeFromParent(prevStartAt.render(-1, true)) because that'll leave inline styles. We're creating a new _startAt for "startAt" tweens that re-capture things to ensure that if the pre-tween values changed since the tween was created, they're recorded.
             prevStartAt._lazy = 0;
         }
@@ -2917,9 +2924,10 @@ _forceAllPropTweens, _initTween = function _initTween(tween, time) {
                 callbackScope: callbackScope,
                 stagger: 0
             }, startAt))); //copy the properties/values into a new object to avoid collisions, like var to = {x:0}, from = {x:500}; timeline.fromTo(e, from, to).fromTo(e, to, from);
-            time < 0 && (_reverting || !immediateRender && !autoRevert) && tween._startAt.revert(_revertConfig); // rare edge case, like if a render is forced in the negative direction of a non-initted tween.
+            time < 0 && (_reverting || !immediateRender && !autoRevert) && tween._startAt.revert(_revertConfigNoKill); // rare edge case, like if a render is forced in the negative direction of a non-initted tween.
             if (immediateRender) {
-                if (dur && time <= 0) {
+                if (dur && time <= 0 && tTime <= 0) {
+                    // check tTime here because in the case of a yoyo tween whose playhead gets pushed to the end like tween.progress(1), we should allow it through so that the onComplete gets fired properly.
                     time && (tween._zTime = time);
                     return; //we skip initialization here so that overwriting doesn't occur until the tween actually begins. Otherwise, if you create several immediateRender:true tweens of the same target/properties to drop into a Timeline, the last one created would overwrite the first ones because they didn't get placed into the timeline yet before the first render occurs and kicks in overwriting.
                 }
@@ -2940,9 +2948,9 @@ _forceAllPropTweens, _initTween = function _initTween(tween, time) {
                 }, cleanVars);
                 harnessVars && (p[harness.prop] = harnessVars); // in case someone does something like .from(..., {css:{}})
                 _removeFromParent(tween._startAt = Tween.set(targets, p));
-                time < 0 && (_reverting ? tween._startAt.revert(_revertConfig) : tween._startAt.render(-1, true));
+                time < 0 && (_reverting ? tween._startAt.revert(_revertConfigNoKill) : tween._startAt.render(-1, true));
                 tween._zTime = time;
-                if (!immediateRender) _initTween(tween._startAt, _tinyNum); //ensures that the initial values are recorded
+                if (!immediateRender) _initTween(tween._startAt, _tinyNum, _tinyNum); //ensures that the initial values are recorded
                 else if (!time) return;
             }
         }
@@ -3152,7 +3160,7 @@ var Tween = /*#__PURE__*/ function(_Animation2) {
         vars.paused && _this3.paused(true);
         if (immediateRender || !duration && !keyframes && _this3._start === _roundPrecise(parent._time) && _isNotFalse(immediateRender) && _hasNoPausedAncestors(_assertThisInitialized(_this3)) && parent.data !== "nested") {
             _this3._tTime = -_tinyNum; //forces a render without having to set the render() "force" parameter to true because we want to allow lazying by default (using the "force" parameter always forces an immediate full render)
-            _this3.render(Math.max(0, -delay)); //in case delay is negative
+            _this3.render(Math.max(0, -delay) || 0); //in case delay is negative
         }
         scrollTrigger && _scrollTrigger(_assertThisInitialized(_this3), scrollTrigger);
         return _this3;
@@ -3202,7 +3210,7 @@ var Tween = /*#__PURE__*/ function(_Animation2) {
                 }
             }
             if (!this._initted) {
-                if (_attemptInitTween(this, isNegative ? totalTime : time, force, suppressEvents)) {
+                if (_attemptInitTween(this, isNegative ? totalTime : time, force, suppressEvents, tTime)) {
                     this._tTime = 0; // in constructor if immediateRender is true, we set _tTime to -_tinyNum to have the playhead cross the starting point but we can't leave _tTime as a negative number.
                     return this;
                 }
@@ -3238,7 +3246,7 @@ var Tween = /*#__PURE__*/ function(_Animation2) {
             if ((tTime === this._tDur || !tTime) && this._tTime === tTime) {
                 isNegative && !this._onUpdate && _rewindStartAt(this, totalTime, true, true);
                 (totalTime || !dur) && (tTime === this._tDur && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1); // don't remove if we're rendering at exactly a time of 0, as there could be autoRevert values that should get set on the next tick (if the playhead goes backward beyond the startTime, negative totalTime). Don't remove if the timeline is reversed and the playhead isn't at 0, otherwise tl.progress(1).reverse() won't work. Only remove if the playhead is at the end and timeScale is positive, or if the playhead is at 0 and the timeScale is negative.
-                if (!suppressEvents && !(isNegative && !prevTime) && (tTime || prevTime)) {
+                if (!suppressEvents && !(isNegative && !prevTime) && (tTime || prevTime || isYoyo)) {
                     // if prevTime and tTime are zero, we shouldn't fire the onReverseComplete. This could happen if you gsap.to(... {paused:true}).play();
                     _callback(this, tTime === tDur ? "onComplete" : "onReverseComplete", true);
                     this._prom && !(tTime < tDur && this.timeScale() > 0) && this._prom();
@@ -3250,11 +3258,13 @@ var Tween = /*#__PURE__*/ function(_Animation2) {
     _proto3.targets = function targets() {
         return this._targets;
     };
-    _proto3.invalidate = function invalidate() {
-        this._pt = this._op = this._startAt = this._onUpdate = this._lazy = this.ratio = 0;
+    _proto3.invalidate = function invalidate(soft) {
+        // "soft" gives us a way to clear out everything EXCEPT the recorded pre-"from" portion of from() tweens. Otherwise, for example, if you tween.progress(1).render(0, true true).invalidate(), the "from" values would persist and then on the next render, the from() tweens would initialize and the current value would match the "from" values, thus animate from the same value to the same value (no animation). We tap into this in ScrollTrigger's refresh() where we must push a tween to completion and then back again but honor its init state in case the tween is dependent on another tween further up on the page.
+        (!soft || !this.vars.runBackwards) && (this._startAt = 0);
+        this._pt = this._op = this._onUpdate = this._lazy = this.ratio = 0;
         this._ptLookup = [];
-        this.timeline && this.timeline.invalidate();
-        return _Animation2.prototype.invalidate.call(this);
+        this.timeline && this.timeline.invalidate(soft);
+        return _Animation2.prototype.invalidate.call(this, soft);
     };
     _proto3.resetTo = function resetTo(property, value, start, startIsRelative) {
         _tickerActive || _ticker.wake();
@@ -3557,7 +3567,7 @@ var Context = /*#__PURE__*/ function() {
     _proto5.getTweens = function getTweens() {
         var a = [];
         this.data.forEach(function(e) {
-            return e instanceof Context ? a.push.apply(a, e.getTweens()) : e instanceof Tween && a.push(e);
+            return e instanceof Context ? a.push.apply(a, e.getTweens()) : e instanceof Tween && !(e.parent && e.parent.data === "nested") && a.push(e);
         });
         return a;
     };
@@ -3567,8 +3577,17 @@ var Context = /*#__PURE__*/ function() {
     _proto5.kill = function kill(revert, matchMedia) {
         var _this4 = this;
         if (revert) {
-            // save as an object so that we can cache the globalTime for each tween to optimize performance during the sort
-            this.getTweens().map(function(t) {
+            var tweens = this.getTweens();
+            this.data.forEach(function(t) {
+                // Flip plugin tweens are very different in that they should actually be pushed to their end. The plugin replaces the timeline's .revert() method to do exactly that. But we also need to remove any of those nested tweens inside the flip timeline so that they don't get individually reverted.
+                if (t.data === "isFlip") {
+                    t.revert();
+                    t.getChildren(true, true, false).forEach(function(tween) {
+                        return tweens.splice(tweens.indexOf(tween), 1);
+                    });
+                }
+            }); // save as an object so that we can cache the globalTime for each tween to optimize performance during the sort
+            tweens.map(function(t) {
                 return {
                     g: t.globalTime(0),
                     t: t
@@ -3889,7 +3908,7 @@ var gsap = _gsap.registerPlugin({
         while(i--)this.add(target, i, target[i] || 0, value[i], 0, 0, 0, 0, 0, 1);
     }
 }, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap; //to prevent the core plugins from being dropped via aggressive tree shaking, we must include them in the variable declaration in this way.
-Tween.version = Timeline.version = gsap.version = "3.11.1";
+Tween.version = Timeline.version = gsap.version = "3.11.2";
 _coreReady = 1;
 _windowExists() && _wake();
 var Power0 = _easeMap.Power0, Power1 = _easeMap.Power1, Power2 = _easeMap.Power2, Power3 = _easeMap.Power3, Power4 = _easeMap.Power4, Linear = _easeMap.Linear, Quad = _easeMap.Quad, Cubic = _easeMap.Cubic, Quart = _easeMap.Quart, Quint = _easeMap.Quint, Strong = _easeMap.Strong, Elastic = _easeMap.Elastic, Back = _easeMap.Back, SteppedEase = _easeMap.SteppedEase, Bounce = _easeMap.Bounce, Sine = _easeMap.Sine, Expo = _easeMap.Expo, Circ = _easeMap.Circ;
@@ -3903,7 +3922,7 @@ parcelHelpers.export(exports, "_getBBox", ()=>_getBBox);
 parcelHelpers.export(exports, "_createElement", ()=>_createElement);
 parcelHelpers.export(exports, "checkPrefix", ()=>_checkPropPrefix);
 /*!
- * CSSPlugin 3.11.1
+ * CSSPlugin 3.11.2
  * https://greensock.com
  *
  * Copyright 2008-2022, GreenSock. All rights reserved.
@@ -3947,7 +3966,7 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
     var cache = target._gsap;
     cache[property] = value;
     cache.renderTransform(ratio, cache);
-}, _transformProp = "transform", _transformOriginProp = _transformProp + "Origin", _saveStyle = function _saveStyle(property) {
+}, _transformProp = "transform", _transformOriginProp = _transformProp + "Origin", _saveStyle = function _saveStyle(property, isNotCSS) {
     var _this = this;
     var target = this.target, style = target.style;
     if (property in _transformProps) {
@@ -3961,11 +3980,11 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
         if (this.props.indexOf(_transformProp) >= 0) return;
         if (target._gsap.svg) {
             this.svgo = target.getAttribute("data-svg-origin");
-            this.props.push(_transformOriginProp, "");
+            this.props.push(_transformOriginProp, isNotCSS, "");
         }
         property = _transformProp;
     }
-    style && this.props.push(property, style[property]);
+    (style || isNotCSS) && this.props.push(property, isNotCSS, style[property]);
 }, _removeIndependentTransforms = function _removeIndependentTransforms(style) {
     if (style.translate) {
         style.removeProperty("translate");
@@ -3974,7 +3993,8 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
     }
 }, _revertStyle = function _revertStyle() {
     var props = this.props, target = this.target, style = target.style, cache = target._gsap, i, p;
-    for(i = 0; i < props.length; i += 2)props[i + 1] ? style[props[i]] = props[i + 1] : style.removeProperty(props[i].replace(_capsExp, "-$1").toLowerCase());
+    for(i = 0; i < props.length; i += 3)// stored like this: property, isNotCSS, value
+    props[i + 1] ? target[props[i]] = props[i + 2] : props[i + 2] ? style[props[i]] = props[i + 2] : style.removeProperty(props[i].replace(_capsExp, "-$1").toLowerCase());
     if (this.tfm) {
         for(p in this.tfm)cache[p] = this.tfm[p];
         if (cache.svg) {
@@ -4364,7 +4384,7 @@ _specialProps = {
     cache.svg = !!(target.getCTM && _isSVG(target));
     if (cs.translate) {
         // accommodate independent transforms by combining them into normal ones.
-        if (cs.translate !== "none" || cs.scale !== "none" || cs.rotate !== "none") style[_transformProp] = (cs.translate !== "none" ? "translate3d(" + (cs.translate + " 0 0").split(" ").slice(0, 3).join(", ") + ") " : "") + (cs.rotate !== "none" ? "rotate(" + cs.rotate + ") " : "") + (cs.scale !== "none" ? "scale(" + cs.scale.split(" ").join(",") + ") " : "") + cs[_transformProp];
+        if (cs.translate !== "none" || cs.scale !== "none" || cs.rotate !== "none") style[_transformProp] = (cs.translate !== "none" ? "translate3d(" + (cs.translate + " 0 0").split(" ").slice(0, 3).join(", ") + ") " : "") + (cs.rotate !== "none" ? "rotate(" + cs.rotate + ") " : "") + (cs.scale !== "none" ? "scale(" + cs.scale.split(" ").join(",") + ") " : "") + (cs[_transformProp] !== "none" ? cs[_transformProp] : "");
         style.scale = style.rotate = style.translate = "none";
     }
     matrix = _getMatrix(target, cache.svg);
@@ -4701,7 +4721,7 @@ var CSSPlugin = {
                 endUnit ? startUnit !== endUnit && (startValue = _convertToUnit(target, p, startValue, endUnit) + endUnit) : startUnit && (endValue += startUnit);
                 this.add(style, "setProperty", startValue, endValue, index, targets, 0, 0, p);
                 props.push(p);
-                inlineProps.push(p, style[p]);
+                inlineProps.push(p, 0, style[p]);
             } else if (type !== "undefined") {
                 if (startAt && p in startAt) {
                     // in case someone hard-codes a complex value as the start, like top: "calc(2vh / 2)". Without this, it'd use the computed value (always in px)
@@ -4719,7 +4739,7 @@ var CSSPlugin = {
                         //special case where we control the visibility along with opacity. We still allow the opacity value to pass through and get tweened.
                         if (startNum === 1 && _get(target, "visibility") === "hidden" && endNum) //if visibility is initially set to "hidden", we should interpret that as intent to make opacity 0 (a convenience)
                         startNum = 0;
-                        inlineProps.push("visibility", style.visibility);
+                        inlineProps.push("visibility", 0, style.visibility);
                         _addNonTweeningPT(this, style, "visibility", startNum ? "inherit" : "hidden", endNum ? "inherit" : "hidden", !endNum);
                     }
                     if (p !== "scale" && p !== "transform") {
@@ -4738,12 +4758,12 @@ var CSSPlugin = {
                         transformPropTween.dep = 1; //flag it as dependent so that if things get killed/overwritten and this is the only PropTween left, we can safely kill the whole tween.
                     }
                     if (p === "scale") {
-                        this._pt = new (0, _gsapCoreJs.PropTween)(this._pt, cache, "scaleY", cache.scaleY, (relative ? (0, _gsapCoreJs._parseRelative)(cache.scaleY, relative + endNum) : endNum) - cache.scaleY || 0, _renderCSSProp);
+                        this._pt = new (0, _gsapCoreJs.PropTween)(this._pt, cache, "scaleY", startNum, (relative ? (0, _gsapCoreJs._parseRelative)(startNum, relative + endNum) : endNum) - startNum || 0, _renderCSSProp);
                         this._pt.u = 0;
                         props.push("scaleY", p);
                         p += "X";
                     } else if (p === "transformOrigin") {
-                        inlineProps.push(_transformOriginProp, style[_transformOriginProp]);
+                        inlineProps.push(_transformOriginProp, 0, style[_transformOriginProp]);
                         endValue = _convertKeywordsToPercentages(endValue); //in case something like "left top" or "bottom right" is passed in. Convert to percentages.
                         if (cache.svg) _applySVGOrigin(target, endValue, 0, smooth, 0, this);
                         else {
@@ -4789,7 +4809,7 @@ var CSSPlugin = {
                         continue;
                     }
                 } else _tweenComplexCSSString.call(this, target, p, startValue, relative ? relative + endValue : endValue);
-                isTransformRelated || inlineProps.push(p, style[p]);
+                isTransformRelated || (p in style ? inlineProps.push(p, 0, style[p]) : inlineProps.push(p, 1, startValue || target[p]));
                 props.push(p);
             }
         }

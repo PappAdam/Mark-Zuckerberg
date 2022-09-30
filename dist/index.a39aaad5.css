@@ -7,8 +7,174 @@
 
 #focus {
   width: calc(600px + 10vw);
-  height: 66vh;
+  height: 76vh;
   margin-top: -34vh;
+}
+
+#focus .top_row ul .unfocues_file {
+  color: #85807a;
+  background-color: #353330;
+}
+
+#focus .top_row ul .focues_file {
+  color: #f7f4ed;
+  background-color: #00798c;
+}
+
+.cards {
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+}
+
+.cards .t_window_div {
+  width: 600px;
+  height: 46vh;
+  overflow-y: none;
+  background-color: #262523;
+  border: 2px solid #85807a;
+  border-radius: 3px;
+  margin: 10px;
+  font-family: Roboto Mono, monospace;
+  font-size: 16px;
+  transition: width .5s, height .5s, margin .5s;
+}
+
+.cards .t_window_div .top_row {
+  width: 100%;
+  height: 25px;
+  float: right;
+  background-color: #353330;
+  border-bottom: 1px solid #4d4a46;
+  align-items: center;
+  display: flex;
+}
+
+.cards .t_window_div .top_row ul {
+  list-style: none;
+}
+
+.cards .t_window_div .top_row ul .unfocues_file {
+  color: #f7f4ed;
+  background-color: #00798c;
+  border-radius: 2px;
+}
+
+.cards .t_window_div .top_row ul .focues_file {
+  color: #85807a;
+  background-color: #353330;
+  border-radius: 2px;
+}
+
+.cards .t_window_div .top_row ul li {
+  float: left;
+  color: #85807a;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.cards .t_window_div .title_bar {
+  height: 30px;
+  width: 100%;
+  color: #f7f4ed;
+  background-color: #4d4a46;
+  border-bottom: 1px solid #85807a;
+  border-radius: 3px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.cards .t_window_div .title_bar p {
+  margin-top: 2px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: Roboto Mono, monospace;
+  font-size: 16px;
+}
+
+.cards .t_window_div .title_bar .icons {
+  height: 100%;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.cards .t_window_div .title_bar .icons .button {
+  height: 90%;
+  width: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  border-radius: 2px;
+  margin: 2px;
+  transition: background-color .5s;
+}
+
+.cards .t_window_div .title_bar .icons .button:hover {
+  background-color: #ee4f16;
+}
+
+.cards .t_window_div .title_bar .icons .minimalize {
+  background-image: url("minim.bb22bcc1.png");
+}
+
+.cards .t_window_div .title_bar .icons .fullscreen {
+  background-image: url("fulls.6e1d035d.png");
+}
+
+.cards .t_window_div .title_bar .icons .close {
+  background-image: url("close.66995e8f.png");
+}
+
+.cards .t_window_div .line_numbers {
+  height: calc(100% - 55px);
+  width: 30px;
+  float: left;
+  background-color: #353330;
+  border-right: 1px solid #4d4a46;
+  margin-top: 1px;
+  overflow-y: hidden;
+}
+
+.cards .t_window_div .line_numbers ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+.cards .t_window_div .line_numbers ol li {
+  text-align: right;
+  color: #85807a;
+  counter-increment: customlistcounter;
+  margin-right: 2px;
+  display: block;
+}
+
+.cards .t_window_div .line_numbers ol li:before {
+  content: counter(customlistcounter) " ";
+  counter-increment: item;
+}
+
+.cards .t_window_div h1 {
+  color: #00798c;
+  font-family: Cutive Mono, monospace;
+  font-size: 20px;
+}
+
+.cards .t_window_div p {
+  color: #f7f4ed;
+}
+
+.cards .t_window_div a {
+  color: #ee4f16;
+}
+
+.heading {
+  height: calc(54vh - 80px);
+  width: 100%;
+  background-color: #353330;
 }
 
 body {
@@ -83,126 +249,15 @@ body main .index .navbar ul li a {
   text-decoration: none;
 }
 
-body main .index .cards {
-  width: 100%;
-  height: 100%;
-  flex-direction: row;
-  justify-content: center;
-  display: flex;
-}
-
-body main .index .cards .t_window_div {
-  width: 600px;
-  height: 46vh;
-  background-color: #262523;
-  border: 2px solid #85807a;
-  border-radius: 3px;
-  margin: 10px;
-  font-family: Roboto Mono, monospace;
-  font-size: 16px;
-  transition: width .5s, height .5s, margin .5s;
-}
-
-body main .index .cards .t_window_div .title_bar {
-  height: 30px;
-  width: 100%;
-  color: #f7f4ed;
-  background-color: #4d4a46;
-  border-bottom: 1px solid #85807a;
-  border-radius: 3px;
-  justify-content: space-between;
-  display: flex;
-}
-
-body main .index .cards .t_window_div .title_bar p {
-  margin-top: 2px;
-  margin-left: 5px;
-  margin-right: 5px;
-  font-family: Roboto Mono, monospace;
-  font-size: 16px;
-}
-
-body main .index .cards .t_window_div .title_bar .icons {
-  height: 100%;
-  width: 100px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-body main .index .cards .t_window_div .title_bar .icons .button {
-  height: 90%;
-  width: 30px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 15px;
-  border-radius: 2px;
-  margin: 2px;
-  transition: background-color .5s;
-}
-
-body main .index .cards .t_window_div .title_bar .icons .button:hover {
-  background-color: #ee4f16;
-}
-
-body main .index .cards .t_window_div .title_bar .icons .minimalize {
-  background-image: url("minim.bb22bcc1.png");
-}
-
-body main .index .cards .t_window_div .title_bar .icons .fullscreen {
-  background-image: url("fulls.6e1d035d.png");
-}
-
-body main .index .cards .t_window_div .title_bar .icons .close {
-  background-image: url("close.66995e8f.png");
-}
-
-body main .index .cards .t_window_div h1 {
-  color: #00798c;
-  font-family: Cutive Mono, monospace;
-  font-size: 20px;
-}
-
-body main .index .cards .t_window_div p {
-  color: #f7f4ed;
-}
-
-body main .index .cards .t_window_div a {
-  color: #ee4f16;
-}
-
-body main .index .cards .t_window_div ol {
-  list-style-type: decimal;
-  list-style-position: inside;
-}
-
-body main .index .cards .t_window_div ol li {
-  color: #f7f4ed;
-}
-
-body main .index .heading {
-  height: calc(54vh - 80px);
-  width: 100%;
-  background-color: #353330;
-}
-
 body main .status {
   width: 100%;
-  height: calc(100% - 60px);
   background-color: #ee4f16;
-  justify-content: center;
-  align-items: center;
-  display: flex;
   position: absolute;
 }
 
 body main .learn {
   width: 100%;
-  height: calc(100% - 60px);
   background-color: #f7f4ed;
-  justify-content: center;
-  align-items: center;
-  display: flex;
   position: absolute;
 }
 
@@ -210,18 +265,20 @@ body main .news {
   width: 100%;
   height: calc(100% - 60px);
   background-color: tomato;
-  justify-content: center;
-  align-items: center;
-  display: flex;
   position: absolute;
 }
 
+body main .news #news_div {
+  width: 100%;
+  height: calc(100% - 20px);
+}
+
 @media only screen and (max-width: 1200px) {
-  .index .cards {
+  .cards {
     flex-wrap: wrap;
   }
 
-  .index #focus {
+  #focus {
     width: 600px;
     height: 76vh;
     margin-top: 0;
