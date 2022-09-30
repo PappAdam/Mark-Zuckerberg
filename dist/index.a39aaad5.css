@@ -279,6 +279,54 @@ body main .learn .cards {
 
 body main .learn .cards .docs {
   grid-area: 1 / 1 / 3;
+  overflow-y: scroll;
+}
+
+body main .learn .cards .docs .title_bar {
+  width: calc(60% - 16px);
+  position: absolute;
+}
+
+body main .learn .cards .docs .learn-pages {
+  float: left;
+  width: 20vw;
+  height: calc(100% - 54px);
+  background-color: #353330;
+  margin-top: 30px;
+  position: absolute;
+}
+
+body main .learn .cards .docs .learn-pages ul {
+  list-style: none;
+}
+
+body main .learn .cards .docs .learn-pages ul li {
+  width: 50%;
+  height: 40px;
+  color: #85807a;
+  background-color: #0000;
+  justify-content: end;
+  align-items: center;
+  padding: 5px;
+  font-size: 18px;
+  transition: width .25s, background-color .2s;
+  display: flex;
+}
+
+body main .learn .cards .docs .learn-pages ul #selected {
+  width: 65%;
+  background-color: #4d4a46;
+}
+
+body main .learn .cards .docs .content {
+  width: calc(100% - 20vw);
+  height: calc(100% - 30px);
+  float: right;
+  margin-top: 30px;
+}
+
+body main .learn .cards .docs .content .page_content {
+  display: none;
 }
 
 body main .learn .cards .term {
