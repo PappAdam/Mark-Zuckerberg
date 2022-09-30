@@ -7,18 +7,18 @@
 
 #focus {
   width: calc(600px + 10vw);
-  height: 86vh;
+  height: 76vh;
   margin-top: -34vh;
 }
 
 #focus .top_row ul .unfocues_file {
-  color: #00ff15;
-  background-color: red;
+  color: #85807a;
+  background-color: #353330;
 }
 
 #focus .top_row ul .focues_file {
-  color: #ece1c7;
-  background-color: #39115e;
+  color: #f7f4ed;
+  background-color: #00798c;
 }
 
 .cards {
@@ -33,8 +33,8 @@
   width: 600px;
   height: 46vh;
   overflow-y: none;
-  background-color: #13e013;
-  border: 2px solid #00ff15;
+  background-color: #262523;
+  border: 2px solid #85807a;
   border-radius: 3px;
   margin: 10px;
   font-family: Roboto Mono, monospace;
@@ -46,8 +46,8 @@
   width: 100%;
   height: 25px;
   float: right;
-  background-color: red;
-  border-bottom: 1px solid #6e0950;
+  background-color: #353330;
+  border-bottom: 1px solid #4d4a46;
   align-items: center;
   display: flex;
 }
@@ -57,20 +57,20 @@
 }
 
 .cards .t_window_div .top_row ul .unfocues_file {
-  color: #ece1c7;
-  background-color: #39115e;
+  color: #f7f4ed;
+  background-color: #00798c;
   border-radius: 2px;
 }
 
 .cards .t_window_div .top_row ul .focues_file {
-  color: #00ff15;
-  background-color: red;
+  color: #85807a;
+  background-color: #353330;
   border-radius: 2px;
 }
 
 .cards .t_window_div .top_row ul li {
   float: left;
-  color: #00ff15;
+  color: #85807a;
   margin-left: 10px;
   font-size: 12px;
 }
@@ -78,9 +78,9 @@
 .cards .t_window_div .title_bar {
   height: 30px;
   width: 100%;
-  color: #ece1c7;
-  background-color: #6e0950;
-  border-bottom: 1px solid #00ff15;
+  color: #f7f4ed;
+  background-color: #4d4a46;
+  border-bottom: 1px solid #85807a;
   border-radius: 3px;
   justify-content: space-between;
   display: flex;
@@ -114,7 +114,7 @@
 }
 
 .cards .t_window_div .title_bar .icons .button:hover {
-  background-color: #46032a;
+  background-color: #ee4f16;
 }
 
 .cards .t_window_div .title_bar .icons .minimalize {
@@ -133,8 +133,8 @@
   height: calc(100% - 55px);
   width: 30px;
   float: left;
-  background-color: red;
-  border-right: 1px solid #6e0950;
+  background-color: #353330;
+  border-right: 1px solid #4d4a46;
   margin-top: 1px;
   overflow-y: hidden;
 }
@@ -146,7 +146,7 @@
 
 .cards .t_window_div .line_numbers ol li {
   text-align: right;
-  color: #00ff15;
+  color: #85807a;
   counter-increment: customlistcounter;
   margin-right: 2px;
   display: block;
@@ -158,36 +158,36 @@
 }
 
 .cards .t_window_div h1 {
-  color: #39115e;
+  color: #00798c;
   font-family: Cutive Mono, monospace;
   font-size: 20px;
 }
 
 .cards .t_window_div p {
-  color: #ece1c7;
+  color: #f7f4ed;
 }
 
 .cards .t_window_div a {
-  color: #46032a;
+  color: #ee4f16;
 }
 
 .heading {
   height: calc(54vh - 80px);
   width: 100%;
-  background-color: red;
+  background-color: #353330;
 }
 
 body {
   width: 100%;
   height: 100%;
-  background-color: #13e013;
+  background-color: #262523;
   overflow-x: hidden;
 }
 
 body .navbar {
   width: 100%;
   height: 60px;
-  background-color: #6e0950;
+  background-color: #4d4a46;
   justify-content: end;
   align-items: center;
   font-family: Roboto Mono, monospace;
@@ -205,7 +205,7 @@ body .navbar ul li {
 }
 
 body .navbar ul li a {
-  color: #ece1c7;
+  color: #f7f4ed;
   text-decoration: none;
 }
 
@@ -216,14 +216,14 @@ body main {
 
 body main .index {
   width: 100%;
-  background-color: #13e013;
+  background-color: #262523;
   position: absolute;
 }
 
 body main .index .navbar {
   width: 100%;
   height: 60px;
-  background-color: #6e0950;
+  background-color: #4d4a46;
   justify-content: end;
   align-items: center;
   margin-top: 0;
@@ -251,19 +251,19 @@ body main .index .navbar ul li a {
 
 body main .status {
   width: 100%;
-  background-color: #46032a;
+  background-color: #ee4f16;
   position: absolute;
 }
 
 body main .learn {
   width: 100%;
-  background-color: #ece1c7;
+  background-color: #f7f4ed;
   position: absolute;
 }
 
 body main .news {
   width: 100%;
-  background-color: #42140b;
+  background-color: tomato;
   position: absolute;
 }
 
