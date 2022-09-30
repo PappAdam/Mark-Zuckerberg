@@ -158,17 +158,12 @@
 }
 
 .cards .t_window_div h1 {
-  color: #00798c;
   font-family: Cutive Mono, monospace;
   font-size: 20px;
 }
 
 .cards .t_window_div p {
   color: #f7f4ed;
-}
-
-.cards .t_window_div a {
-  color: #ee4f16;
 }
 
 .heading {
@@ -261,16 +256,40 @@ body main .learn {
   position: absolute;
 }
 
-body main .news {
-  width: 100%;
-  height: calc(100% - 60px);
-  background-color: tomato;
-  position: absolute;
+body main .left {
+  text-align: center;
 }
 
-body main .news #news_div {
-  width: 100%;
-  height: calc(100% - 20px);
+body main .left a {
+  color: #f7f4ed;
+}
+
+body main .left h1 {
+  color: #ee4f16;
+}
+
+body main .center {
+  text-align: center;
+}
+
+body main .center a {
+  color: #f7f4ed;
+}
+
+body main .center h1 {
+  color: #ee4f16;
+}
+
+body main .right {
+  text-align: center;
+}
+
+body main .right a {
+  color: #f7f4ed;
+}
+
+body main .right h1 {
+  color: #ee4f16;
 }
 
 @media only screen and (max-width: 1200px) {
