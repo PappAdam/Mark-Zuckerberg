@@ -263,8 +263,14 @@ body main .learn {
 
 body main .news {
   width: 100%;
+  height: calc(100% - 60px);
   background-color: tomato;
   position: absolute;
+}
+
+body main .news #news_div {
+  width: 100%;
+  height: calc(100% - 20px);
 }
 
 @media only screen and (max-width: 1200px) {

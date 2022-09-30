@@ -285,6 +285,12 @@ body {
             position: absolute;
             background-color: $c_red;
             width: 100%;
+            height: calc(100% - 60px);
+
+            #news_div {
+                width: 100%;
+                height: calc(100% - 20px);
+            }
         }
     }
 }
