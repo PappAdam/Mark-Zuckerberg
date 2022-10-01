@@ -1,4 +1,5 @@
 fn main() {
-    let asd: u8 = 18;
+    let asd: bool = false;
+    let dsa: u16 = 18;
     println!("Hello, World!");
 }

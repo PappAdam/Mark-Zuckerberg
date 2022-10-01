@@ -17,37 +17,42 @@ def convert_row_into_html_paragraph(row: str) -> str:
 
     start_str = -1
     for word in row:
-        try: 
-            int_w = int(word)
-            parsed_row += f"<span style='color: {c_light_grey}'>{int_w}</span> "
-        except:
-            if word == 'true' or word == 'false':
-                parsed_row += f"<span style='color: {c_light_grey}'>{word}</span> "
-
-        if word == 'fn' or word == 'let':
-            parsed_row += f"<span style='color: {c_blue}'>{word} </span>"
-        elif word in type_keywords and start_str == -1:
-            parsed_row += f"<span style='color: {c_orange}'>{word} </span>"
-        else:
-            if "\"" in word:
-                for l in range(len(word)):
-                    if word[l] == "\"" and start_str == -1:
-                        parsed_row += f"{word[0:l]}<span style='color: {c_grey}'>"
-                        start_str = l
-                    elif word[l] == "\"":
-                        parsed_row += f"{word[start_str:l+1]}</span>"
-                        start_str = -1
-                    elif l == len(word)-1 and start_str == -1:
-                        parsed_row += f"{word[start_str-1:l+1]} "
-                    elif l == len(word)-1 and start_str != -1:
-                        parsed_row += f"{word[start_str:l+1]} "
-                        start_str = 0
+        try:
+            int_w = int(word.replace(";", ""))
+            if ';' in word:
+                parsed_row += f"<span style='color: {c_light_grey}'>{int_w}<span>;"
             else:
-                if len(word) == 0:
-                    parsed_row += "&emsp;"
+                parsed_row += f"<span style='color: {c_light_grey}'>{word}</span>;"
+        except:
+            if word.replace(";", '') == 'true' or word.replace(";", "") == 'false':
+                if ';' in word:
+                    parsed_row += f"<span style='color: {c_light_grey}'>{word.replace(';', '')}</span>;"
                 else:
-                    parsed_row += word + " "
-                    
+                    parsed_row += f"<span style='color: {c_light_grey}'>{word}</span>"
+            elif word == 'fn' or word == 'let':
+                parsed_row += f"<span style='color: {c_blue}'>{word} </span>"
+            elif word in type_keywords and start_str == -1:
+                parsed_row += f"<span style='color: {c_orange}'>{word} </span>"
+            else:
+                if "\"" in word:
+                    for l in range(len(word)):
+                        if word[l] == "\"" and start_str == -1:
+                            parsed_row += f"{word[0:l]}<span style='color: {c_grey}'>"
+                            start_str = l
+                        elif word[l] == "\"":
+                            parsed_row += f"{word[start_str:l+1]}</span>"
+                            start_str = -1
+                        elif l == len(word)-1 and start_str == -1:
+                            parsed_row += f"{word[start_str-1:l+1]} "
+                        elif l == len(word)-1 and start_str != -1:
+                            parsed_row += f"{word[start_str:l+1]} "
+                            start_str = 0
+                else:
+                    if len(word) == 0:
+                        parsed_row += "&emsp;"
+                    else:
+                        parsed_row += word + " "
+                        
 
 
     parsed_row += "</p>"
