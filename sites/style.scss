@@ -290,7 +290,6 @@ body {
 
         .learn {
             position: absolute;
-            background-color: $c_white;
             width: 100%;
             height: calc(100% - 60px);
 
@@ -298,7 +297,8 @@ body {
                 display: grid;
                 grid-gap: 10px;
                 grid-template-columns: 60% calc(40% - 10px);
-                background-color: #fff;
+                grid-template-rows: 70% calc(30% - 10px);
+                background-color: $c_blue;
                 color: #444;
                 padding: 10px;
 
@@ -379,6 +379,11 @@ body {
                             color: $c_light_grey;
                             font-size: 17px;
                             padding: 0px 5px;
+                        }
+
+                        .rust-c {
+                            background-color: $c_grey;
+                            color: $c_orange;
                         }
                     }
                 }

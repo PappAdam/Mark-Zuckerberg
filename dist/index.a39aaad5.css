@@ -271,14 +271,14 @@ body main .status {
 body main .learn {
   width: 100%;
   height: calc(100% - 60px);
-  background-color: #f7f4ed;
   position: absolute;
 }
 
 body main .learn .cards {
   grid-gap: 10px;
   color: #444;
-  background-color: #fff;
+  background-color: #00798c;
+  grid-template-rows: 70% calc(30% - 10px);
   grid-template-columns: 60% calc(40% - 10px);
   padding: 10px;
   display: grid;
@@ -358,6 +358,11 @@ body main .learn .cards .docs .content code {
   background-color: #353330;
   padding: 0 5px;
   font-size: 17px;
+}
+
+body main .learn .cards .docs .content .rust-c {
+  color: #ee4f16;
+  background-color: #4d4a46;
 }
 
 body main .learn .cards .term {
