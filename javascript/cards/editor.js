@@ -1,7 +1,7 @@
 var contents = [ // :n => new line; first part => unfocused sec part => focused (separeted by ;) 
-    "id=1;Text when window is not on focus;Text when the :nwindow is on focus",
+    "id=1;Text when window is not on focus;Text when the :nwindow is on focus Loredem!",
     "id=2;Szia:nBarni;|add:=style='color: #678'|Some| very long text in the content div of the terminal window", //to add style use |add:={*style*}| before the text beginning and | at the and of the text
-    "id=3;Hahah :nHehe;|add:=style='color: red'|Lorem ipsum dolor sit amet consectetur adipisicing elit.| Eveniet numquam nisi illum aut ipsa veritatis voluptas nulla facere at autem explicabo officiis nam dolorum saepe eaque, et quod minus sint!",
+    "id=3;Hahah :nHehe;|add:=style='color: red'|Lorem ipsum dolor sit amet consectetur adipisicing elit.| Eveniet numquam nisi illum aut ipsa veritatis voluptas| nulla facere at autem explicabo officiis nam dolorum saepe eaque, et quod minus sint!",
 ];
 
 var XPressed = 0;
