@@ -21,6 +21,11 @@ function dropd_menu() {
 }
 
 function reveal_code(el) {
+    if (window.innerWidth > 600) {
+        document.getElementById('learn-c').style.gridTemplateColumns = "60% calc(40% - 10px)"
+        document.getElementById('docs-title').style.width = "calc(60% - 16px)"
+    }
+
     var elements = ['editor', 'term'];
     for (var i = 0; i < 2; i++) {
         document.getElementById('main_' + elements[i] + '_content').innerHTML = document.getElementsByClassName(el.classList[1])[i+1].innerHTML;
