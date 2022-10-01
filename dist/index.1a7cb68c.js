@@ -142,14 +142,14 @@
       this[globalName] = mainExports;
     }
   }
-})({"2gs7n":[function(require,module,exports) {
+})({"kSAob":[function(require,module,exports) {
 "use strict";
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "426c765f4f5c6f21";
+module.bundle.HMR_BUNDLE_ID = "bb0239301a7cb68c";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
   HMRAsset,
@@ -531,104 +531,30 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"g46i7":[function(require,module,exports) {
-var contents = [
-    "id=1;Text when window is not on focus;Text when the :nwindow is on focus",
-    "id=2;Szia:nBarni;|add:=style='color: #678'|Some| very long text in the content div of the terminal window",
-    "id=3;Hahah :nHehe;|add:=style='color: red'|Lorem ipsum dolor sit amet consectetur adipisicing elit.| Eveniet numquam nisi illum aut ipsa veritatis voluptas nulla facere at autem explicabo officiis nam dolorum saepe eaque, et quod minus sint!", 
-];
-var XPressed = 0;
-function button_press(button) {
-    if (button.classList.contains("fullscreen")) {
-        if (document.getElementById("focus")) document.getElementById("focus").removeAttribute("id");
-        button.parentElement.parentElement.parentElement.setAttribute("id", "focus");
-    } else {
-        XPressed++;
-        if (button.parentElement.parentElement.parentElement.id == "focus" && document.getElementById("focus")) document.getElementById("focus").removeAttribute("id");
-        else if (XPressed % 10 == 0 && XPressed != 0) alert("MEGIS MI A FASZT VARSZ HA EDDIG NEM MUKODOTT?");
-    }
-    should_swipe();
-    setTimeout(fill_content, 250);
-}
-function fill_content() {
-    var elements = document.querySelectorAll(".content");
-    for(var i = 0; i < elements.length; i++)if (elements[i].parentElement.id == "focus") elements[i].innerHTML = parse_content(elements[i].id, 0);
-    else elements[i].innerHTML = parse_content(elements[i].id, 1);
-}
-function parse_content(id, focus) {
-    var parsed_content = "";
-    for(var i = 0; i < contents.length; i++)if (contents[i].includes("id=" + id)) {
-        var content = contents[i].split(";")[focus + 1].split(":n");
-        for(var j = 0; j < content.length; j++){
-            var styled = content[j].split("|");
-            var style_close = false;
-            var s_content = "<p>";
-            for(var k = 0; k < styled.length; k++){
-                if (styled[k].includes("add:=")) {
-                    s_content += "<span " + styled[k].substring(5) + ">";
-                    style_close = true;
-                } else if (style_close) {
-                    s_content += styled[k] + "</span>";
-                    style_close = false;
-                } else s_content += styled[k];
-            }
-            parsed_content += s_content + "</p>";
-        }
-    }
-    return parsed_content;
-}
-function should_swipe() {
-    var elementh = document.getElementsByClassName("heading")[0];
-    if (document.getElementById("2").parentElement.id == "focus") elementh.setAttribute("style", "justify-content: flex-start;");
-    else elementh.setAttribute("style", "justify-content: center;");
-}
-function animate_flex() {} // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- //     console.clear();
- // var boxNode = $(".box")[0];
- // var radios = $("[type=radio]");
- // var container = $(".container");
- // var hAlignment = "center";
- // var vAlignment = "center";
- // var currentLayout = "layout-align-center-center";
- // // Initialize transforms on node
- // TweenLite.set(boxNode, { x: "+=0" });
- // var box = {
- //     node: boxNode,
- //     x: boxNode.offsetLeft,
- //     y: boxNode.offsetTop,
- //     transform: boxNode._gsTransform
- // };
- // radios.change(setAlignment);
- // $(window).resize(layout);
- // function setAlignment() {
- //     if (this.name === "horizontal") {
- //         hAlignment = this.value;
- //     } else {
- //         vAlignment = this.value;
- //     }
- //     container.removeClass(currentLayout);
- //     currentLayout = "layout-align-" + hAlignment + "-" + vAlignment;
- //     container.addClass(currentLayout);
- //     layout();
- // }
- // function layout(event) {
- //     // Last offset position
- //     var lastX = box.x;
- //     var lastY = box.y;
- //     // Record new offset position
- //     box.x = box.node.offsetLeft;
- //     box.y = box.node.offsetTop;
- //     // Exit if box hasn't moved
- //     if (lastX === box.x && lastY === box.y) return;
- //     // Reversed delta values taking into account current
- //     // transforms in case animation was interrupted
- //     var x = box.transform.x + lastX - box.x;
- //     var y = box.transform.y + lastY - box.y;
- //     var duration = event && event.type === "resize" ? 0 : 0.5;
- //     // Tween to 0,0 to remove the transforms
- //     TweenLite.fromTo(box.node, duration, { x: x, y: y }, { x: 0, y: 0, ease: Power1.easeInOut });
- // }
+},{}],"83rlh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _gsap = require("gsap");
+var _gsapDefault = parcelHelpers.interopDefault(_gsap);
+var hcount = 0;
+window.addEventListener("resize", function(e) {
+    var elementh = document.getElementsByClassName("heading-container")[0];
+    if (document.getElementById("2").parentElement.id == "focus" && window.innerWidth > 1200) {
+        elementh.style.left = `20px`;
+        console.log(window.width);
+    } else elementh.style.left = `calc(50% - calc(calc(55vh - 4vw) / 2))`;
+});
+document.querySelectorAll(".t_window_div")[1].addEventListener("click", function(e) {
+    var elementh = document.getElementsByClassName("heading-container")[0];
+    if (document.getElementById("2").parentElement.id == "focus" && window.innerWidth > 1200) {
+        elementh.style.left = `20px`;
+        console.log(window.width);
+    } else elementh.style.left = `calc(50% - calc(calc(55vh - 4vw) / 2))`;
+});
+document.getElementById("horse").addEventListener("click", function(e) {
+    hcount++;
+    if (hcount % 5 == 0) document.getElementById("nyihaha").play();
+});
 
-},{}]},["2gs7n","g46i7"], "g46i7", "parcelRequire2b5a")
+},{"gsap":"fPSuC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["kSAob","83rlh"], "83rlh", "parcelRequire2b5a")
 
-//# sourceMappingURL=index.4f5c6f21.js.map
+//# sourceMappingURL=index.1a7cb68c.js.map

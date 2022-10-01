@@ -11,7 +11,7 @@ function button_press(button) {
     } else {
         XPressed++;
         if (button.parentElement.parentElement.parentElement.id == "focus" && document.getElementById("focus")) document.getElementById("focus").removeAttribute("id");
-        else if (XPressed % 10 == 0 && XPressed != 0) alert("MEGIS MI A FASZT VARSZ HA EDDIG NEM MUKODOTT?");
+        else if (XPressed % 10 == 0 && XPressed != 0) alert("Albert Einstein: The definition of insanity is doing the same thing over and over and expecting different results.");
     }
     setTimeout(fill_content, 250);
 }
