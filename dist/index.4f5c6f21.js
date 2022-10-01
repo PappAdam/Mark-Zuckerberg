@@ -532,18 +532,102 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"g46i7":[function(require,module,exports) {
-function button(button) {
+var contents = [
+    "id=1;Text when window is not on focus;Text when the :nwindow is on focus",
+    "id=2;Szia:nBarni;|add:=style='color: #678'|Some| very long text in the content div of the terminal window",
+    "id=3;Hahah :nHehe;|add:=style='color: red'|Lorem ipsum dolor sit amet consectetur adipisicing elit.| Eveniet numquam nisi illum aut ipsa veritatis voluptas nulla facere at autem explicabo officiis nam dolorum saepe eaque, et quod minus sint!", 
+];
+var XPressed = 0;
+function button_press(button) {
     if (button.classList.contains("fullscreen")) {
         if (document.getElementById("focus")) document.getElementById("focus").removeAttribute("id");
         button.parentElement.parentElement.parentElement.setAttribute("id", "focus");
-    } else if (button.parentElement.parentElement.parentElement.id == "focus" && document.getElementById("focus")) document.getElementById("focus").removeAttribute("id");
+    } else {
+        XPressed++;
+        if (button.parentElement.parentElement.parentElement.id == "focus" && document.getElementById("focus")) document.getElementById("focus").removeAttribute("id");
+        else if (XPressed % 10 == 0 && XPressed != 0) alert("MEGIS MI A FASZT VARSZ HA EDDIG NEM MUKODOTT?");
+    }
+    should_swipe();
     setTimeout(fill_content, 250);
 }
 function fill_content() {
     var elements = document.querySelectorAll(".content");
-    for(var i = 0; i < elements.length; i++)if (elements[i].parentElement.id == "focus") elements[i].innerHTML = "<p>text</p><p>when</p><p>this window is</p><p>focused</p>";
-    else elements[i].innerHTML = "<p>text</p><p>when</p><p>it isn't</p>";
+    for(var i = 0; i < elements.length; i++)if (elements[i].parentElement.id == "focus") elements[i].innerHTML = parse_content(elements[i].id, 0);
+    else elements[i].innerHTML = parse_content(elements[i].id, 1);
 }
+function parse_content(id, focus) {
+    var parsed_content = "";
+    for(var i = 0; i < contents.length; i++)if (contents[i].includes("id=" + id)) {
+        var content = contents[i].split(";")[focus + 1].split(":n");
+        for(var j = 0; j < content.length; j++){
+            var styled = content[j].split("|");
+            var style_close = false;
+            var s_content = "<p>";
+            for(var k = 0; k < styled.length; k++){
+                if (styled[k].includes("add:=")) {
+                    s_content += "<span " + styled[k].substring(5) + ">";
+                    style_close = true;
+                } else if (style_close) {
+                    s_content += styled[k] + "</span>";
+                    style_close = false;
+                } else s_content += styled[k];
+            }
+            parsed_content += s_content + "</p>";
+        }
+    }
+    return parsed_content;
+}
+function should_swipe() {
+    var elementh = document.getElementsByClassName("heading")[0];
+    if (document.getElementById("2").parentElement.id == "focus") elementh.setAttribute("style", "justify-content: flex-start;");
+    else elementh.setAttribute("style", "justify-content: center;");
+}
+function animate_flex() {} // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ //     console.clear();
+ // var boxNode = $(".box")[0];
+ // var radios = $("[type=radio]");
+ // var container = $(".container");
+ // var hAlignment = "center";
+ // var vAlignment = "center";
+ // var currentLayout = "layout-align-center-center";
+ // // Initialize transforms on node
+ // TweenLite.set(boxNode, { x: "+=0" });
+ // var box = {
+ //     node: boxNode,
+ //     x: boxNode.offsetLeft,
+ //     y: boxNode.offsetTop,
+ //     transform: boxNode._gsTransform
+ // };
+ // radios.change(setAlignment);
+ // $(window).resize(layout);
+ // function setAlignment() {
+ //     if (this.name === "horizontal") {
+ //         hAlignment = this.value;
+ //     } else {
+ //         vAlignment = this.value;
+ //     }
+ //     container.removeClass(currentLayout);
+ //     currentLayout = "layout-align-" + hAlignment + "-" + vAlignment;
+ //     container.addClass(currentLayout);
+ //     layout();
+ // }
+ // function layout(event) {
+ //     // Last offset position
+ //     var lastX = box.x;
+ //     var lastY = box.y;
+ //     // Record new offset position
+ //     box.x = box.node.offsetLeft;
+ //     box.y = box.node.offsetTop;
+ //     // Exit if box hasn't moved
+ //     if (lastX === box.x && lastY === box.y) return;
+ //     // Reversed delta values taking into account current
+ //     // transforms in case animation was interrupted
+ //     var x = box.transform.x + lastX - box.x;
+ //     var y = box.transform.y + lastY - box.y;
+ //     var duration = event && event.type === "resize" ? 0 : 0.5;
+ //     // Tween to 0,0 to remove the transforms
+ //     TweenLite.fromTo(box.node, duration, { x: x, y: y }, { x: 0, y: 0, ease: Power1.easeInOut });
+ // }
 
 },{}]},["2gs7n","g46i7"], "g46i7", "parcelRequire2b5a")
 

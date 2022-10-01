@@ -14,6 +14,7 @@ $t_window_size: 46vh;
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto Mono', monospace;
     box-sizing: border-box;
 }
 
@@ -27,7 +28,7 @@ $t_window_size: 46vh;
             .unfocues_file {
                 color: $c_light_grey;
                 background-color: $c_dark_grey;
-                
+
             }
 
             .focues_file {
@@ -38,13 +39,83 @@ $t_window_size: 46vh;
     }
 }
 
-
-
 .heading {
     background-color: $c_dark_grey;
     height: calc(100vh - $t_window_size - 80px);
     width: 100%;
+    transition: left .5s;
+    transition: right .5s;
+    position: relative;
+    background-image: url("../imgs/main_background.png");
+
+    .rust_log {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+    }
+
+    .rust_log1 {
+        left: -20px;
+        bottom: -29px;
+        transform: rotate(20deg);
+        transform: scale(200px);
+    }
+
+    .rust_log2 {
+        right: -20px;
+        top: 20px;
+        transform: rotate(-16deg);
+
+    }
+
+    .heading-container {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: left .5s;
+        left: calc(50% - calc(calc(55vh - 4vw) / 2));
+        top: calc(50% - calc(23vh / 2));
+        width: calc(55vh - 4vw);
+        height: 23vh;
+
+        h1 {
+            color: $c_white;
+            font-size: calc(25vh - 4vw);
+
+            .cursor {
+                width: calc(55vh - 4vw);
+                height: 23vh;
+                position: absolute;
+                left: 90%;
+                z-index: 1;
+                animation: blink 1.1s infinite 1s;
+            }
+
+            @keyframes blink {
+                0% {
+                    opacity: 0;
+                }
+
+                49% {
+                    opacity: 0;
+
+                }
+
+                50% {
+                    opacity: 1;
+                }
+            }
+        }
+
+        h2 {
+            color: $c_white;
+            font-size: 2vh;
+        }
+    }
 }
+
 
 body {
     .cards {
@@ -147,7 +218,8 @@ body {
                     }
                 }
             }
-    
+        }
+
             .line_numbers {
                 margin-top: 1px;
                 height: calc(100% - 30px - 25px);
@@ -200,6 +272,8 @@ body {
         }
     }
 
+body {
+
     background-color: $c_black;
     width: 100%;
     height: 100%;
@@ -207,6 +281,7 @@ body {
 
     .navbar {
         font-family: 'Roboto Mono', monospace;
+        position: relative;
         width: 100%;
         height: 60px;
         background-color: $c_grey;
@@ -246,9 +321,9 @@ body {
                     height: $t_window_size;
                 }
             }
-            
+
             position: absolute;
-            background-color: $c_black      ;
+            background-color: $c_black ;
             width: 100%;
 
             .navbar {
@@ -418,7 +493,9 @@ body {
 }
 
 @media only screen and (max-width: 1200px) {
+
         .cards {
+            position: relative;
             flex-wrap: wrap;
         }
 

@@ -19,11 +19,10 @@ function button_press(button) {
         if (button.parentElement.parentElement.parentElement.id == "focus" && document.getElementById("focus")) {
             document.getElementById("focus").removeAttribute("id");
         }
-        else if (XPressed%10 == 0 && XPressed != 0) {
-            alert("MEGIS MI A FASZT VARSZ HA EDDIG NEM MUKODOTT?");
+        else if (XPressed % 10 == 0 && XPressed != 0) {
+            alert("Albert Einstein: The definition of insanity is doing the same thing over and over and expecting different results.");
         }
     }
-
 
     setTimeout(fill_content, 250);
 }
@@ -43,8 +42,8 @@ function fill_content() {
 function parse_content(id, focus) {
     var parsed_content = "";
     for (var i = 0; i < contents.length; i++) {
-        if (contents[i].includes("id="+id)) {
-            var content = contents[i].split(';')[focus+1].split(':n');
+        if (contents[i].includes("id=" + id)) {
+            var content = contents[i].split(';')[focus + 1].split(':n');
 
             for (var j = 0; j < content.length; j++) {
                 var styled = content[j].split("|");
@@ -69,3 +68,6 @@ function parse_content(id, focus) {
     }
     return parsed_content;
 }
+
+
+
