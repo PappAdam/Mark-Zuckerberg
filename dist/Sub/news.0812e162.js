@@ -4923,7 +4923,7 @@ class SwipeLeft extends (0, _highwayDefault.default).Transition {
     }
 }
 
-},{"@dogstudio/highway":"26LRT","gsap":"fPSuC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3",".././navbar/position.js":"02e9D"}],"02e9D":[function(require,module,exports) {
+},{"@dogstudio/highway":"26LRT","gsap":"fPSuC",".././navbar/position.js":"02e9D","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"02e9D":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "swipe_direction", ()=>swipe_direction);
