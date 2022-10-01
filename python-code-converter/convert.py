@@ -19,7 +19,10 @@ def convert_row_into_html_paragraph(row: str) -> str:
     for word in row:
         try: 
             int_w = int(word)
-            parsed_row += f"<span style='color: {c_light_grey}'>"
+            parsed_row += f"<span style='color: {c_light_grey}'>{int_w}</span> "
+        except:
+            if word == 'true' or word == 'false':
+                parsed_row += f"<span style='color: {c_light_grey}'>{word}</span> "
 
         if word == 'fn' or word == 'let':
             parsed_row += f"<span style='color: {c_blue}'>{word} </span>"
