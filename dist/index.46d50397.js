@@ -537,19 +537,16 @@ var _gsap = require("gsap");
 var _gsapDefault = parcelHelpers.interopDefault(_gsap);
 var hcount = 0;
 window.addEventListener("resize", function(e) {
+    console.log("Window event called function");
     var elementh = document.getElementsByClassName("heading-container")[0];
-    if (document.getElementById("2").parentElement.id == "focus" && window.innerWidth > 1200) {
-        elementh.style.left = `20px`;
-        console.log(window.width);
-    } else elementh.style.left = `calc(50% - calc(calc(55vh - 4vw) / 2))`;
+    if (document.getElementById("2").parentElement.id == "focus" && window.innerWidth > 1200) elementh.style.left = `20px`;
+    else elementh.style.left = `calc(50% - calc(calc(55vh - 4vw) / 2))`;
 });
-document.querySelectorAll(".t_window_div")[1].addEventListener("click", function(e) {
-    console.log("adsa");
+window.addEventListener("click", function(e) {
+    console.log("Click event called function");
     var elementh = document.getElementsByClassName("heading-container")[0];
-    if (document.getElementById("2").parentElement.id == "focus" && window.innerWidth > 1200) {
-        elementh.style.left = `20px`;
-        console.log(window.width);
-    } else elementh.style.left = `calc(50% - calc(calc(55vh - 4vw) / 2))`;
+    if (document.getElementById("2").parentElement.id == "focus" && window.innerWidth > 1200) elementh.style.left = `20px`;
+    else elementh.style.left = `calc(50% - calc(calc(55vh - 4vw) / 2))`;
 });
 document.getElementById("horse").addEventListener("click", function(e) {
     hcount++;

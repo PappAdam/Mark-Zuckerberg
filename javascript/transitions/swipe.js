@@ -12,7 +12,8 @@ export class SwipeRight extends Highway.Transition {
             {
                 left: "-100%",
                 ease: "power4.out",
-                duration: 1.5,
+                duration: 1,
+
             }
         );
 
@@ -21,7 +22,7 @@ export class SwipeRight extends Highway.Transition {
             {
                 right: "0%",
                 ease: "power4.out",
-                duration: 1.5,
+                duration: 1,
                 onComplete: function () {
                     swipe_direction();
                     from.remove();
@@ -48,7 +49,7 @@ export class SwipeLeft extends Highway.Transition {
             {
                 right: "-100%",
                 ease: "power4.out",
-                duration: 1.5,
+                duration: 1,
             }
         );
 
@@ -57,7 +58,7 @@ export class SwipeLeft extends Highway.Transition {
             {
                 left: "0%",
                 ease: "power4.out",
-                duration: 1.5,
+                duration: 1,
                 onComplete: function () {
                     swipe_direction();
                     from.remove();

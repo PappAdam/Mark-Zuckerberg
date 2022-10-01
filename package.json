@@ -2,6 +2,8 @@
   "dependencies": {
     "@dogstudio/highway": "^2.2.1",
     "gsap": "^3.11.1",
+    "scroll-lock": "^2.1.5",
+    "tiny-emitter": "^2.1.0",
     "typed.js": "^2.0.12"
   },
   "devDependencies": {

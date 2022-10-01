@@ -18,72 +18,83 @@
                         <p>documentation</p>
                     </div>
 
-                        <div class="learn-pages">
-                            <div class="menu-button" onclick="dropd_menu()">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
-                            </div>
-                            <ul>
-                                <li class="pages getting-started" onclick="select_file(this)">getting started</li>
-                                <li class="pages intro" onclick="select_file(this)">introduction</li>
-                                <li class="pages" onclick="select_file(this)">placeholder</li>
-                                <li class="pages" onclick="select_file(this)">placeholder</li>
-                                <li class="pages" onclick="select_file(this)">placeholder</li>
-                                <li class="pages" onclick="select_file(this)">placeholder</li>
-                                <li class="pages" onclick="select_file(this)">placeholder</li>
-                                <li class="pages" onclick="select_file(this)">placeholder</li>
-                                <li class="pages" onclick="select_file(this)">placeholder</li>
-                                <li class="pages" onclick="select_file(this)">placeholder</li>
-                            </ul>
+                    <div class="learn-pages">
+                        <div class="menu-button" onclick="dropd_menu()">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
                         </div>
-    
-                        <div class="content">
-                            <div id="main_content">
-                                <h1>Welcome to our ultimate rust guide</h1>
-                                <br>
-                                <p>Here you are going to learn nothing, since we didn't have enough time to finish the project</p>
-                                <p>Most likely you don't read these lines so I should just stop writing</p>
-                                <p>Anyways here is some fancy clickable code, which will open in the everything-but-editor editor</p>
-                                <p>Even it will show some output to you, which is just a predefined text matched to the guide page you have clicked, so there is nothing interesing happening here</p>
-                                <br>
-                                <h2>This code is clickable and will be shown in the editor, in the top left corner <code class="rust-c example" onclick="reveal_code(this)">example code</code></h2>
-                                
-                            </div>
-                            <div class="sub_content getting-started">
-                                <h1>Installation</h1>
-                                <br>
-                                <p>The first step is to install Rust. We’ll download Rust through rustup, a command line tool for managing Rust versions and associated tools. You’ll need an internet connection for the download.</p>
-                                <br>
-                                <h2>Installing rustup on Linux or macOS</h2>
-                                <code>
+                        <ul>
+                            <li class="pages getting-started" onclick="select_file(this)">getting started</li>
+                            <li class="pages intro" onclick="select_file(this)">introduction</li>
+                            <li class="pages" onclick="select_file(this)">placeholder</li>
+                            <li class="pages" onclick="select_file(this)">placeholder</li>
+                            <li class="pages" onclick="select_file(this)">placeholder</li>
+                            <li class="pages" onclick="select_file(this)">placeholder</li>
+                            <li class="pages" onclick="select_file(this)">placeholder</li>
+                            <li class="pages" onclick="select_file(this)">placeholder</li>
+                            <li class="pages" onclick="select_file(this)">placeholder</li>
+                            <li class="pages" onclick="select_file(this)">placeholder</li>
+                        </ul>
+                    </div>
+
+                    <div class="content">
+                        <div id="main_content">
+                            <h1>Welcome to our ultimate rust guide</h1>
+                            <br>
+                            <p>Here you are going to learn nothing, since we didn't have enough time to finish the
+                                project</p>
+                            <p>Most likely you don't read these lines so I should just stop writing</p>
+                            <p>Anyways here is some fancy clickable code, which will open in the everything-but-editor
+                                editor</p>
+                            <p>Even it will show some output to you, which is just a predefined text matched to the
+                                guide page you have clicked, so there is nothing interesing happening here</p>
+                            <br>
+                            <h2>This code is clickable and will be shown in the editor, in the top left corner <code class="rust-c example" onclick="reveal_code(this)">example code</code></h2>
+
+                        </div>
+                        <div class="sub_content getting-started">
+                            <h1>Installation</h1>
+                            <br>
+                            <p>The first step is to install Rust. We’ll download Rust through rustup, a command line
+                                tool for managing Rust versions and associated tools. You’ll need an internet connection
+                                for the download.</p>
+                            <br>
+                            <h2>Installing rustup on Linux or macOS</h2>
+                            <code>
                                     $ curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh 
                                 </code>
-                                <br>
-                                <br>
-                                <h1>Our first code</h1>
-                                <br>
-                                <p>Now that you’ve installed Rust, let’s write your first Rust program. It’s traditional when learning a new language to write a little program that prints the text <code>Hello, world!</code> to the screen, so we’ll do the same here!</p>
-                                <br>
-                                <h2>Setting up the project</h2>
-                                <br>
-                                <p>The first thing we'll do here, is creating a directory for our first rust program. In theory it doesn't matter where your code lives, but its a good practice to keep everything in one place.</p>
-                                <br>
-                                <p>Using cargo, we can generate a basic directory: </p>
-                                <code>
+                            <br>
+                            <br>
+                            <h1>Our first code</h1>
+                            <br>
+                            <p>Now that you’ve installed Rust, let’s write your first Rust program. It’s traditional
+                                when learning a new language to write a little program that prints the text
+                                <code>Hello, world!</code> to the screen, so we’ll do the same here!
+                            </p>
+                            <br>
+                            <h2>Setting up the project</h2>
+                            <br>
+                            <p>The first thing we'll do here, is creating a directory for our first rust program. In
+                                theory it doesn't matter where your code lives, but its a good practice to keep
+                                everything in one place.</p>
+                            <br>
+                            <p>Using cargo, we can generate a basic directory: </p>
+                            <code>
                                     cargo new *your_dir_name* --bin
                                 </code>
-                                <br>
-                                <br>
-                                <p>If you take a closer look at the file we just got, you should see file named: main.rs</p>
-                                <p>Within that file there is a small program, which should write "Hello World!" into your terminal</p>
-                                <br>
-                                <p>You can run the code using:</p>
-                                <code>cargo run</code>
-                            </div>
-                            <div class="sub_content intro">
-                                <p>introduction to rust</p>
-                            </div>
+                            <br>
+                            <br>
+                            <p>If you take a closer look at the file we just got, you should see file named: main.rs</p>
+                            <p>Within that file there is a small program, which should write "Hello World!" into your
+                                terminal</p>
+                            <br>
+                            <p>You can run the code using:</p>
+                            <code>cargo run</code>
+                        </div>
+                        <div class="sub_content intro">
+                            <p>introduction to rust</p>
+                        </div>
                     </div>
                 </div>
 
@@ -97,7 +108,30 @@
 
                     <div class="line_numbers">
                         <ol>
-                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
                         </ol>
                     </div>
 
@@ -111,8 +145,9 @@
                             <p>&emsp;&emsp;&emsp;&emsp;<span style="color: #4d4a46">//hahahah</span></p>
                             <p>&emsp;&emsp;&emsp;&emsp;<span style="color: #00798c">let </span>asd: <span style="color: #ee4f16">bool </span>= <span style="color: #85807a">false</span>;<span style="color: #4d4a46">//hihiha</span></p>
                             <p>&emsp;&emsp;&emsp;&emsp;<span style="color: #00798c">let </span>dsa: <span style="color: #ee4f16">u16 </span>= <span style="color: #85807a">18<span>;</span></span></p>
-                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #4d4a46">"jfklsadjlkfs  skdfj asdfj slakfj"</span>); </p>
-                            <p>} </p>  
+                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #4d4a46">"jfklsadjlkfs skdfj asdfj
+                                    slakfj"</span>); </p>
+                            <p>} </p>
                         </div>
                     </div>
                 </div>
@@ -128,7 +163,7 @@
                         </div>
 
                         <div class="sub_content example">
-                            <p>jfklsadjlkfs  skdfj asdfj slakfj</p>
+                            <p>jfklsadjlkfs skdfj asdfj slakfj</p>
                         </div>
                     </div>
                 </div>

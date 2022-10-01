@@ -1,3 +1,4 @@
+
 export function swipe_direction() {
 
     let location = window.location.href.split("/").pop();
@@ -10,6 +11,7 @@ export function swipe_direction() {
         status.setAttribute("data-transition", "swipe_r");
         learn.setAttribute("data-transition", "swipe_r");
         news.setAttribute("data-transition", "swipe_r");
+
 
     } else if (location === "status.html") {
         console.log(location);
