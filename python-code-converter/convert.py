@@ -16,46 +16,56 @@ def convert_row_into_html_paragraph(row: str) -> str:
     row = row.split(' ');
 
     start_str = -1
+    comment = False
     for word in row:
-        try:
-            int_w = int(word.replace(";", ""))
-            if ';' in word:
-                parsed_row += f"<span style='color: {c_light_grey}'>{int_w}<span>;"
-            else:
-                parsed_row += f"<span style='color: {c_light_grey}'>{word}</span>;"
-        except:
-            if word.replace(";", '') == 'true' or word.replace(";", "") == 'false':
+        if '//' in word:
+            comment = True
+            parsed_row += f"<span style='color: {c_grey}'>"
+
+        if comment:
+            parsed_row += word
+        else:
+            try:
+                int_w = int(word.replace(";", ""))
                 if ';' in word:
-                    parsed_row += f"<span style='color: {c_light_grey}'>{word.replace(';', '')}</span>;"
+                    parsed_row += f"<span style='color: {c_light_grey}'>{int_w}<span>;"
                 else:
-                    parsed_row += f"<span style='color: {c_light_grey}'>{word}</span>"
-            elif word == 'fn' or word == 'let':
-                parsed_row += f"<span style='color: {c_blue}'>{word} </span>"
-            elif word in type_keywords and start_str == -1:
-                parsed_row += f"<span style='color: {c_orange}'>{word} </span>"
-            else:
-                if "\"" in word:
-                    for l in range(len(word)):
-                        if word[l] == "\"" and start_str == -1:
-                            parsed_row += f"{word[0:l]}<span style='color: {c_grey}'>"
-                            start_str = l
-                        elif word[l] == "\"":
-                            parsed_row += f"{word[start_str:l+1]}</span>"
-                            start_str = -1
-                        elif l == len(word)-1 and start_str == -1:
-                            parsed_row += f"{word[start_str-1:l+1]} "
-                        elif l == len(word)-1 and start_str != -1:
-                            parsed_row += f"{word[start_str:l+1]} "
-                            start_str = 0
-                else:
-                    if len(word) == 0:
-                        parsed_row += "&emsp;"
+                    parsed_row += f"<span style='color: {c_light_grey}'>{word}</span>;"
+            except:
+                if word.replace(";", '') == 'true' or word.replace(";", "") == 'false':
+                    if ';' in word:
+                        parsed_row += f"<span style='color: {c_light_grey}'>{word.replace(';', '')}</span>;"
                     else:
-                        parsed_row += word + " "
-                        
+                        parsed_row += f"<span style='color: {c_light_grey}'>{word}</span>"
+                elif word == 'fn' or word == 'let':
+                    parsed_row += f"<span style='color: {c_blue}'>{word} </span>"
+                elif word in type_keywords and start_str == -1:
+                    parsed_row += f"<span style='color: {c_orange}'>{word} </span>"
+                else:
+                    if "\"" in word:
+                        for l in range(len(word)):
+                            if word[l] == "\"" and start_str == -1:
+                                parsed_row += f"{word[0:l]}<span style='color: {c_grey}'>"
+                                start_str = l
+                            elif word[l] == "\"":
+                                parsed_row += f"{word[start_str:l+1]}</span>"
+                                start_str = -1
+                            elif l == len(word)-1 and start_str == -1:
+                                parsed_row += f"{word[start_str-1:l+1]} "
+                            elif l == len(word)-1 and start_str != -1:
+                                parsed_row += f"{word[start_str:l+1]} "
+                                start_str = 0
+                    else:
+                        if len(word) == 0:
+                            parsed_row += "&emsp;"
+                        else:
+                            parsed_row += word + " "
+                            
 
-
-    parsed_row += "</p>"
+    if comment:
+        parsed_row += "</span></p>"
+    else:
+        parsed_row += "</p>"
     return parsed_row
 
 
