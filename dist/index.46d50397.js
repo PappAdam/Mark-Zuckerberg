@@ -544,6 +544,7 @@ window.addEventListener("resize", function(e) {
     } else elementh.style.left = `calc(50% - calc(calc(55vh - 4vw) / 2))`;
 });
 document.querySelectorAll(".t_window_div")[1].addEventListener("click", function(e) {
+    console.log("adsa");
     var elementh = document.getElementsByClassName("heading-container")[0];
     if (document.getElementById("2").parentElement.id == "focus" && window.innerWidth > 1200) {
         elementh.style.left = `20px`;

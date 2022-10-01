@@ -22,6 +22,7 @@ window.addEventListener('resize', function (e) {
 
 document.querySelectorAll(".t_window_div")[1].addEventListener('click', function (e) {
 
+    console.log("adsa");
     var elementh = document.getElementsByClassName("heading-container")[0];
 
     if (document.getElementById("2").parentElement.id == "focus" && window.innerWidth > 1200) {
