@@ -256,39 +256,59 @@ body main .learn {
   position: absolute;
 }
 
-body main .left {
-  text-align: center;
+body main .news {
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: tomato;
+  position: absolute;
 }
 
-body main .left a {
-  color: #f7f4ed;
+body main .news #news_div {
+  width: 100%;
+  height: calc(100% - 20px);
 }
 
-body main .left h1 {
+body main .news .left {
+  float: left;
+  margin-top: 50px;
+  margin-left: 400px;
+}
+
+body main .news .left h1 {
   color: #ee4f16;
+  margin-bottom: 30px;
+  font-size: 50px;
 }
 
-body main .center {
-  text-align: center;
+body main .news .right {
+  float: left;
+  margin-top: 50px;
+  margin-left: 400px;
 }
 
-body main .center a {
-  color: #f7f4ed;
-}
-
-body main .center h1 {
+body main .news .right h1 {
   color: #ee4f16;
+  margin-bottom: 30px;
+  font-size: 50px;
 }
 
-body main .right {
-  text-align: center;
+body main .news .center {
+  float: left;
+  margin-top: 50px;
+  margin-left: 400px;
 }
 
-body main .right a {
+body main .news .center h1 {
+  color: #ee4f16;
+  margin-bottom: 30px;
+  font-size: 50px;
+}
+
+body main .news .date {
   color: #f7f4ed;
 }
 
-body main .right h1 {
+body main .news .date:hover {
   color: #ee4f16;
 }
 
