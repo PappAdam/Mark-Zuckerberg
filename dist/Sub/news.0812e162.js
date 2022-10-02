@@ -4878,6 +4878,7 @@ class SwipeRight extends (0, _highwayDefault.default).Transition {
             ease: "power4.out",
             duration: 1
         });
+        (0, _positionJs.swipe_direction)();
         (0, _gsapDefault.default).fromTo(to, {
             right: "-100%"
         }, {
@@ -4885,7 +4886,6 @@ class SwipeRight extends (0, _highwayDefault.default).Transition {
             ease: "power4.out",
             duration: 1,
             onComplete: function() {
-                (0, _positionJs.swipe_direction)();
                 from.remove();
                 done();
             }
@@ -4905,6 +4905,7 @@ class SwipeLeft extends (0, _highwayDefault.default).Transition {
             ease: "power4.out",
             duration: 1
         });
+        (0, _positionJs.swipe_direction)();
         (0, _gsapDefault.default).fromTo(to, {
             left: "-100%"
         }, {
@@ -4912,7 +4913,6 @@ class SwipeLeft extends (0, _highwayDefault.default).Transition {
             ease: "power4.out",
             duration: 1,
             onComplete: function() {
-                (0, _positionJs.swipe_direction)();
                 from.remove();
                 done();
             }
@@ -4926,48 +4926,53 @@ class SwipeLeft extends (0, _highwayDefault.default).Transition {
 },{"@dogstudio/highway":"26LRT","gsap":"fPSuC",".././navbar/position.js":"02e9D","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"02e9D":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "swipe_direction", ()=>swipe_direction) // function nav_focus() {
- //     document.getElementById("highlighted").removeAttribute('highlighted');
- //     document.getElementById(`${location.split(".")[0]}_nav`)
- // }
-;
+parcelHelpers.export(exports, "swipe_direction", ()=>swipe_direction);
+var _gsap = require("gsap");
+var _gsapDefault = parcelHelpers.interopDefault(_gsap);
 function swipe_direction() {
     let location = window.location.href.split("/").pop();
     let status = document.getElementById("status_nav");
-    let learn = document.getElementsByClassName("learn_nav");
+    let learn = document.getElementById("learn_nav");
     let news = document.getElementById("news_nav");
     let index = document.getElementById("index_nav");
     if (location === "index.html") {
-        console.log(location);
+        nav_focus(index);
         status.setAttribute("data-transition", "swipe_r");
-        for(var i = 0; i < learn.length; i++)learn[i].setAttribute("data-transition", "swipe_r");
         news.setAttribute("data-transition", "swipe_r");
-        // document.getElementsByClassName("highlighted")[0].style.padding = "10px";
-        // document.getElementsByClassName("highlighted")[0].style.backgroundColor = "transparent";
-        document.getElementsByClassName("highlighted")[0].removeAttribute("class");
-        index.setAttribute("class", "highlighted");
     } else if (location === "status.html") {
-        console.log(location);
-        for(var i = 0; i < learn.length; i++)learn[i].setAttribute("data-transition", "swipe_r");
+        nav_focus(status);
+        learn.setAttribute("data-transition", "swipe_r");
         news.setAttribute("data-transition", "swipe_r");
-        document.getElementsByClassName("highlighted")[0].removeAttribute("class");
-        status.setAttribute("class", "highlighted");
     } else if (location === "learn.html") {
-        console.log(location);
+        nav_focus(learn);
         status.setAttribute("data-transition", "swipe_l");
         news.setAttribute("data-transition", "swipe_r");
-        document.getElementsByClassName("highlighted")[0].removeAttribute("class");
-        learn.setAttribute("class", "highlighted");
     } else {
-        console.log(location);
-        for(var i = 0; i < learn.length; i++)learn[i].setAttribute("data-transition", "swipe_l");
+        nav_focus(news);
+        learn.setAttribute("data-transition", "swipe_l");
         status.setAttribute("data-transition", "swipe_l");
-        document.getElementsByClassName("highlighted")[0].removeAttribute("class");
-        news.setAttribute("class", "highlighted");
     }
-// nav_focus(location);
+}
+function nav_focus(site) {
+    var tl = (0, _gsapDefault.default).timeline();
+    var old = document.getElementsByClassName("highlighted")[0];
+    (0, _gsapDefault.default).to(old, {
+        duration: .3,
+        backgroundColor: "#2a3342",
+        color: "#E0FBFC",
+        padding: "10px"
+    });
+    (0, _gsapDefault.default).to(site, {
+        duration: .3,
+        backgroundColor: "#ee5a35",
+        padding: "10px 20px 10px 20px",
+        color: "#181f2b",
+        borderRadius: "5px"
+    });
+    old.removeAttribute("class");
+    site.setAttribute("class", "highlighted");
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["bAoJx","am04F"], "am04F", "parcelRequire2b5a")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","gsap":"fPSuC"}]},["bAoJx","am04F"], "am04F", "parcelRequire2b5a")
 
 //# sourceMappingURL=news.0812e162.js.map

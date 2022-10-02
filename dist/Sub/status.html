@@ -31,94 +31,121 @@
                             </div>
                             <div class="normal">
                                 <ul>
-                                    <li class="pages getting-started" onclick="select_file(this)">Rust IDE</li>
-                                    <li class="pages intro" onclick="select_file(this)">Rust Audio</li>
-                                    <li class="pages" onclick="select_file(this)">Rust Machine Learning</li>
-                                    <li class="pages" onclick="select_file(this)">Rust quantum computing</li>
-                                    <li class="pages" onclick="select_file(this)">Rust Web development</li>
-                                    <li class="pages" onclick="select_file(this)">Rust Current Release</li>
+                                    <li class="GUI" onclick="select_file_v2(this)"><span>Rust GUI</span></li>
+                                    <li class="IDE" onclick="select_file_v2(this)"><span>Rust IDE</span></li>
+                                    <li class="Audio" onclick="select_file_v2(this)"><span>Rust Audio</span></li>
+                                    <li class="ML" onclick="select_file_v2(this)"><span>Rust Machine Learning</span>
+                                    </li>
+                                    <li class="QC" onclick="select_file_v2(this)"><span>Rust Quantum Computing</span>
+                                    </li>
+                                    <li class="WD" onclick="select_file_v2(this)"><span>Rust Web Development</span></li>
+                                    <li class="CR" onclick="select_file_v2(this)"><span>Rust Current Release</span></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="t_window_inner_content">
                             <div class="window_content">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum sit provident
-                                    necessitatibus. Libero, possimus praesentium voluptas fugiat magnam nam sit adipisci
-                                    nemo. Blanditiis repellat molestiae repudiandae deleniti, praesentium illum
-                                    repellendus.</p>
                             </div>
                         </div>
-                    </div>
+                        <div class="content">
+                            <div class="page" id="GUI">
+                                <div class="header">
+                                </div>
+                            </div>
+                            <div class="page" id="IDE">
+                                <div class="page_header">
+                                    <h3 id="content_title">The State of rust IDE's</h3>
+                                </div>
+                                <div class="page_content">
 
-                    <!-- <div class="learn-pages">
-                        <div class="menu-button" onclick="dropd_menu()">
-                            <div class="line"></div>
-                            <div class="line"></div>
-                            <div class="line"></div>
+                                    <div class="card_description">
+
+                                        <p>
+                                            An overview about the <a href="https://www.rust-lang.org/">state</a> of Rust
+                                            support by text editors and their
+                                            integrated brethren.
+
+                                            Below you'll find a table listing the comparable features of editors,
+                                            followed by specific information about single programs. The last part
+                                            presents some more tooling of Rust's ecosystem.
+                                        </p>
+
+                                    </div>
+                                    <h3 id="content_title">Most loved editors</h3>
+
+                                    <div class="page_cards loved">
+                                        <div class="page_card" id="vscode">
+                                            <div class="page_card_img"></div>
+                                            <div class="page_card_description"></div>
+                                            <div class="page_card_title"></div>
+                                        </div>
+                                        <div class="page_card" id="atom">
+                                            <div class="page_card_img"></div>
+                                            <div class="page_card_description"></div>
+                                            <div class="page_card_title"></div>
+                                        </div>
+                                        <div class="page_card" id="eclipse">
+                                            <div class="page_card_img"></div>
+                                            <div class="page_card_description"></div>
+                                            <div class="page_card_title"></div>
+                                        </div>
+                                    </div>
+
+                                    <h3 id="content_title">Other editors</h3>
+
+                                    <!-- <div class="page_cards other">
+                                    </div>
+
+                                    <div class="page_card">
+                                        <div class="page_card_img"></div>
+                                        <div class="page_card_description"></div>
+                                        <div class="page_card_title"></div>
+                                    </div>
+                                    <div class="page_card">
+                                        <div class="page_card_img"></div>
+                                        <div class="page_card_description"></div>
+                                        <div class="page_card_title"></div>
+                                    </div>
+                                    <div class="page_card">
+                                        <div class="page_card_img"></div>
+                                        <div class="page_card_description"></div>
+                                        <div class="page_card_title"></div>
+                                    </div> -->
+                                </div>
+                                <div class="page_footer">
+                                </div>
+                            </div>
+
+                            <div class="page" id="Audio">
+                                <div class="header">
+                                </div>
+                            </div>
+                            <div class="page" id="ML">
+                                <div class="header">
+                                </div>
+                            </div>
+                            <div class="page" id="QC">
+                                <div class="header">
+                                </div>
+                            </div>
+                            <div class="page" id="WD">
+                                <div class="header">
+                                </div>
+                            </div>
+                            <div class="page" id="CR">
+                                <div class="header">
+                                </div>
+                            </div>
                         </div>
-                        <ul>
-                            <li class="pages getting-started" onclick="select_file(this)">Rust IDE</li>
-                            <li class="pages intro" onclick="select_file(this)">Rust Audio</li>
-                            <li class="pages" onclick="select_file(this)">Rust Machine Learning</li>
-                            <li class="pages" onclick="select_file(this)">Rust quantum computing</li>
-                            <li class="pages" onclick="select_file(this)">Rust Web development</li>
-                            <li class="pages" onclick="select_file(this)">Rust Current Release</li>
-                        </ul>
-                    </div> -->
-
-                    <div class="content">
-
                     </div>
                 </div>
             </div>
         </div>
+        
     </main>
 
     <script src="/Sub/news.0812e162.js" defer=""></script>
+    <script src="/Sub/status.798f7820.js" defer=""></script>
 </body>
 
 </html>

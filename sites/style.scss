@@ -141,7 +141,6 @@ body {
             border: 2px solid $c_light_grey;
             background-color: $c_black;
             border-radius: 5px;
-            font-family: 'Roboto Mono', monospace;
             font-size: 16px;
             transition: width 500ms, height 500ms, margin 500ms;
             overflow-y: none;
@@ -191,7 +190,6 @@ body {
                 border-bottom: 1px solid $c_light_grey;
 
                 p {
-                    font-family: 'Roboto Mono', monospace;
                     font-size: 16px;
                     margin-left: 5px;
                     margin-right: 5px;
@@ -269,7 +267,6 @@ body {
 
         h1 {
             color: $c_blue;
-            font-family: 'Cutive Mono', monospace;
             font-size: 16px;
         }
 
@@ -296,7 +293,6 @@ body {
     }
 
     .navbar {
-        font-family: 'Roboto Mono', monospace;
         position: relative;
         width: 100%;
         height: 60px;
@@ -314,7 +310,7 @@ body {
                 margin: 10px;
 
                 a {
-                    color: $c_white;
+                    color: $c_black;
                     text-decoration: none;
                 }
             }
@@ -335,7 +331,7 @@ body {
                     width: 600px;
                     margin: 10px;
                     height: $t_window_size;
-                   
+
                     .content {
                         transition: visibility 200ms;
                     }
@@ -360,7 +356,6 @@ body {
 
             .navbar {
                 margin-top: 0;
-                font-family: 'Roboto Mono', monospace;
                 width: 100%;
                 height: 60px;
                 position: absolute;
@@ -408,7 +403,6 @@ body {
                 .docs {
                     grid-column: 1;
                     overflow: hidden;
-
                     grid-row: 1;
 
                     .title_bar {
@@ -442,13 +436,15 @@ body {
 
                                 li:hover {
                                     cursor: pointer;
-                                    background-color: #33312e4b;
+                                    background-color: $c_light_grey;
                                     transition: all .3s;
+                                    border-radius: 5px;
+
                                 }
                             }
 
                             #selected {
-                                background-color: #33312eaf;
+                                background-color: $c_light_grey_text;
                                 border-radius: 5px;
 
                             }
@@ -744,7 +740,7 @@ body {
                     width: 35px;
                     height: 5px;
                     border-radius: 3px;
-                    background-color: $c_light_grey;
+                    background-color: $c_dark_grey;
                 }
 
             }
@@ -752,7 +748,7 @@ body {
             .sandwitch:hover {
                 cursor: pointer;
                 transition: all .3s;
-                background-color: #33312e4b;
+                background-color: $c_light_grey_text;
                 border-radius: 5px;
             }
 
