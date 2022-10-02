@@ -6,6 +6,13 @@
   font-family: Roboto Mono, monospace;
 }
 
+.highlighted {
+  background-color: #353330;
+  border-radius: 3px;
+  padding: 10px 20px;
+  transition: all .3s;
+}
+
 #focus {
   width: calc(600px + 10vw);
   height: 76vh;
@@ -105,7 +112,7 @@ body .cards .t_window_div {
   overflow-y: none;
   background-color: #262523;
   border: 2px solid #85807a;
-  border-radius: 3px;
+  border-radius: 5px;
   font-family: Roboto Mono, monospace;
   font-size: 16px;
   transition: width .5s, height .5s, margin .5s;
@@ -184,6 +191,7 @@ body .cards .t_window_div .title_bar .icons .button {
 
 body .cards .t_window_div .title_bar .icons .button:hover {
   background-color: #ee4f16;
+  border-radius: 5px;
 }
 
 body .cards .t_window_div .title_bar .icons .minimalize {
@@ -258,7 +266,7 @@ body .navbar {
   width: 100%;
   height: 60px;
   background-color: #4d4a46;
-  justify-content: end;
+  justify-content: space-around;
   align-items: center;
   font-family: Roboto Mono, monospace;
   display: flex;
@@ -271,7 +279,7 @@ body .navbar ul {
 
 body .navbar ul li {
   float: right;
-  margin-right: 30px;
+  margin: 10px;
   font-size: 17px;
 }
 
@@ -334,8 +342,72 @@ body main .index .navbar ul li a {
 
 body main .status {
   width: 100%;
-  background-color: #ee4f16;
+  height: calc(100% - 60px);
   position: absolute;
+}
+
+body main .status .cards {
+  color: #444;
+  background-color: #353330;
+  padding: 10px;
+  transition: all .3s;
+  display: grid;
+}
+
+body main .status .cards .t_window_div {
+  border-radius: 5px;
+}
+
+body main .status .cards .docs {
+  grid-area: 1 / 1;
+}
+
+body main .status .cards .docs .title_bar {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+body main .status .cards .docs .t_window_inner {
+  height: calc(100% - 30px);
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+body main .status .cards .docs .t_window_inner .t_window_inner_nav {
+  width: 20%;
+  height: calc(100% - 20px);
+  background-color: #4d4a46;
+  border-radius: 5px;
+  margin: 10px;
+  transition: all .5s;
+}
+
+body main .status .cards .docs .t_window_inner .t_window_inner_nav .normal li {
+  color: #f7f4ed;
+  padding: 10px;
+  list-style: none;
+}
+
+body main .status .cards .docs .t_window_inner .t_window_inner_nav .normal li:hover {
+  cursor: pointer;
+  background-color: #33312e4b;
+  border-radius: 5px;
+  transition: all .3s;
+}
+
+body main .status .cards .docs .t_window_inner .t_window_inner_content {
+  width: 100%;
+  height: calc(100% - 20px);
+  background-color: #353330;
+  border-radius: 5px;
+  margin: 10px 10px 10px 0;
+  display: flex;
+}
+
+body main .status .cards .docs .t_window_inner .t_window_inner_content .window_content {
+  height: 770px;
+  overflow-y: scroll;
 }
 
 body main .learn {
@@ -347,7 +419,7 @@ body main .learn {
 body main .learn .cards {
   grid-gap: 10px;
   color: #444;
-  background-color: #00798c;
+  background-color: #353330;
   grid-template-rows: 70% calc(30% - 10px);
   grid-template-columns: 100% calc(40% - 10px);
   padding: 10px;
@@ -448,7 +520,7 @@ body main .learn .cards .editor {
 body main .news {
   width: 100%;
   height: calc(100% - 60px);
-  background-color: tomato;
+  background-color: #353330;
   position: absolute;
 }
 
@@ -458,6 +530,52 @@ body main .news #news_div {
 }
 
 @media only screen and (max-width: 1200px) {
+  .status .t_window_inner_nav {
+    max-width: 50px;
+    min-width: 50px;
+  }
+
+  .status .t_window_inner_nav .sandwitch {
+    width: 50px;
+    height: 40px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+  }
+
+  .status .t_window_inner_nav .sandwitch .line {
+    width: 35px;
+    height: 5px;
+    background-color: #85807a;
+    border-radius: 3px;
+    margin: 5px;
+  }
+
+  .status .t_window_inner_nav .sandwitch:hover {
+    cursor: pointer;
+    background-color: #33312e4b;
+    border-radius: 5px;
+    transition: all .3s;
+  }
+
+  .status .t_window_inner_nav .normal {
+    display: none;
+  }
+
+  .status #menu_button_pressed {
+    max-width: 200px !important;
+    min-width: 200px !important;
+  }
+
+  .status #menu_button_pressed .normal {
+    display: block;
+  }
+
+  .status #menu_button_pressed .sandwitch {
+    display: none !important;
+  }
+
   .cards {
     flex-wrap: wrap;
     position: relative;
@@ -469,31 +587,31 @@ body main .news #news_div {
     margin-top: 0;
   }
 
-  .docs .learn-pages {
+  .learn .docs .learn-pages {
     width: 50px !important;
   }
 
-  .docs .learn-pages ul {
+  .learn .docs .learn-pages ul {
     display: none;
   }
 
-  .docs .learn-pages .menu-button {
+  .learn .docs .learn-pages .menu-button {
     display: flex !important;
   }
 
-  .docs .content {
+  .learn .docs .content {
     width: calc(100% - 50px) !important;
   }
 
-  #menu_button_pressed {
+  .learn #menu_button_pressed {
     width: 272px !important;
   }
 
-  #menu_button_pressed ul {
+  .learn #menu_button_pressed ul {
     display: block;
   }
 
-  #menu_button_pressed .menu-button {
+  .learn #menu_button_pressed .menu-button {
     display: none !important;
   }
 }

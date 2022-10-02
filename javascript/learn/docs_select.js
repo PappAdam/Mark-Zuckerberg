@@ -20,6 +20,11 @@ function dropd_menu() {
     document.getElementsByClassName('learn-pages')[0].setAttribute('id', 'menu_button_pressed');
 }
 
+function dropd_menu_v2() {
+    console.log("function called");
+    document.getElementsByClassName('t_window_inner_nav')[0].setAttribute('id', 'menu_button_pressed');
+}
+
 function reveal_code(el) {
     if (window.innerWidth > 600) {
         document.getElementById('learn-c').style.gridTemplateColumns = "60% calc(40% - 10px)"
@@ -28,6 +33,6 @@ function reveal_code(el) {
 
     var elements = ['editor', 'term'];
     for (var i = 0; i < 2; i++) {
-        document.getElementById('main_' + elements[i] + '_content').innerHTML = document.getElementsByClassName(el.classList[1])[i+1].innerHTML;
+        document.getElementById('main_' + elements[i] + '_content').innerHTML = document.getElementsByClassName(el.classList[1])[i + 1].innerHTML;
     }
 }
