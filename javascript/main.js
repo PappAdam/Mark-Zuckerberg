@@ -1,6 +1,8 @@
 import Placehodler from './transitions/default.js';
 import Highway from '@dogstudio/highway';
 import { SwipeRight, SwipeLeft } from './transitions/swipe.js';
+import jQuery from "jquery";
+window.$ = window.jQuery = jQuery;
 
 let load = 0;
 

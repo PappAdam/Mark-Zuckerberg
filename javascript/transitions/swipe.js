@@ -7,6 +7,7 @@ export class SwipeRight extends Highway.Transition {
 
         window.scrollTo(0, 0);
 
+
         Tween.fromTo(from,
             { left: "0%" },
             {
@@ -16,6 +17,7 @@ export class SwipeRight extends Highway.Transition {
 
             }
         );
+        swipe_direction();
 
         Tween.fromTo(to,
             { right: "-100%" },
@@ -24,7 +26,6 @@ export class SwipeRight extends Highway.Transition {
                 ease: "power4.out",
                 duration: 1,
                 onComplete: function () {
-                    swipe_direction();
                     from.remove();
                     done();
                 }
@@ -53,6 +54,7 @@ export class SwipeLeft extends Highway.Transition {
             }
         );
 
+        swipe_direction();
         Tween.fromTo(to,
             { left: "-100%" },
             {
@@ -60,7 +62,6 @@ export class SwipeLeft extends Highway.Transition {
                 ease: "power4.out",
                 duration: 1,
                 onComplete: function () {
-                    swipe_direction();
                     from.remove();
                     done();
                 }
