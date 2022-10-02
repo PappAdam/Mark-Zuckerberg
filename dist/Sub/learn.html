@@ -17,43 +17,48 @@
                     <div class="title_bar" id="docs-title">
                         <p>documentation</p>
                     </div>
-
-                    <div class="learn-pages">
-                        <div class="menu-button" onclick="dropd_menu()">
-                            <div class="line"></div>
-                            <div class="line"></div>
-                            <div class="line"></div>
+                    <div class="t_window_inner">
+                        <div class="t_window_inner_nav">
+                            <div class="sandwitch">
+                                <div class="menu-button" onclick="dropd_menu_v2()">
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                </div>
+                            </div>
+                            <div class="normal">
+                                <ul>
+                                    <span class="example"></span>
+                                    <li class="getting-started" onclick="select_file(this)"><span>Getting Started</span></li>
+                                    <li class="IDE" onclick="select_file(this)"><span>Rust IDE</span></li>
+                                    <li class="Audio" onclick="select_file(this)"><span>Rust Audio</span></li>
+                                    <li class="ML" onclick="select_file(this)"><span>Rust Machine Learning</span>
+                                    </li>
+                                    <li class="QC" onclick="select_file_v2(this)"><span>Rust Quantum Computing</span>
+                                    </li>
+                                    <li class="WD" onclick="select_file(this)"><span>Rust Web Development</span></li>
+                                    <li class="CR" onclick="select_file(this)"><span>Rust Current Release</span></li>
+                                </ul>
+                            </div>
                         </div>
-                        <ul>
-                            <li class="pages getting-started" onclick="select_file(this)">getting started</li>
-                            <li class="pages intro" onclick="select_file(this)">introduction</li>
-                            <li class="pages" onclick="select_file(this)">placeholder</li>
-                            <li class="pages" onclick="select_file(this)">placeholder</li>
-                            <li class="pages" onclick="select_file(this)">placeholder</li>
-                            <li class="pages" onclick="select_file(this)">placeholder</li>
-                            <li class="pages" onclick="select_file(this)">placeholder</li>
-                            <li class="pages" onclick="select_file(this)">placeholder</li>
-                            <li class="pages" onclick="select_file(this)">placeholder</li>
-                            <li class="pages" onclick="select_file(this)">placeholder</li>
-                        </ul>
-                    </div>
 
-                    <div class="content">
-                        <div id="main_content">
-                            <h1>Welcome to our ultimate rust guide</h1>
-                            <br>
-                            <p>Here you are going to learn nothing, since we didn't have enough time to finish the
-                                project</p>
-                            <p>Most likely you don't read these lines so I should just stop writing</p>
-                            <p>Anyways here is some fancy clickable code, which will open in the everything-but-editor
-                                editor</p>
-                            <p>Even it will show some output to you, which is just a predefined text matched to the
-                                guide page you have clicked, so there is nothing interesing happening here</p>
-                            <br>
-                            <h2>This code is clickable and will be shown in the editor, in the top left corner <code class="rust-c example" onclick="reveal_code(this)">example code</code></h2>
+                        <div class="t_window_inner_content">
+                            <div id="main_content">
+                                <h1>Welcome to our ultimate rust guide</h1>
+                                <br>
+                                <p>Here you are going to learn nothing, since we didn't have enough time to finish the
+                                    project</p>
+                                <p>Most likely you don't read these lines so I should just stop writing</p>
+                                <p>Anyways here is some fancy clickable code, which will open in the everything-but-editor
+                                    editor</p>
+                                <p>Even it will show some output to you, which is just a predefined text matched to the
+                                    guide page you have clicked, so there is nothing interesing happening here</p>
+                                <br>
+                                <h2>This code is clickable and will be shown in the editor, in the top left corner <code class="rust-c example" onclick="reveal_code(this)">example code</code></h2>
 
+                            </div>
                         </div>
-                        <div class="sub_content getting-started">
+                        <div class="sub_content" id="getting-started">
                             <h1>Installation</h1>
                             <br>
                             <p>The first step is to install Rust. We’ll download Rust through rustup, a command line
@@ -89,10 +94,10 @@
                             <p>Within that file there is a small program, which should write "Hello World!" into your
                                 terminal</p>
                             <br>
-                            <p>You can run the code using:</p>
+                            <p>You can run the <code class="rust-c hello_w" onclick="reveal_code(this)">code</code> using:</p>
                             <code>cargo run</code>
                         </div>
-                        <div class="sub_content intro">
+                        <div class="sub_content">
                             <p>introduction to rust</p>
                         </div>
                     </div>
@@ -149,6 +154,11 @@
                                     slakfj"</span>); </p>
                             <p>} </p>
                         </div>
+                        <div class="sub_content hello_w">
+                            <p><span style="color: #00798c">fn </span>main() { <span style="color: #4d4a46">// the entry point of the code </span></p>
+                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #4d4a46">"Hello, World!"</span>); <span style="color: #4d4a46">// calls a macro to print the given text </span></p>
+                            <p>} </p>                     
+                        </div>
                     </div>
                 </div>
 
@@ -164,6 +174,9 @@
 
                         <div class="sub_content example">
                             <p>jfklsadjlkfs skdfj asdfj slakfj</p>
+                        </div>
+                        <div class="sub_content hello_w">
+                            <p>Hello, World!</p>
                         </div>
                     </div>
                 </div>

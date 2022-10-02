@@ -1,6 +1,3 @@
-fn main() {
-    //hahahah
-    let asd: bool = false; //hihi ha
-    let dsa: u16 = 18;
-    println!("Hello, World!");
+fn main() { // the entry point of the code
+    println!("Hello, World!"); // calls a macro to print the given text
 }

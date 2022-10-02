@@ -13,20 +13,43 @@
 
     <main data-router-wrapper>
         <div class="news" data-router-view="main">
-            <div class="cards">
-                <div class="t_window_div" id="news_div">
-                    <div class="title_bar">
-                        <p>window title</p>
+            <div class="cards" id="learn-c">
+                <div class="t_window_div docs">
+                    <div class="title_bar" id="docs-title">
+                        <p>Current state of rust</p>
                     </div>
-    
-                    <div class="line_numbers">
-                        <ol>
-                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
-                        </ol>
-                    </div>
-    
-                    <div class="content">
-    
+
+                    <div class="t_window_inner">
+                        <div class="t_window_inner_nav">
+                            <div class="sandwitch">
+                                <div class="menu-button" onclick="dropd_menu_v2()">
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                </div>
+                            </div>
+                            <div class="normal">
+                                <ul>
+                                    <li class="" onclick="select_file_v2(this)"><span></span></li>
+                                    <li class="" onclick="select_file_v2(this)"><span></span></li>
+                                    <li class="" onclick="select_file_v2(this)"><span></span></li>
+                                    <li class="" onclick="select_file_v2(this)"><span></span>
+                                    </li>
+                                    <li class="" onclick="select_file_v2(this)"><span></span>
+                                    </li>
+                                    <li class="" onclick="select_file_v2(this)"><span></span></li>
+                                    <li class="" onclick="select_file_v2(this)"><span></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="t_window_inner_content">
+                            <div class="window_content">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="page" id="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,6 +57,7 @@
     </main>
 
     <script type="module" src="../../javascript/main.js"></script>
+    <script type="module" src="../../javascript/learn/docs_select.js"></script>
 </body>
 
 </html>

@@ -23,7 +23,7 @@ def convert_row_into_html_paragraph(row: str) -> str:
             parsed_row += f"<span style='color: {c_grey}'>"
 
         if comment:
-            parsed_row += word
+            parsed_row += word + " "
         else:
             try:
                 int_w = int(word.replace(";", ""))
