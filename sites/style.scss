@@ -1,11 +1,11 @@
-$c_orange: #EE4F16;
-$c_black: #262523;
-$c_grey: #4d4a46;
-$c_dark_grey: #353330;
-$c_light_grey: #85807a;
-$c_blue: #00798C;
-$c_white: #F7F4ED;
-$c_red: tomato;
+$c_orange: #ee5a35;
+$c_black: #12161d;
+$c_grey: #2a3342;
+$c_dark_grey: #181f2b;
+$c_light_grey: #314957;
+$c_light_grey_text: #547283;
+$c_blue: #3D5A80;
+$c_white: #E0FBFC;
 
 $t_window_size: 46vh;
 
@@ -26,14 +26,14 @@ $t_window_size: 46vh;
     .top_row {
         ul {
             .unfocues_file {
-                color: $c_light_grey;
+                color: $c_light_grey_text;
                 background-color: $c_dark_grey;
 
             }
 
             .focues_file {
-                color: $c_white;
-                background-color: $c_blue;
+                color: $c_black;
+                background-color: $c_orange;
             }
         }
     }
@@ -56,7 +56,7 @@ $t_window_size: 46vh;
     transition: left .5s;
     transition: right .5s;
     position: relative;
-    background-image: url("../imgs/main_background.png");
+    // background-image: url("../imgs/main_background.png");
 
     .rust_log {
         position: absolute;
@@ -154,13 +154,13 @@ body {
                     list-style: none;
 
                     .unfocues_file {
-                        color: $c_white;
-                        background-color: $c_blue;
+                        color: $c_black;
+                        background-color: $c_orange;
                         border-radius: 2px;
                     }
 
                     .focues_file {
-                        color: $c_light_grey;
+                        color: $c_light_grey_text;
                         border-radius: 2px;
                         background-color: $c_dark_grey;
                     }
@@ -170,7 +170,7 @@ body {
                         float: left;
                         margin-left: 10px;
                         font-size: 12px;
-                        color: $c_light_grey;
+                        color: $c_light_grey_text;
                     }
                 }
             }
@@ -248,7 +248,7 @@ body {
                     margin-right: 2px;
                     text-align: right;
                     display: block;
-                    color: $c_light_grey;
+                    color: $c_light_grey_text;
                     counter-increment: customlistcounter;
 
                 }
@@ -393,7 +393,6 @@ body {
             position: absolute;
             background-color: $c_orange;
             width: 100%;
-
         }
 
         .learn {
@@ -406,7 +405,7 @@ body {
                 grid-gap: 10px;
                 grid-template-columns: 100% calc(40% - 10px);
                 grid-template-rows: 70% calc(30% - 10px);
-                background-color: $c_blue;
+                background-color: $c_dark_grey;
                 color: #444;
                 padding: 10px;
                 transition: 300ms;
@@ -513,7 +512,7 @@ body {
 
         .news {
             position: absolute;
-            background-color: $c_red;
+            background-color: $c_orange;
             width: 100%;
             height: calc(100% - 60px);
 

@@ -13,13 +13,13 @@
 }
 
 #focus .top_row ul .unfocues_file {
-  color: #85807a;
-  background-color: #353330;
+  color: #547283;
+  background-color: #181f2b;
 }
 
 #focus .top_row ul .focues_file {
-  color: #f7f4ed;
-  background-color: #00798c;
+  color: #12161d;
+  background-color: #ee5a35;
 }
 
 #focus .sum {
@@ -35,8 +35,7 @@
 .heading {
   height: calc(54vh - 80px);
   width: 100%;
-  background-color: #353330;
-  background-image: url("main_background.c3bc9e4f.png");
+  background-color: #181f2b;
   transition: right .5s;
   position: relative;
 }
@@ -74,7 +73,7 @@
 }
 
 .heading .heading-container h1 {
-  color: #f7f4ed;
+  color: #e0fbfc;
   margin-left: 11.5vh;
   font-size: calc(25vh - 4vw);
 }
@@ -101,7 +100,7 @@
 }
 
 .heading .heading-container h2 {
-  color: #f7f4ed;
+  color: #e0fbfc;
   font-size: 2vh;
 }
 
@@ -113,8 +112,8 @@ body .cards {
 
 body .cards .t_window_div {
   overflow-y: none;
-  background-color: #262523;
-  border: 2px solid #85807a;
+  background-color: #12161d;
+  border: 2px solid #314957;
   border-radius: 3px;
   font-family: Roboto Mono, monospace;
   font-size: 16px;
@@ -125,8 +124,8 @@ body .cards .t_window_div .top_row {
   width: 100%;
   height: 25px;
   float: right;
-  background-color: #353330;
-  border-bottom: 1px solid #4d4a46;
+  background-color: #181f2b;
+  border-bottom: 1px solid #2a3342;
   align-items: center;
   display: flex;
 }
@@ -136,20 +135,20 @@ body .cards .t_window_div .top_row ul {
 }
 
 body .cards .t_window_div .top_row ul .unfocues_file {
-  color: #f7f4ed;
-  background-color: #00798c;
+  color: #12161d;
+  background-color: #ee5a35;
   border-radius: 2px;
 }
 
 body .cards .t_window_div .top_row ul .focues_file {
-  color: #85807a;
-  background-color: #353330;
+  color: #547283;
+  background-color: #181f2b;
   border-radius: 2px;
 }
 
 body .cards .t_window_div .top_row ul li {
   float: left;
-  color: #85807a;
+  color: #547283;
   margin-left: 10px;
   font-size: 12px;
 }
@@ -157,9 +156,9 @@ body .cards .t_window_div .top_row ul li {
 body .cards .t_window_div .title_bar {
   height: 30px;
   width: 100%;
-  color: #f7f4ed;
-  background-color: #4d4a46;
-  border-bottom: 1px solid #85807a;
+  color: #e0fbfc;
+  background-color: #2a3342;
+  border-bottom: 1px solid #314957;
   border-radius: 3px;
   justify-content: space-between;
   display: flex;
@@ -193,7 +192,7 @@ body .cards .t_window_div .title_bar .icons .button {
 }
 
 body .cards .t_window_div .title_bar .icons .button:hover {
-  background-color: #ee4f16;
+  background-color: #ee5a35;
 }
 
 body .cards .t_window_div .title_bar .icons .minimalize {
@@ -212,8 +211,8 @@ body .cards .line_numbers {
   height: calc(100% - 55px);
   width: 30px;
   float: left;
-  background-color: #353330;
-  border-right: 1px solid #4d4a46;
+  background-color: #181f2b;
+  border-right: 1px solid #2a3342;
   margin-top: 1px;
   overflow-y: hidden;
 }
@@ -225,7 +224,7 @@ body .cards .line_numbers ol {
 
 body .cards .line_numbers ol li {
   text-align: right;
-  color: #85807a;
+  color: #547283;
   counter-increment: customlistcounter;
   margin-right: 2px;
   display: block;
@@ -237,43 +236,43 @@ body .cards .line_numbers ol li:before {
 }
 
 body .cards h1 {
-  color: #00798c;
+  color: #3d5a80;
   font-family: Cutive Mono, monospace;
   font-size: 16px;
 }
 
 body .cards h2 {
-  color: #ee4f16;
+  color: #ee5a35;
   font-size: 16px;
 }
 
 body .cards p {
-  color: #f7f4ed;
+  color: #e0fbfc;
   font-size: 16px;
 }
 
 body .cards a {
-  color: #85807a;
+  color: #314957;
   font-size: 16px;
   text-decoration: none;
   transition: all .3s;
 }
 
 body .cards a:hover {
-  color: #00798c;
+  color: #3d5a80;
 }
 
 body {
   width: 100%;
   height: 100%;
-  background-color: #262523;
+  background-color: #12161d;
   overflow-x: hidden;
 }
 
 body .navbar {
   width: 100%;
   height: 60px;
-  background-color: #4d4a46;
+  background-color: #2a3342;
   justify-content: end;
   align-items: center;
   font-family: Roboto Mono, monospace;
@@ -292,7 +291,7 @@ body .navbar ul li {
 }
 
 body .navbar ul li a {
-  color: #f7f4ed;
+  color: #e0fbfc;
   text-decoration: none;
 }
 
@@ -303,7 +302,7 @@ body main {
 
 body main .index {
   width: 100%;
-  background-color: #262523;
+  background-color: #12161d;
   position: absolute;
 }
 
@@ -336,7 +335,7 @@ body main .index .cards .t_window_div .desc {
 body main .index .navbar {
   width: 100%;
   height: 60px;
-  background-color: #4d4a46;
+  background-color: #2a3342;
   justify-content: end;
   align-items: center;
   margin-top: 0;
@@ -364,7 +363,7 @@ body main .index .navbar ul li a {
 
 body main .status {
   width: 100%;
-  background-color: #ee4f16;
+  background-color: #ee5a35;
   position: absolute;
 }
 
@@ -377,7 +376,7 @@ body main .learn {
 body main .learn .cards {
   grid-gap: 10px;
   color: #444;
-  background-color: #00798c;
+  background-color: #181f2b;
   grid-template-rows: 70% calc(30% - 10px);
   grid-template-columns: 100% calc(40% - 10px);
   padding: 10px;
@@ -404,7 +403,7 @@ body main .learn .cards .docs .learn-pages {
   float: left;
   width: 272px;
   height: calc(100% - 51px);
-  background-color: #353330;
+  background-color: #181f2b;
   margin-top: 30px;
   transition: width .3s;
   position: absolute;
@@ -423,7 +422,7 @@ body main .learn .cards .docs .learn-pages .menu-button {
 body main .learn .cards .docs .learn-pages .menu-button .line {
   width: 35px;
   height: 5px;
-  background-color: #85807a;
+  background-color: #314957;
   border-radius: 3px;
 }
 
@@ -434,7 +433,7 @@ body main .learn .cards .docs .learn-pages ul {
 body main .learn .cards .docs .learn-pages ul li {
   height: 40px;
   width: 65%;
-  color: #85807a;
+  color: #314957;
   background-color: #0000;
   padding: 7px;
   font-size: 18px;
@@ -444,7 +443,7 @@ body main .learn .cards .docs .learn-pages ul li {
 body main .learn .cards .docs .learn-pages ul #selected {
   width: 100%;
   text-align: right;
-  background-color: #4d4a46;
+  background-color: #2a3342;
 }
 
 body main .learn .cards .docs .content {
@@ -456,15 +455,15 @@ body main .learn .cards .docs .content {
 }
 
 body main .learn .cards .docs .content code {
-  color: #85807a;
-  background-color: #353330;
+  color: #314957;
+  background-color: #181f2b;
   padding: 0 5px;
   font-size: 17px;
 }
 
 body main .learn .cards .docs .content .rust-c {
-  color: #ee4f16;
-  background-color: #4d4a46;
+  color: #ee5a35;
+  background-color: #2a3342;
 }
 
 body main .learn .cards .term {
@@ -478,7 +477,7 @@ body main .learn .cards .editor {
 body main .news {
   width: 100%;
   height: calc(100% - 60px);
-  background-color: tomato;
+  background-color: #ee5a35;
   position: absolute;
 }
 
