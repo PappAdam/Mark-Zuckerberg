@@ -667,7 +667,6 @@ body {
                                 border-radius: 5px;  
 
                                 code {
-                                    cursor: pointer;
                                     background-color: $c_black;
                                     color: $c_light_grey_text;
                                     padding: 3px;
@@ -676,8 +675,41 @@ body {
                                 }
 
                                 .rust-c {
+                                    cursor: pointer;
                                     background-color: $c_orange;
                                     color: $c_dark_grey;
+                                }
+                                
+                                .t_table {
+                                    width: 100%;
+                                    display: flex;
+                                    justify-content: flex-end;
+                                    flex-direction: row-reverse;
+
+                                    div {
+                                        margin-right: 20px;
+                                        width: 50% ;
+                                    }
+
+                                    table {
+                                        border: 3px #ee5a35 solid;
+                                        border-radius: 5px;
+                                        padding: 3px;
+
+                                        tr {
+
+                                            background-color: #12161d;
+                                            th {
+                                                background-color: #00798C;
+                                            }
+                                            
+                                            td {
+                                                text-align: center;
+                                                padding: 4px;
+
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             
@@ -689,6 +721,10 @@ body {
                     grid-column: 2;
                     grid-row: 2;
                     
+                    .content {
+                        height: calc(100% - 30px);
+                        overflow-y: scroll;
+                    }
                 }
 
                 .editor {
