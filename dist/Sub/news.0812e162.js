@@ -4934,13 +4934,13 @@ parcelHelpers.export(exports, "swipe_direction", ()=>swipe_direction) // functio
 function swipe_direction() {
     let location = window.location.href.split("/").pop();
     let status = document.getElementById("status_nav");
-    let learn = document.getElementById("learn_nav");
+    let learn = document.getElementsByClassName("learn_nav");
     let news = document.getElementById("news_nav");
     let index = document.getElementById("index_nav");
     if (location === "index.html") {
         console.log(location);
         status.setAttribute("data-transition", "swipe_r");
-        learn.setAttribute("data-transition", "swipe_r");
+        for(var i = 0; i < learn.length; i++)learn[i].setAttribute("data-transition", "swipe_r");
         news.setAttribute("data-transition", "swipe_r");
         // document.getElementsByClassName("highlighted")[0].style.padding = "10px";
         // document.getElementsByClassName("highlighted")[0].style.backgroundColor = "transparent";
@@ -4948,7 +4948,7 @@ function swipe_direction() {
         index.setAttribute("class", "highlighted");
     } else if (location === "status.html") {
         console.log(location);
-        learn.setAttribute("data-transition", "swipe_r");
+        for(var i = 0; i < learn.length; i++)learn[i].setAttribute("data-transition", "swipe_r");
         news.setAttribute("data-transition", "swipe_r");
         document.getElementsByClassName("highlighted")[0].removeAttribute("class");
         status.setAttribute("class", "highlighted");
@@ -4960,7 +4960,7 @@ function swipe_direction() {
         learn.setAttribute("class", "highlighted");
     } else {
         console.log(location);
-        learn.setAttribute("data-transition", "swipe_l");
+        for(var i = 0; i < learn.length; i++)learn[i].setAttribute("data-transition", "swipe_l");
         status.setAttribute("data-transition", "swipe_l");
         document.getElementsByClassName("highlighted")[0].removeAttribute("class");
         news.setAttribute("class", "highlighted");
