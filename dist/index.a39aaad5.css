@@ -36,6 +36,7 @@
   height: calc(54vh - 80px);
   width: 100%;
   background-color: #181f2b;
+  background-image: url("main_background.c3bc9e4f.png");
   transition: right .5s;
   position: relative;
 }
