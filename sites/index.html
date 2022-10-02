@@ -12,11 +12,11 @@
 
 
 
-<body onload="fill_content()">
+<body >
     <div class="navbar" id="nav">
         <ul>
             <li><a id="news_nav" href="Sub/news.html" data-transition="swipe_r">News</a></li>
-            <li><a id="learn_nav" href="Sub/learn.html" data-transition="swipe_r">Learn</a></li>
+            <li><a class="learn_nav" href="Sub/learn.html" data-transition="swipe_r">Learn</a></li>
             <li><a id="status_nav" href="Sub/status.html" data-transition="swipe_r">Status</a></li>
             <li><a id="index_nav" href="index.html " data-transition="swipe_l">Home</a></li>
         </ul>
@@ -43,7 +43,7 @@
 
                 <div class="t_window_div">
                     <div class="title_bar">
-                        <p>window title</p>
+                        <p>Status</p>
                         <div class="icons">
                             <div class="minimalize button" onclick=button_press(this)></div>
                             <div class="fullscreen button" onclick=button_press(this)></div>
@@ -53,9 +53,9 @@
 
                     <div class="top_row">
                         <ul>
-                            <li class="unfocues_file">unfocused</li>
+                            <li class="unfocues_file">status.json</li>
                             <li>|</li>
-                            <li class="focues_file">focused</li>
+                            <li class="focues_file">status.pdf</li>
                         </ul>
                     </div>
 
@@ -91,10 +91,69 @@
                         </ol>
                     </div>
 
-                    <div class="content" id="1">
-                        <p>
-                            Text when window is not on focus
-                        </p>
+                    <div class="content sum" id="1">
+                        <p><span style='color: #4d4a46'>{</span><p>&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>    "title":</span> "Status",<p>&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>    "descr":</span> "Rise of the rust programming language",<p>&emsp;&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>    "made by":</span> {<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>        "name":</span> "Csizmadia Barnabas",<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>        "github-user":</span> "SeenLenz"<p>&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>    },:</span><p>&emsp;&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>    "used sources":</span> "areweyet pages"<p><span style='color: #4d4a46'>}</span>
+                    </div>
+
+                    <div class="content desc">
+
+                    </div>
+                </div>
+
+                <div class="t_window_div">
+                    <div class="title_bar">
+                        <p>Learn</p>
+                        <div class="icons">
+                            <div class="minimalize button" onclick=button_press(this)></div>
+                            <div class="fullscreen button" onclick=button_press(this)></div>
+                            <div class="close button" onclick=button_press(this)></div>
+                        </div>
+                    </div>
+
+                    <div class="top_row">
+                        <ul>
+                            <li class="unfocues_file">learn.json</li>
+                            <li>|</li>
+                            <li class="focues_file">learn.pdf</li>
+                        </ul>
+                    </div>
+
+                    <div class="line_numbers">
+                        <ol>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ol>
+                    </div>
+
+                    <div class="content sum" id="2">
+                        <p><span style='color: #85807a'>{</span></p><p>&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>   "made by":</span> <span style='color: #85807a'>{</span></p><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>        "name":</span> "Papp Adam",</p><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>        "github-user":</span> "PappAdam"</p><p>&emsp;&emsp;&emsp;&emsp;&emsp;<span style='color: #85807a'>}</span> </p><p>&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>    "title":</span> "Learn",</p><p>&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>    "descr":</span> "Learning resources for rust",</p><p>&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>   "used sources":</span> "rust book, and my knowledge"</p><p><span style='color: #85807a'>}</span></p>
+                    </div>
+                    <div class="content desc">
+                        <h1>Learn</h1><br><p>Rust is a fast, low level language, with many high level abstractions.</p><p>Despite it is considered as low level, rust is fully memory safe without a garbage collector, so there isn't a second program runnig in the background and seeking for unused memory.</p><p>Rust has a different approach for gaining memory safety, which is the ownership-reference model and the borrow-checking system, which is checking all the memory allocations at compile time, instead of runtime (like gc does).</p><p>Besides this, rusts biggest advantage is its rich type system, which makes our code easily readable and understandable, not just our future selfs, but for anyone who knows the language.</p><br><h2>Interested?</h2><a href="Sub/learn.html" data-transition="swipe_r">Check out our learn page</a>
                     </div>
                 </div>
 
@@ -147,61 +206,10 @@
                         </ol>
                     </div>
 
-                    <div class="content" id="2">
-
+                    <div class="content sum" id="3">
+                        <p><span style='color: #85807a'>{</span></p><p>&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>   "made by":</span> <span style='color: #85807a'>{</span></p><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>        "name":</span> "Papp Zsombor",</p><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>        "github-user":</span> "PappZsombor"</p><p>&emsp;&emsp;&emsp;&emsp;&emsp;<span style='color: #85807a'>}</span> </p><p>&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>    "title":</span> "News",</p><p>&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>    "descr":</span> "News and releases",</p><p>&emsp;&emsp;&emsp;&emsp;<span style='color: #00798C'>   "used sources":</span> "rusts official website"</p><p><span style='color: #85807a'>}</span></p>
                     </div>
-                </div>
-
-                <div class="t_window_div">
-                    <div class="title_bar">
-                        <p>window title</p>
-                        <div class="icons">
-                            <div class="minimalize button" onclick=button_press(this)></div>
-                            <div class="fullscreen button" onclick=button_press(this)></div>
-                            <div class="close button" onclick=button_press(this)></div>
-                        </div>
-                    </div>
-
-                    <div class="top_row">
-                        <ul>
-                            <li class="unfocues_file">unfocused</li>
-                            <li>|</li>
-                            <li class="focues_file">focused</li>
-                        </ul>
-                    </div>
-
-                    <div class="line_numbers">
-                        <ol>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ol>
-                    </div>
-
-                    <div class="content" id="3">
+                    <div class="content desc">
 
                     </div>
                 </div>

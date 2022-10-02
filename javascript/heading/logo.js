@@ -22,7 +22,6 @@ window.addEventListener('resize', function (e) {
 
 window.addEventListener("click", function (e) {
 
-    console.log("Click event called function");
     var elementh = document.getElementsByClassName("heading-container")[0];
 
     if (document.getElementById("2").parentElement.id == "focus" && window.innerWidth > 1200) {

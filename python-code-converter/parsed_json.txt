@@ -1,0 +1,1 @@
+<p>{</p><p>   "made by": {</p><p>        "name": "Papp Zsombor",</p><p>        "github-user": "PappZsombor"</p><p>    },</p><p>    "title": "News",</p><p>    "descr": "News and releases",</p><p>   "used sources": "rusts official website"</p><p>}</p>

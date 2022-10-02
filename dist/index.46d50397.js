@@ -543,7 +543,6 @@ window.addEventListener("resize", function(e) {
     else elementh.style.left = `calc(50% - calc(calc(55vh - 4vw) / 2))`;
 });
 window.addEventListener("click", function(e) {
-    console.log("Click event called function");
     var elementh = document.getElementsByClassName("heading-container")[0];
     if (document.getElementById("2").parentElement.id == "focus" && window.innerWidth > 1200) elementh.style.left = `20px`;
     else elementh.style.left = `calc(50% - calc(calc(55vh - 4vw) / 2))`;

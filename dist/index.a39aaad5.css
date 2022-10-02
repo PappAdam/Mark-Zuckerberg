@@ -22,6 +22,16 @@
   background-color: #00798c;
 }
 
+#focus .sum {
+  visibility: hidden;
+  display: none;
+}
+
+#focus .desc {
+  visibility: visible;
+  display: block;
+}
+
 .heading {
   height: calc(54vh - 80px);
   width: 100%;
@@ -234,17 +244,23 @@ body .cards h1 {
 
 body .cards h2 {
   color: #ee4f16;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 body .cards p {
   color: #f7f4ed;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 body .cards a {
-  color: #ee4f16;
-  font-size: 17px;
+  color: #85807a;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all .3s;
+}
+
+body .cards a:hover {
+  color: #00798c;
 }
 
 body {
@@ -301,6 +317,20 @@ body main .index .cards .t_window_div {
   width: 600px;
   height: 46vh;
   margin: 10px;
+}
+
+body main .index .cards .t_window_div .content {
+  transition: visibility .2s;
+}
+
+body main .index .cards .t_window_div .sum {
+  visibility: visible;
+  display: block;
+}
+
+body main .index .cards .t_window_div .desc {
+  visibility: hidden;
+  display: none;
 }
 
 body main .index .navbar {
