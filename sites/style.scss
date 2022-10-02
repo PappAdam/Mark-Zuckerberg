@@ -125,8 +125,13 @@ $t_window_size: 46vh;
     }
 }
 
-
 body {
+    min-width: 375px;
+    background-color: $c_black;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+
     .cards {
         width: 100%;
         height: 100%;
@@ -135,7 +140,7 @@ body {
         .t_window_div {
             border: 2px solid $c_light_grey;
             background-color: $c_black;
-            border-radius: 3px;
+            border-radius: 5px;
             font-family: 'Roboto Mono', monospace;
             font-size: 16px;
             transition: width 500ms, height 500ms, margin 500ms;
@@ -213,6 +218,8 @@ body {
 
                     .button:hover {
                         background-color: $c_orange;
+                        border-radius: 5px;
+
                     }
 
                     .minimalize {
@@ -287,14 +294,6 @@ body {
             color: $c_blue;
         }
     }
-}
-
-body {
-
-    background-color: $c_black;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
 
     .navbar {
         font-family: 'Roboto Mono', monospace;
@@ -303,7 +302,7 @@ body {
         height: 60px;
         background-color: $c_grey;
         display: flex;
-        justify-content: end;
+        justify-content: space-around;
         align-items: center;
 
         ul {
@@ -312,7 +311,7 @@ body {
             li {
                 font-size: 17px;
                 float: right;
-                margin-right: 30px;
+                margin: 10px;
 
                 a {
                     color: $c_white;
@@ -373,7 +372,6 @@ body {
                 align-items: center;
 
                 ul {
-                    list-style: none;
 
                     li {
                         font-size: 17px;
@@ -391,8 +389,209 @@ body {
 
         .status {
             position: absolute;
-            background-color: $c_orange;
             width: 100%;
+            height: calc(100% - 60px);
+
+            .cards {
+                display: grid;
+                background-color: $c_dark_grey;
+                color: #444;
+                padding: 10px;
+                transition: 300ms;
+
+
+                .t_window_div {
+                    border-radius: 5px;
+
+                }
+
+                .docs {
+                    grid-column: 1;
+                    overflow: hidden;
+
+                    grid-row: 1;
+
+                    .title_bar {
+                        width: calc(100%);
+                        border-radius: 5px 5px 0px 0px;
+                    }
+
+                    .t_window_inner {
+                        position: relative;
+                        height: calc(100% - 30px);
+                        width: 100%;
+                        display: flex;
+
+
+                        .t_window_inner_nav {
+                            margin: 10px;
+                            width: 20%;
+                            background-color: $c_grey;
+                            height: calc(100% - 20px);
+                            border-radius: 5px;
+                            transition: all .5s;
+
+
+                            .normal {
+                                li {
+                                    list-style: none;
+                                    padding: 10px;
+                                    color: #F7F4ED;
+                                    transition: all .3s;
+                                }
+
+                                li:hover {
+                                    cursor: pointer;
+                                    background-color: #33312e4b;
+                                    transition: all .3s;
+                                }
+                            }
+
+                            #selected {
+                                background-color: #33312eaf;
+                                border-radius: 5px;
+
+                            }
+                        }
+
+                        .t_window_inner_content {
+                            margin: 10px 10px 10px 0px;
+                            background-color: $c_dark_grey;
+                            border-radius: 5px;
+                            box-sizing: content-box;
+                            width: 100%;
+                            height: calc(100% - 20px);
+                            display: flex;
+
+
+                            .window_content {
+                                height: 100%;
+                                width: 100%;
+                                overflow-y: scroll;
+                                border-radius: 5px;
+
+
+                                .page_header {
+                                    background-color: rebeccapurple;
+                                    width: 100%;
+                                    height: 30%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+
+                                    h3 {
+                                        color: $c_white;
+                                        font-size: calc(5.5vh);
+                                        text-align: center;
+                                    }
+
+                                }
+
+                                .page_content {
+                                    background-color: palevioletred;
+                                    width: 100%;
+                                    min-height: fit-content;
+                                    display: flex;
+                                    flex-direction: column;
+
+
+                                    .card_description {
+                                        width: 80%;
+                                        margin: 0px auto;
+                                    }
+
+                                    h3 {
+                                        margin-top: 30px;
+                                        color: $c_white;
+                                        font-size: calc(3.5vh);
+                                        text-align: center;
+                                    }
+
+                                    .page_cards {
+                                        background-color: #00798C;
+                                        margin-top: 30px;
+                                        padding: 30px;
+                                        width: 100%;
+                                        height: fit-content;
+                                        display: flex;
+                                        flex-direction: row;
+                                        flex-wrap: wrap;
+                                        align-items: center;
+                                        justify-content: space-evenly;
+
+                                        .page_card {
+                                            border-radius: 5px;
+                                            margin: 20px;
+                                            width: 300px;
+                                            height: 200px;
+                                            background-color: $c_dark_grey;
+                                            position: relative;
+                                            transition: all .3s;
+
+                                            .page_card_img {
+                                                background-color: red;
+                                                z-index: 2;
+                                                position: absolute;
+                                                width: 100%;
+                                                height: 150px;
+                                                border-radius: 5px 5px 0px 0px;
+                                            }
+
+                                            .page_card_description {
+                                                background-color: blue;
+                                                bottom: 50px;
+                                                position: absolute;
+                                                z-index: 1;
+                                                width: 100%;
+                                                height: 100px;
+                                            }
+
+                                            .page_card_title {
+                                                background-color: green;
+                                                bottom: 0px;
+                                                z-index: 1;
+                                                position: absolute;
+                                                width: 100%;
+                                                height: 50px;
+                                                border-radius: 0px 0px 5px 5px;
+                                            }
+                                        }
+
+                                        .page_card:hover {
+                                            cursor: pointer;
+                                            height: 300px;
+                                        }
+                                    }
+                                }
+
+                                .page_footer {
+                                    background-color: pink;
+                                    width: 100%;
+                                    height: 20%;
+
+                                }
+
+                                #Audio {}
+
+                                #GUI {}
+
+                                #ML {}
+
+                                #QC {}
+
+                                #WD {}
+
+                                #CR {}
+
+                            }
+                        }
+
+                        .content {
+                            display: none;
+                        }
+                    }
+                }
+            }
         }
 
         .learn {
@@ -526,6 +725,70 @@ body {
 
 @media only screen and (max-width: 1200px) {
 
+
+    .status {
+        .t_window_inner_nav {
+            max-width: 50px;
+            min-width: 50px;
+
+            .sandwitch {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: column;
+                width: 50px;
+                height: 40px;
+
+                .line {
+                    margin: 5px;
+                    width: 35px;
+                    height: 5px;
+                    border-radius: 3px;
+                    background-color: $c_light_grey;
+                }
+
+            }
+
+            .sandwitch:hover {
+                cursor: pointer;
+                transition: all .3s;
+                background-color: #33312e4b;
+                border-radius: 5px;
+            }
+
+            .normal {
+                display: none;
+            }
+        }
+
+        #menu_button_pressed {
+            // z-index: 2;
+            // position: absolute;
+            max-width: 200px !important;
+            min-width: 200px !important;
+
+            .normal {
+                display: block;
+            }
+
+            .sandwitch {
+                display: none !important;
+
+            }
+
+
+        }
+
+        // #menu_button_pressed+.t_window_inner_content {
+        //     z-index: 0;
+        //     position: absolute;
+        //     left: 60px;
+        //     width: calc(100% - 70px);
+        // }
+
+
+    }
+
     .cards {
         position: relative;
         flex-wrap: wrap;
@@ -537,34 +800,36 @@ body {
         margin-top: 0;
     }
 
-    .docs {
-        .learn-pages {
-            width: 50px !important;
+    .learn {
+        .docs {
+            .learn-pages {
+                width: 50px !important;
+
+                ul {
+                    display: none;
+                }
+
+                .menu-button {
+                    display: flex !important;
+                }
+
+            }
+
+            .content {
+                width: calc(100% - 50px) !important;
+            }
+        }
+
+        #menu_button_pressed {
+            width: 272px !important;
 
             ul {
-                display: none;
+                display: block;
             }
 
             .menu-button {
-                display: flex !important;
+                display: none !important;
             }
-
-        }
-
-        .content {
-            width: calc(100% - 50px) !important;
-        }
-    }
-
-    #menu_button_pressed {
-        width: 272px !important;
-
-        ul {
-            display: block;
-        }
-
-        .menu-button {
-            display: none !important;
         }
     }
 }
