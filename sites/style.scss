@@ -1,5 +1,6 @@
 $c_orange: #ee5a35;
 $c_black: #12161d;
+$c_light_black: #171c25;
 $c_grey: #2a3342;
 $c_dark_grey: #181f2b;
 $c_light_grey: #314957;
@@ -77,6 +78,8 @@ $t_window_size: 46vh;
         transform: rotate(-16deg);
 
     }
+
+
 
     .heading-container {
         position: absolute;
@@ -461,14 +464,37 @@ body {
 
 
                             .window_content {
+                                background-image: url("../imgs/main_background.png");
                                 height: 100%;
                                 width: 100%;
                                 overflow-y: scroll;
                                 border-radius: 5px;
 
+                                .first_content {
+                                    width: 100%;
+                                    height: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    flex-direction: column;
+                                    justify-content: center;
+
+                                    h3 {
+                                        color: $c_white;
+                                        font-size: calc(3.5vh);
+                                        text-align: center;
+                                        margin-bottom: 20px;
+                                    }
+
+                                    h4 {
+                                        color: $c_white;
+                                        font-size: calc(1.5vh);
+                                        text-align: center;
+                                    }
+                                }
+
 
                                 .page_header {
-                                    background-color: rebeccapurple;
+                                    // background-color: rebeccapurple;
                                     width: 100%;
                                     height: 30%;
                                     display: flex;
@@ -484,7 +510,7 @@ body {
                                 }
 
                                 .page_content {
-                                    background-color: palevioletred;
+                                    // background-color: palevioletred;
                                     width: 100%;
                                     min-height: fit-content;
                                     display: flex;
@@ -494,6 +520,10 @@ body {
                                     .card_description {
                                         width: 80%;
                                         margin: 0px auto;
+
+                                        a {
+                                            color: $c_orange;
+                                        }
                                     }
 
                                     h3 {
@@ -504,9 +534,7 @@ body {
                                     }
 
                                     .page_cards {
-                                        background-color: #00798C;
-                                        margin-top: 30px;
-                                        padding: 30px;
+                                        // background-color: #00798C;
                                         width: 100%;
                                         height: fit-content;
                                         display: flex;
@@ -514,54 +542,97 @@ body {
                                         flex-wrap: wrap;
                                         align-items: center;
                                         justify-content: space-evenly;
+                                        transition: all .3s;
 
-                                        .page_card {
-                                            border-radius: 5px;
-                                            margin: 20px;
-                                            width: 300px;
-                                            height: 200px;
-                                            background-color: $c_dark_grey;
-                                            position: relative;
-                                            transition: all .3s;
-
-                                            .page_card_img {
-                                                background-color: red;
-                                                z-index: 2;
-                                                position: absolute;
-                                                width: 100%;
-                                                height: 150px;
-                                                border-radius: 5px 5px 0px 0px;
-                                            }
-
-                                            .page_card_description {
-                                                background-color: blue;
-                                                bottom: 50px;
-                                                position: absolute;
-                                                z-index: 1;
-                                                width: 100%;
-                                                height: 100px;
-                                            }
-
-                                            .page_card_title {
-                                                background-color: green;
-                                                bottom: 0px;
-                                                z-index: 1;
-                                                position: absolute;
-                                                width: 100%;
-                                                height: 50px;
-                                                border-radius: 0px 0px 5px 5px;
-                                            }
-                                        }
-
-                                        .page_card:hover {
-                                            cursor: pointer;
+                                        .page_card_frame {
                                             height: 300px;
+                                            margin: 20px;
+                                            display: flex;
+                                            transition: all .3s;
+                                            align-items: center;
+
+                                            .page_card {
+                                                border-radius: 5px;
+                                                width: 300px;
+                                                height: 200px;
+                                                box-shadow: 4px 8px 10px $c_black;
+                                                background-color: $c_dark_grey;
+                                                position: relative;
+                                                transition: all .3s;
+
+                                                .page_card_img {
+                                                    background-color: $c_black;
+                                                    z-index: 2;
+                                                    position: absolute;
+                                                    width: 100%;
+                                                    height: 150px;
+                                                    border-radius: 5px 5px 0px 0px;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+
+                                                    img {
+                                                        width: 100px;
+                                                        height: 100px;
+                                                    }
+                                                }
+
+                                                .page_card_description {
+                                                    background-color: $c_light_black;
+                                                    bottom: 50px;
+                                                    position: absolute;
+                                                    z-index: 1;
+                                                    width: 100%;
+                                                    height: 100px;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+
+                                                    p {
+                                                        color: $c_white;
+                                                        font-size: 12px;
+                                                        text-align: center;
+
+
+                                                    }
+                                                }
+
+                                                .page_card_title {
+                                                    background-color: $c_grey;
+                                                    bottom: 0px;
+                                                    z-index: 1;
+                                                    position: absolute;
+                                                    width: 100%;
+                                                    height: 50px;
+                                                    border-radius: 0px 0px 5px 5px;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: space-around;
+
+                                                    a {
+                                                        text-decoration: none;
+                                                        color: $c_white;
+                                                    }
+
+                                                    a:hover {
+                                                        padding: 10px;
+                                                        background-color: $c_orange;
+                                                        border-radius: 5px;
+                                                    }
+                                                }
+                                            }
+
+                                            .page_card:hover {
+                                                height: 300px;
+
+
+                                            }
                                         }
                                     }
                                 }
 
                                 .page_footer {
-                                    background-color: pink;
+                                    // background-color: pink;
                                     width: 100%;
                                     height: 20%;
 
@@ -719,7 +790,7 @@ body {
     }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1130px) {
 
 
     .status {
