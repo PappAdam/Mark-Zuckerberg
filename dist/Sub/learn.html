@@ -29,7 +29,8 @@
                             <div class="normal">
                                 <ul>
                                     <span class="example"></span>
-                                    <li class="getting-started" onclick="select_file(this)"><span>Getting Started</span></li>
+                                    <li class="getting-started" onclick="select_file(this)"><span>Getting Started</span>
+                                    </li>
                                     <li class="vars" onclick="select_file(this)"><span>Variables</span></li>
                                     <li class="data-types" onclick="select_file(this)">Data Types<span></span></li>
                                     <li class="" onclick="select_file(this)"><span></span>
@@ -43,13 +44,14 @@
                         </div>
 
                         <div class="t_window_inner_content">
-                            <div id="main_content">
+                            <div id="main_content" style="background-image: url(&quot;../main_background.c3bc9e4f.png&quot;)">
                                 <h1>Welcome to our ultimate rust guide</h1>
                                 <br>
                                 <p>Here you are going to learn nothing, since we didn't have enough time to finish the
                                     project</p>
                                 <p>Most likely you don't read these lines so I should just stop writing</p>
-                                <p>Anyways here is some fancy clickable code, which will open in the everything-but-editor
+                                <p>Anyways here is some fancy clickable code, which will open in the
+                                    everything-but-editor
                                     editor</p>
                                 <p>Even it will show some output to you, which is just a predefined text matched to the
                                     guide page you have clicked, so there is nothing interesing happening here</p>
@@ -94,22 +96,33 @@
                             <p>Within that file there is a small program, which should write "Hello World!" into your
                                 terminal</p>
                             <br>
-                            <p>You can run the <code class="rust-c hello_w" onclick="reveal_code(this)">code</code> using:</p>
+                            <p>You can run the <code class="rust-c hello_w" onclick="reveal_code(this)">code</code>
+                                using:</p>
                             <code>cargo run</code>
                         </div>
                         <div class="sub_content" id="vars">
                             <h1>Variables and Mutability</h1>
                             <br>
-                            <p>by default variables are immutable. This is one of many nudges Rust gives you to write your code in a way that takes advantage of the safety and easy concurrency that Rust offers. However, you still have the option to make your variables mutable. Let’s explore how and why Rust encourages you to favor immutability and why sometimes you might want to opt out.</p>
+                            <p>by default variables are immutable. This is one of many nudges Rust gives you to write
+                                your code in a way that takes advantage of the safety and easy concurrency that Rust
+                                offers. However, you still have the option to make your variables mutable. Let’s explore
+                                how and why Rust encourages you to favor immutability and why sometimes you might want
+                                to opt out.</p>
                             <br>
-                            <p>When a variable is immutable, once a value is bound to a name, you can’t change that value. To illustrate this lets run our example <code class="rust-c vars0" onclick="reveal_code(this)">code</code>!</p>
+                            <p>When a variable is immutable, once a value is bound to a name, you can’t change that
+                                value. To illustrate this lets run our example <code class="rust-c vars0" onclick="reveal_code(this)">code</code>!</p>
                             <br>
-                            <p>You can see, that our code raised an error, and our lovely compiler just showed us where to search for the problem. Even it tells us in some cased, that what could be a possible solution.</p>
-                            <p>Here, the problem was, that we created our variable as a <code>immutable u8</code>, since in rust every variable is immutable by default.</p>
+                            <p>You can see, that our code raised an error, and our lovely compiler just showed us where
+                                to search for the problem. Even it tells us in some cased, that what could be a possible
+                                solution.</p>
+                            <p>Here, the problem was, that we created our variable as a <code>immutable u8</code>, since
+                                in rust every variable is immutable by default.</p>
                             <br>
-                            <p>We can easily get rid of the problem by passing the mut keyword just before the variable name.</p>
+                            <p>We can easily get rid of the problem by passing the mut keyword just before the variable
+                                name.</p>
                             <br>
-                            <p>If we run the <code class="rust-c vars1" onclick="reveal_code(this)">code</code> again, we should not get any errors.</p>
+                            <p>If we run the <code class="rust-c vars1" onclick="reveal_code(this)">code</code> again,
+                                we should not get any errors.</p>
                             <h2>Constants</h2>
                             <br>
                             <code>Like immutable variables, constants are values that are bound to a name and are not allowed to change, but there are a few differences between constants and variables.</code>
@@ -117,7 +130,13 @@
                             <br>
                             <h2>Shadowing</h2>
                             <br>
-                            <p>You can declare a new variable with the same name as a previous variable. Rustaceans say that the first variable is shadowed by the second, which means that the second variable is what the compiler will see when you use the name of the variable. In effect, the second variable overshadows the first, taking any uses of the variable name to itself until either it itself is shadowed or the scope ends. We can shadow a variable by using the same variable’s name and repeating the use of the <code>let</code> keyword as follows: <code class="rust-c vars2" onclick="reveal_code(this)">code</code></p>
+                            <p>You can declare a new variable with the same name as a previous variable. Rustaceans say
+                                that the first variable is shadowed by the second, which means that the second variable
+                                is what the compiler will see when you use the name of the variable. In effect, the
+                                second variable overshadows the first, taking any uses of the variable name to itself
+                                until either it itself is shadowed or the scope ends. We can shadow a variable by using
+                                the same variable’s name and repeating the use of the <code>let</code> keyword as
+                                follows: <code class="rust-c vars2" onclick="reveal_code(this)">code</code></p>
                         </div>
                         <div class="sub_content" id="data-types">
                             <h1>Data Types</h1>
@@ -164,7 +183,12 @@
                                 <div>
                                     <h2>Integer Types</h2>
                                     <br>
-                                    <p>An integer is a number without a fractional component. We used one integer type in Chapter 2, the <code>u32</code> type. This type declaration indicates that the value it’s associated with should be an unsigned integer (signed integer types start with <code>i</code>, instead of <code>u</code>) that takes up 32 bits of space. Table 3-1 shows the built-in integer types in Rust. We can use any of these variants to declare the type of an integer value.</p>
+                                    <p>An integer is a number without a fractional component. We used one integer type
+                                        in Chapter 2, the <code>u32</code> type. This type declaration indicates that
+                                        the value it’s associated with should be an unsigned integer (signed integer
+                                        types start with <code>i</code>, instead of <code>u</code>) that takes up 32
+                                        bits of space. Table 3-1 shows the built-in integer types in Rust. We can use
+                                        any of these variants to declare the type of an integer value.</p>
                                 </div>
                             </div>
                         </div>
@@ -216,32 +240,41 @@
                         <div class="sub_content example">
                             <p><span style="color: #3d5a80">fn </span>main() { </p>
                             <p><span style="color: #2a3342">    //hahahah </span></p>
-                            <p>&emsp;&emsp;&emsp;&emsp;<span style="color: #3d5a80">let </span>asd: <span style="color: #ee5a35">bool </span>= <span style="color: #2a3342">false;//hihiha </span></p>
+                            <p>&emsp;&emsp;&emsp;&emsp;<span style="color: #3d5a80">let </span>asd: <span style="color: #ee5a35">bool </span>= <span style="color: #2a3342">false;//hihiha
+                                </span></p>
                             <p>&emsp;&emsp;&emsp;&emsp;<span style="color: #3d5a80">let </span>dsa: <span style="color: #ee5a35">u16 </span>= <span style="color: #314957">18<span>;</span></span></p>
-                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #547283">"jfklsadjlkfs skdfj asdfj slakfj"</span>); </p>
+                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #547283">"jfklsadjlkfs skdfj asdfj
+                                    slakfj"</span>); </p>
                             <p>} </p>
-                            <p>&emsp;&emsp;&emsp;&emsp;&emsp;</p>         
+                            <p>&emsp;&emsp;&emsp;&emsp;&emsp;</p>
                         </div>
                         <div class="sub_content hello_w">
-                            <p><span style="color: #3d5a80">fn </span>main() { <span style="color: #2a3342">// the entry point of the code </span></p>
-                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #547283">"Hello, World!"</span>); <span style="color: #2a3342">// calls a macro to print the given text </span></p>
-                            <p>} </p>              
+                            <p><span style="color: #3d5a80">fn </span>main() { <span style="color: #2a3342">// the entry
+                                    point of the code </span></p>
+                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #547283">"Hello, World!"</span>);
+                                <span style="color: #2a3342">// calls a macro to print the given text </span>
+                            </p>
+                            <p>} </p>
                         </div>
                         <div class="sub_content vars0">
                             <p><span style="color: #00798c">fn </span>main() { </p>
                             <p>&emsp;&emsp;&emsp;&emsp;<span style="color: #00798c">let </span>x: <span style="color: #ee4f16">u8 </span>= <span style="color: #85807a">5<span>;</span></span></p>
-                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #4d4a46">"The value of x is: {x}"</span>); </p>
+                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #4d4a46">"The value of x is:
+                                    {x}"</span>); </p>
                             <p>&emsp;&emsp;&emsp;&emsp;x = <span style="color: #85807a">6<span>;</span></span></p>
-                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #4d4a46">"The value of x is: {x}"</span>); </p>
-                            <p>} </p>                                
+                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #4d4a46">"The value of x is:
+                                    {x}"</span>); </p>
+                            <p>} </p>
                         </div>
                         <div class="sub_content vars1">
                             <p><span style="color: #00798c">fn </span>main() { </p>
                             <p>&emsp;&emsp;&emsp;&emsp;<span style="color: #00798c">let </span><span style="color: #ee4f16">mut </span>x: <span style="color: #ee4f16">u8 </span>= <span style="color: #85807a">5<span>;</span></span></p>
-                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #4d4a46">"The value of x is: {x}"</span>); </p>
+                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #4d4a46">"The value of x is:
+                                    {x}"</span>); </p>
                             <p>&emsp;&emsp;&emsp;&emsp;x = <span style="color: #85807a">6<span>;</span></span></p>
-                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #4d4a46">"The value of x is: {x}"</span>); </p>
-                            <p>} </p>                       
+                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #4d4a46">"The value of x is:
+                                    {x}"</span>); </p>
+                            <p>} </p>
                         </div>
                         <div class="sub_content vars2">
                             <p><span style="color: #3d5a80">fn </span>main() { </p>
@@ -250,11 +283,13 @@
                             <p>&emsp;&emsp;&emsp;&emsp;<span style="color: #3d5a80">let </span>x = x + <span style="color: #314957">1<span>;</span></span></p>
                             <p>&emsp;</p>
                             <p>&emsp;&emsp;&emsp;&emsp;{ </p>
-                            <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="color: #3d5a80">let </span>x = x * <span style="color: #314957">2<span>;</span></span></p>
+                            <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="color: #3d5a80">let </span>x
+                                = x * <span style="color: #314957">2<span>;</span></span></p>
                             <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #547283">"The value of x in the inner scope is: {x}"</span>); </p>
                             <p>&emsp;&emsp;&emsp;&emsp;} </p>
                             <p>&emsp;</p>
-                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #547283">"The value of x is: {x}"</span>); </p>
+                            <p>&emsp;&emsp;&emsp;&emsp;println!(<span style="color: #547283">"The value of x is:
+                                    {x}"</span>); </p>
                             <p>} </p>
                         </div>
                     </div>
@@ -277,13 +312,29 @@
                             <p>Hello, World!</p>
                         </div>
                         <div class="sub_content vars0">
-                            <p>$&emsp;cargo&emsp;run</p><p>&emsp;&emsp;&emsp;Compiling&emsp;variables&emsp;v0.1.0&emsp;(file:///projects/variables)</p><p>error[E0384]:&emsp;cannot&emsp;assign&emsp;twice&emsp;to&emsp;immutable&emsp;variable&emsp;`x`</p><p>&emsp;-->&emsp;src/main.rs:4:5</p><p>&emsp;&emsp;|</p><p>2&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;let&emsp;x&emsp;=&emsp;5;</p><p>&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-</p><p>&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|</p><p>&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;first&emsp;assignment&emsp;to&emsp;`x`</p><p>&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;help:&emsp;consider&emsp;making&emsp;this&emsp;binding&emsp;mutable:&emsp;`mut&emsp;x`</p><p>3&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;println!("The&emsp;value&emsp;of&emsp;x&emsp;is:&emsp;{x}");</p><p>4&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;x&emsp;=&emsp;6;</p><p>&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;^^^^^&emsp;cannot&emsp;assign&emsp;twice&emsp;to&emsp;immutable&emsp;variable<br></p><p>For&emsp;more&emsp;information&emsp;about&emsp;this&emsp;error,&emsp;try&emsp;`rustc&emsp;--explain&emsp;E0384`.</p><p>error:&emsp;could&emsp;not&emsp;c
+                            <p>$&emsp;cargo&emsp;run
+                            </p><p>&emsp;&emsp;&emsp;Compiling&emsp;variables&emsp;v0.1.0&emsp;(file:///projects/variables)
+                            </p><p>error[E0384]:&emsp;cannot&emsp;assign&emsp;twice&emsp;to&emsp;immutable&emsp;variable&emsp;`x`
+                            </p><p>&emsp;-->&emsp;src/main.rs:4:5
+                            </p><p>&emsp;&emsp;|
+                            </p><p>2&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;let&emsp;x&emsp;=&emsp;5;
+                            </p><p>&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-
+                            </p><p>&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|
+                            </p><p>&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;first&emsp;assignment&emsp;to&emsp;`x`
+                            </p><p>&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;help:&emsp;consider&emsp;making&emsp;this&emsp;binding&emsp;mutable:&emsp;`mut&emsp;x`
+                            </p><p>3&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;println!("The&emsp;value&emsp;of&emsp;x&emsp;is:&emsp;{x}");
+                            </p><p>4&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;x&emsp;=&emsp;6;
+                            </p><p>&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;^^^^^&emsp;cannot&emsp;assign&emsp;twice&emsp;to&emsp;immutable&emsp;variable<br>
+                            </p><p>For&emsp;more&emsp;information&emsp;about&emsp;this&emsp;error,&emsp;try&emsp;`rustc&emsp;--explain&emsp;E0384`.
+                            </p><p>error:&emsp;could&emsp;not&emsp;c
                         </p></div>
                         <div class="sub_content vars1">
-                            <p>The value of x is: 5</p><p>The value of x is: 6</p>
+                            <p>The value of x is: 5</p>
+                            <p>The value of x is: 6</p>
                         </div>
                         <div class="sub_content vars2">
-                            <p>The&emsp;value&emsp;of&emsp;x&emsp;in&emsp;the&emsp;inner&emsp;scope&emsp;is:&emsp;12</p><p>The&emsp;value&emsp;of&emsp;x&emsp;is:&emsp;6
+                            <p>The&emsp;value&emsp;of&emsp;x&emsp;in&emsp;the&emsp;inner&emsp;scope&emsp;is:&emsp;12
+                            </p><p>The&emsp;value&emsp;of&emsp;x&emsp;is:&emsp;6
                         </p></div>
                     </div>
                 </div>

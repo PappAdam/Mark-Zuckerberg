@@ -4973,6 +4973,6 @@ function nav_focus(site) {
     site.setAttribute("class", "highlighted");
 }
 
-},{"gsap":"fPSuC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["bAoJx","am04F"], "am04F", "parcelRequire2b5a")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","gsap":"fPSuC"}]},["bAoJx","am04F"], "am04F", "parcelRequire2b5a")
 
 //# sourceMappingURL=news.0812e162.js.map

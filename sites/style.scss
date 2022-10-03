@@ -89,18 +89,18 @@ $t_window_size: 46vh;
         justify-content: center;
         flex-direction: column;
         transition: left .5s;
-        left: calc(50% - calc(calc(55vh - 4vw) / 2));
+        left: calc(50% - calc(calc(55vh) / 2));
         top: calc(50% - calc(23vh / 2));
-        width: calc(55vh - 4vw);
+        width: calc(55vh);
         height: 23vh;
 
         h1 {
             color: $c_white;
-            font-size: calc(25vh - 4vw);
+            font-size: calc(18vh);
             margin-left: calc(23vh/2);
 
             .cursor {
-                width: calc(55vh - 4vw);
+                width: calc(45vh);
                 height: 23vh;
                 z-index: 1;
                 animation: blink 1.1s infinite 1s;
@@ -756,7 +756,7 @@ body {
                             height: calc(100% - 20px);
                             border-radius: 5px;
                             transition: all .5s;
-    
+
                             .normal {
                                 li {
                                     list-style: none;
@@ -787,19 +787,19 @@ body {
                             border-radius: 5px;
                             width: 100%;
                             height: calc(100% - 20px);
-    
+
                             #main_content {
                                 height: 100%;
                                 width: 100%;
                                 overflow-y: scroll;
-                                border-radius: 5px;  
+                                border-radius: 5px;
 
                                 code {
                                     background-color: $c_black;
                                     color: $c_light_grey_text;
                                     padding: 3px;
                                     border-radius: 3px;
-                                    
+
                                 }
 
                                 .rust-c {
@@ -807,7 +807,7 @@ body {
                                     background-color: $c_orange;
                                     color: $c_dark_grey;
                                 }
-                                
+
                                 .t_table {
                                     width: 100%;
                                     display: flex;
@@ -816,7 +816,7 @@ body {
 
                                     div {
                                         margin-right: 20px;
-                                        width: 50% ;
+                                        width: 50%;
                                     }
 
                                     table {
@@ -827,10 +827,11 @@ body {
                                         tr {
 
                                             background-color: #12161d;
+
                                             th {
                                                 background-color: #00798C;
                                             }
-                                            
+
                                             td {
                                                 text-align: center;
                                                 padding: 4px;
@@ -840,15 +841,15 @@ body {
                                     }
                                 }
                             }
-                            
+
                         }
-                    }                    
+                    }
                 }
 
                 .term {
                     grid-column: 2;
                     grid-row: 2;
-                    
+
                     .content {
                         height: calc(100% - 30px);
                         overflow-y: scroll;
