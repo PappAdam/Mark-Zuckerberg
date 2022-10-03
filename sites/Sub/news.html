@@ -13,20 +13,195 @@
 
     <main data-router-wrapper>
         <div class="news" data-router-view="main">
-            <div class="cards">
-                <div class="t_window_div" id="news_div">
-                    <div class="title_bar">
-                        <p>window title</p>
+            <div class="cards" id="learn-c">
+                <div class="t_window_div docs">
+                    <div class="title_bar" id="docs-title">
+                        <p>Current state of rust</p>
                     </div>
-    
-                    <div class="line_numbers">
-                        <ol>
-                            <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
-                        </ol>
-                    </div>
-    
-                    <div class="content">
-    
+
+                    <div class="t_window_inner">
+                        <div class="t_window_inner_nav">
+                            <div class="sandwitch">
+                                <div class="menu-button" onclick="dropd_menu_v2()">
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                </div>
+                            </div>
+                            <div class="normal">
+                                <ul>
+                                    <li class="64" onclick="select_file_v2(this)"><span>Rust 1.64.0</span></li>
+                                    <li class="63" onclick="select_file_v2(this)"><span>Rust 1.63.0</span></li>
+                                    <li class="62" onclick="select_file_v2(this)"><span>Rust 1.62.0</span></li>
+                                    <li class="61" onclick="select_file_v2(this)"><span>Rust 1.61.0</span></li>
+                                    <li class="60" onclick="select_file_v2(this)"><span>Rust 1.60.0</span></li>
+                                    <li class="59" onclick="select_file_v2(this)"><span>Rust 1.59.0</span></li>
+                                    <li class="58" onclick="select_file_v2(this)"><span>Rust 1.58.0</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="t_window_inner_content">
+                            <div class="window_content">
+                                <h1>Welcome to our news page!</h1>
+                                <p>There are the major updates in this year. </p>
+                                <p>But tats not all, so check out the official Rust page: <a href="https://c.tenor.com/_4YgA77ExHEAAAAd/rick-roll.gif" target="_blank">https://www.rust-lang.org/</a></p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="page" id="64">
+                                <h1>What's in 1.64.0 stable</h1><br>
+                                <p>Rust 1.64 stabilizes the IntoFuture trait. IntoFuture is a trait similar to IntoIterator, but rather than supporting for ... in ... loops, IntoFuture changes how .await works. With IntoFuture, the .await keyword can await more than just futures; it can await anything which can be converted into a Future via IntoFuture - which can help make your APIs more user-friendly!</p><br>
+                                <p>In the future, the Rust Async WG hopes to simplify the creating new named futures by supporting impl Trait in type aliases (Type Alias Impl Trait or TAIT). This should make implementing IntoFuture easier by simplifying the type alias' signature, and make it more performant by removing the Box from the type alias.</p>
+                                <h1>C-compatible FFI types in core and alloc</h1><br>
+                                <p>When calling or being called by C ABIs, Rust code can use type aliases like c_uint or c_ulong to match the corresponding types from C on any target, without requiring target-specific code or conditionals.
+
+                                Previously, these type aliases were only available in std, so code written for embedded targets and other scenarios that could only use core or alloc could not use these types.
+                                    
+                                Rust 1.64 now provides all of the c_* type aliases in core::ffi, as well as core::ffi::CStr for working with C strings. Rust 1.64 also provides alloc::ffi::CString for working with owned C strings using only the alloc crate, rather than the full std library.</p><br>
+                                <h1>Cargo improvements: workspace inheritance and multi-target builds</h1><br>
+                                <p>When working with collections of related libraries or binary crates in one Cargo workspace, you can now avoid duplication of common field values between crates, such as common version numbers, repository URLs, or rust-version. This also helps keep these values in sync between crates when updating them. For more details, see workspace.package, workspace.dependencies, and "inheriting a dependency from a workspace".
+
+                                When building for multiple targets, you can now pass multiple --target options to cargo build, to build all of those targets at once. You can also set build.target to an array of multiple targets in .cargo/config.toml to build for multiple targets by default.</p><br>
+                                <h1>Compatibility notes</h1><br>
+                                <p>
+                                    As previously announced, linux targets now require at least Linux kernel 3.2 (except for targets which already required a newer kernel), and linux-gnu targets now require glibc 2.17 (except for targets which already required a newer glibc).
+
+                                    Rust 1.64.0 changes the memory layout of Ipv4Addr, Ipv6Addr, SocketAddrV4 and SocketAddrV6 to be more compact and memory efficient. This internal representation was never exposed, but some crates relied on it anyway by using std::mem::transmute, resulting in invalid memory accesses. Such internal implementation details of the standard library are never considered a stable interface. To limit the damage, we worked with the authors of all of the still-maintained crates doing so to release fixed versions, which have been out for more than a year. The vast majority of impacted users should be able to mitigate with a cargo update.
+
+                                    As part of the RLS deprecation, this is also the last release containing a copy of RLS. Starting from Rust 1.65.0, RLS will be replaced by a small LSP server showing the deprecation warning.
+                                </p><br>
+                                <h2>Check out everything that changed in <a href="https://github.com/rust-lang/rust/blob/stable/RELEASES.md#version-1640-2022-09-22" target="_blank">Rust</a>, <a href="https://github.com/rust-lang/cargo/blob/master/CHANGELOG.md#cargo-164-2022-09-22" target="_blank">Cargo</a>, and <a href="https://github.com/rust-lang/rust-clippy/blob/master/CHANGELOG.md#rust-164" target="_blank">Clippy</a>.</h2>
+                            </div>
+                            <div class="page" id="63">
+                                <h1>What's in 1.63.0 stable</h1><br>
+                                <p>
+                                    Rust code could launch new threads with std::thread::spawn since 1.0, but this function bounds its closure with 'static. Roughly, this means that threads currently must have ownership of any arguments passed into their closure; you can't pass borrowed data into a thread. In cases where the threads are expected to exit by the end of the function (by being join()'d), this isn't strictly necessary and can require workarounds like placing the data in an Arc.
+
+                                    Now, with 1.63.0, the standard library is adding scoped threads, which allow spawning a thread borrowing from the local stack frame. The std::thread::scope API provides the necessary guarantee that any spawned threads will have exited prior to itself returning, which allows for safely borrowing data. 
+                                </p><br>
+                                <h1>Rust ownership for raw file descriptors/handles (I/O Safety)</h1><br>
+                                <p>
+                                    Previously, Rust code working with platform APIs taking raw file descriptors (on unix-style platforms) or handles (on Windows) would typically work directly with a platform-specific representation of the descriptor (for example, a c_int, or the alias RawFd). For Rust bindings to such native APIs, the type system then failed to encode whether the API would take ownership of the file descriptor (e.g., close) or merely borrow it (e.g., dup).
+
+                                    Now, Rust provides wrapper types such as BorrowedFd and OwnedFd, which are marked as #[repr(transparent)], meaning that extern "C" bindings can directly take these types to encode the ownership semantics. See the stabilized APIs section for the full list of wrapper types stabilized in 1.63, currently, they are available on cfg(unix) platforms, Windows, and WASI.
+
+                                    We recommend that new APIs use these types instead of the previous type aliases (like RawFd).
+                                </p><br>
+                                <h1>
+                                    Non-lexical lifetimes migration complete
+                                </h1><br>
+                                <p>
+                                    As detailed in this blog post, we've fully removed the previous lexical borrow checker from rustc across all editions, fully enabling the non-lexical, new, version of the borrow checker. Since the borrow checker doesn't affect the output of rustc, this won't change the behavior of any programs, but it completes a long-running migration (started in the initial stabilization of NLL for the 2018 edition) to deliver the full benefits of the new borrow checker across all editions of Rust. For most users, this change will bring slightly better diagnostics for some borrow checking errors, but will not otherwise impact which code they can write.
+
+                                    You can read more about non-lexical lifetimes in <a href="https://blog.rust-lang.org/2018/12/06/Rust-1.31-and-rust-2018.html#non-lexical-lifetimes" target="_blank">this section of the 2018 edition announcement</a>.
+                                </p><br>
+                                <h2>Check out everything that changed in <a href="https://github.com/rust-lang/rust/blob/stable/RELEASES.md#version-1630-2022-08-11" target="_blank">Rust</a>, <a href="https://github.com/rust-lang/cargo/blob/master/CHANGELOG.md#cargo-163-2022-08-11" target="_blank">Cargo</a>, and <a href="https://github.com/rust-lang/rust-clippy/blob/master/CHANGELOG.md#rust-163" target="_blank">Clippy</a>.</h2>
+                            </div>
+                            <div class="page" id="62">
+                                <h1>What's in 1.62.0 stable</h1><br>
+                                <p>
+                                    You can now add new dependencies directly from the command line using cargo add. This command supports specifying features and versions. It can also be used to modify existing dependencies.
+                                </p><br>
+                                <h1>Thinner, faster mutexes on Linux</h1><br>
+                                <p>
+                                    Previously, Mutex, Condvar, and RwLock were backed by the pthreads library on Linux. The pthreads locks support more features than the Rust APIs themselves do, including runtime configuration, and are designed to be used in languages with fewer static guarantees than Rust provides.
+
+                                    The mutex implementation, for example, is 40 bytes and cannot be moved. This forced the standard library to allocate a Box behind the scenes for each new mutex for platforms that use pthreads.
+
+                                    Rust's standard library now ships with a raw futex-based implementation of these locks on Linux, which is very lightweight and doesn't require extra allocation. In 1.62.0 Mutex only needs 5 bytes for its internal state on Linux, though this may change in future versions.
+
+                                    This is part of a long effort to improve the efficiency of Rust's lock types, which includes previous improvements on Windows such as unboxing its primitives.
+                                </p><br>
+                                <h2>Check out everything that changed in <a href="https://github.com/rust-lang/rust/blob/stable/RELEASES.md#version-1620-2022-06-30" target="_blank">Rust</a>, <a href="https://github.com/rust-lang/cargo/blob/master/CHANGELOG.md#cargo-162-2022-06-30" target="_blank">Cargo</a>, and <a href="https://github.com/rust-lang/rust-clippy/blob/master/CHANGELOG.md#rust-162" target="_blank">Clippy</a>.</h2>
+                            </div>
+                            <div class="page" id="61">
+                                <h1>What's in 1.61.0 stable</h1><br>
+                                <p>
+                                    In the beginning, Rust main functions could only return the unit type () (either implicitly or explicitly), always indicating success in the exit status, and if you wanted otherwise you had to call process::exit(code). Since Rust 1.26, main has been allowed to return a Result, where Ok translated to a C EXIT_SUCCESS and Err to EXIT_FAILURE (also debug-printing the error). Under the hood, these alternate return types were unified by an unstable Termination trait.
+
+                                    In this release, that Termination trait is finally stable, along with a more general ExitCode type that wraps platform-specific return types. That has SUCCESS and FAILURE constants, and also implements From u8 for more arbitrary values. The Termination trait can also be implemented for your own types, allowing you to customize any kind of reporting before converting to an ExitCode.
+                                </p><br>
+                                <h1>Static handles for locked stdio</h1><br>
+                                <p>
+                                    The three standard I/O streams -- Stdin, Stdout, and Stderr -- each have a lock(&self) to allow more control over synchronizing read and writes. However, they returned lock guards with a lifetime borrowed from &self, so they were limited to the scope of the original handle. This was determined to be an unnecessary limitation, since the underlying locks were actually in static storage, so now the guards are returned with a 'static lifetime, disconnected from the handle.
+                                </p><br>
+                                <h2>Check out everything that changed in <a href="https://github.com/rust-lang/rust/blob/stable/RELEASES.md#version-1610-2022-05-19" target="_blank">Rust</a>, <a href="https://github.com/rust-lang/rust-clippy/blob/master/CHANGELOG.md#rust-161" target="_blank">Cargo</a>, and <a href="https://github.com/rust-lang/cargo/blob/master/CHANGELOG.md#cargo-161-2022-05-19" target="_blank">Clippy</a>.</h2>
+                            </div>
+                            <div class="page" id="60">
+                                <h1>
+                                    What's in 1.60.0 stable
+                                </h1><br>
+                                <p>
+                                    After that, you can run the resulting binary, which will produce a default.profraw file in the current directory. (The path and filename can be overriden by an environment variable; see documentation for details).
+
+                                    The llvm-tools-preview component includes llvm-profdata for processing and merging raw profile output (coverage region execution counts); and llvm-cov for report generation. llvm-cov combines the processed output, from llvm-profdata, and the binary itself, because the binary embeds a mapping from counters to actual source code regions.
+                                </p><br>
+                                <h1>
+                                    New syntax for Cargo features
+                                </h1><br>
+                                <p>
+                                    Namespaced features tackles the first issue. You can now use the dep: prefix in the [features] table to explicitly refer to an optional dependency without implicitly exposing it as a feature. This gives you more control on how to define the feature corresponding to the optional dependency including hiding optional dependencies behind more descriptive feature names.
+
+                                    Weak dependency features tackle the second issue where the "optional-dependency/feature-name" syntax would always enable optional-dependency. However, often you want to enable the feature on the optional dependency only if some other feature has enabled the optional dependency. Starting in 1.60, you can add a ? as in "package-name?/feature-name" which will only enable the given feature if something else has enabled the optional dependency.
+
+                                    For example, let's say we have added some serialization support to our library, and it requires enabling a corresponding feature in some optional dependencies. 
+                                </p><br>
+                                <h1>Incremental compilation status</h1><br>
+                                <p>
+                                    Incremental compilation is re-enabled for the 1.60 release. The Rust team continues to work on fixing bugs in incremental, but no problems causing widespread breakage are known at this time, so we have chosen to reenable incremental compilation. Additionally, the compiler team is continuing to work on long-term strategy to avoid future problems of this kind. That process is in relatively early days, so we don't have anything to share yet on that front.
+                                </p><br>
+                                <h2>Check out everything that changed in <a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1600-2022-04-07" target="_blank">Rust</a>, <a href="https://github.com/rust-lang/cargo/blob/master/CHANGELOG.md#cargo-160-2022-04-07" target="_blank">Cargo</a>, and <a href="https://github.com/rust-lang/rust-clippy/blob/master/CHANGELOG.md#rust-160" target="_blank">Clippy</a>.</h2>
+                            </div>
+                            <div class="page" id="59">
+                                <h1>What's in 1.59.0 stable</h1><br>
+                                <p>
+                                    The format string syntax used to name registers in the asm! and global_asm! macros is the same used in Rust format strings, so it should feel quite familiar to Rust programmers.
+
+                                    The assembly language and instructions available with inline assembly vary according to the target architecture. Today, the stable Rust compiler supports inline assembly on the following architectures:
+
+                                    x86 and x86-64
+                                    ARM
+                                    AArch64
+                                    RISC-V
+                                </p><br>
+                                <h1>Future incompatibility warnings</h1><br>
+                                <p>
+                                    Sometimes bugs in the Rust compiler cause it to accept code that should not have been accepted. An example of this was borrows of packed struct fields being allowed in safe code.
+
+                                    While this happens very rarely, it can be quite disruptive when a crate used by your project has code that will no longer be allowed. In fact, you might not notice until your project inexplicably stops building!
+
+                                    Cargo now shows you warnings when a dependency will be rejected by a future version of Rust. 
+                                </p><br>
+                                <h1>Incremental compilation off by default</h1><br>
+                                <p>
+                                    The 1.59.0 release disables incremental by default (unless explicitly asked for by via an environment variable: RUSTC_FORCE_INCREMENTAL=1). This mitigates the effects of a known bug, #94124, which can cause deserialization errors (and panics) during compilation with incremental compilation turned on.
+
+                                    The specific fix for #94124 has landed and is currently in the 1.60 beta, which will ship in six weeks. We are not presently aware of other issues that would encourage a decision to disable incremental in 1.60 stable, and if none arise it is likely that 1.60 stable will re-enable incremental compilation again. Incremental compilation remains on by default in the beta and nightly channels.
+
+                                    As always, we encourage users to test on the nightly and beta channels and report issues you find: particularly for incremental bugs, this is the best way to ensure the Rust team can judge whether there is breakage and the number of users it affects.
+                                </p><br>
+                                <h2>Check out everything that changed in <a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1590-2022-02-24" target="_blank">Rust</a>, <a href="https://github.com/rust-lang/cargo/blob/master/CHANGELOG.md#cargo-159-2022-02-24" target="_blank">Cargo</a>, and <a href="https://github.com/rust-lang/rust-clippy/blob/master/CHANGELOG.md#rust-159" target="_blank">Clippy</a>.</h2>
+                            </div>
+                            <div class="page" id="58">
+                                <h1>What's in 1.58.0 stable</h1><br>
+                                <p>
+                                    Rust 1.58 brings captured identifiers in format strings, a change to the Command search path on Windows, more #[must_use] annotations in the standard library, and some new library stabilizations.
+                                </p><br>
+                                <h1>Captured identifiers in format strings</h1>
+                                <p>
+                                    Format strings can only capture plain identifiers, not arbitrary paths or expressions. For more complicated arguments, either assign them to a local name first, or use the older name = expression style of formatting arguments.
+
+                                    This feature works in all macros accepting format strings. However, one corner case is the panic! macro in 2015 and 2018 editions, where panic!("{ident}") is still treated as an unformatted string -- the compiler will warn about this not having the intended effect. Due to the 2021 edition's update of panic macros for improved consistency, this works as expected in 2021 panic!.
+                                </p><br>
+                                <h1>More #[must_use] in the standard library</h1><br>
+                                <p>
+                                    The #[must_use] attribute can be applied to types or functions when failing to explicitly consider them or their output is almost certainly a bug. This has long been used in the standard library for types like Result, which should be checked for error conditions. This also helps catch mistakes such as expecting a function to mutate a value in-place, when it actually returns a new value.
+
+                                    Library proposal 35 was approved in October 2021 to audit and expand the application of #[must_use] throughout the standard library, covering many more functions where the primary effect is the return value. This is similar to the idea of function purity, but looser than a true language feature. Some of these additions were present in release 1.57.0, and now in 1.58.0 the effort has completed.
+                                </p><br>
+                                <h2>Check out everything that changed in <a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md#version-1580-2022-01-13" target="_blank">Rust</a>, <a href="https://github.com/rust-lang/cargo/blob/master/CHANGELOG.md#cargo-158-2022-01-13" target="_blank">Cargo</a>, and <a href="https://github.com/rust-lang/rust-clippy/blob/master/CHANGELOG.md#rust-158" target="_blank">Clippy</a>.</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,6 +209,7 @@
     </main>
 
     <script type="module" src="../../javascript/main.js"></script>
+    <script type="module" src="../../javascript/learn/docs_select.js"></script>
 </body>
 
 </html>
