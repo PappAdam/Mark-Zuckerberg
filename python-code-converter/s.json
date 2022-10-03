@@ -1,9 +1,14 @@
 {
    "made by": {
-        "name": "Papp Zsombor",
-        "github-user": "PappZsombor"
-    },
-    "title": "News",
-    "descr": "News and releases",
-   "used sources": "rusts official website"
+      "name": "Csizmadia Barnabas",
+      "github-user": "SeenLenz"
+   },
+   "title": "status",
+   "descr": "Rise of the rust programming language",
+   "used sources": [
+      "https://www.arewewebyet.org/",
+      "https://areweideyet.com/",
+      "https://www.areweguiyet.com/",
+      "https://www.areweaudioyet.com/"
+   ]
 }
